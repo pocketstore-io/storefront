@@ -1,0 +1,184 @@
+[
+  {
+    "additional": null,
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-10-20 09:59:47.389Z",
+    "description": "",
+    "id": "3squraw2ixxss00",
+    "key": "tax_food",
+    "public": true,
+    "updated": "2024-10-26 15:09:28.148Z",
+    "value": "7"
+  },
+  {
+    "additional": null,
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-10-20 09:59:56.843Z",
+    "description": "",
+    "id": "0349mxevihlfwee",
+    "key": "tax",
+    "public": true,
+    "updated": "2024-10-26 15:09:34.179Z",
+    "value": "19"
+  },
+  {
+    "additional": null,
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-10-20 10:00:07.833Z",
+    "description": "",
+    "id": "1j16nojnluxr27a",
+    "key": "currency",
+    "public": true,
+    "updated": "2024-10-26 15:09:44.569Z",
+    "value": "€"
+  },
+  {
+    "additional": null,
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-10-20 10:00:20.167Z",
+    "description": "",
+    "id": "hlt7eb7ko77ugy2",
+    "key": "lang",
+    "public": true,
+    "updated": "2024-10-26 15:09:46.998Z",
+    "value": "de"
+  },
+  {
+    "additional": [
+      "€",
+      "$"
+    ],
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-10-20 10:01:10.366Z",
+    "description": "",
+    "id": "qhwjnwbd16lxntz",
+    "key": "currency_options",
+    "public": true,
+    "updated": "2024-10-26 11:12:47.420Z",
+    "value": ""
+  },
+  {
+    "additional": [
+      {
+        "label": "PayPal",
+        "code": "paypal"
+      },
+      {
+        "label": "Vorkasse",
+        "code": "vorkasse"
+      },
+      {
+        "label": "Rechung",
+        "code": "rechnung"
+      }
+    ],
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-10-26 11:11:57.268Z",
+    "description": "",
+    "id": "fmn12ijaytv5k4k",
+    "key": "payment_methods",
+    "public": true,
+    "updated": "2024-10-26 15:41:17.355Z",
+    "value": ""
+  },
+  {
+    "additional": [
+      {
+        "label": "DHL",
+        "code": "dhl",
+        "price": 1.5
+      },
+      {
+        "label": "Click & Collect",
+        "code": "click-and-collect",
+        "price": 1.5
+      },
+      {
+        "label": "DHL Express",
+        "code": "dhl-express",
+        "price": 1.5
+      },
+      {
+        "label": "Hermes",
+        "code": "hermes",
+        "price": 1.5
+      },
+      {
+        "label": "DPD",
+        "code": "dpd",
+        "price": 1.5
+      }
+    ],
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-10-26 11:12:25.386Z",
+    "description": "",
+    "id": "ip90jklwv81tr0f",
+    "key": "shipping_methods",
+    "public": true,
+    "updated": "2024-10-26 17:00:28.707Z",
+    "value": ""
+  },
+  {
+    "additional": [
+      {
+        "name": "Bergneustadt",
+        "city": "Bergneustadt",
+        "zip": 51702,
+        "street": "Kölnerstrasse",
+        "number": 123
+      },
+      {
+        "name": "Gummersbach",
+        "city": "Gummersbach",
+        "zip": 51645,
+        "street": "Kölnerstrasse",
+        "number": 456
+      }
+    ],
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-10-26 15:11:11.761Z",
+    "description": "",
+    "id": "hz16pbrr4qtq3p9",
+    "key": "stores_options",
+    "public": true,
+    "updated": "2024-10-26 15:11:59.487Z",
+    "value": ""
+  },
+  {
+    "additional": {
+      "search": "Suchen",
+      "note": "Dieser Shop basiert auf Pocketbase, steht aber in keinem Zusammenhang mit dem Projekt Pocketbase.io!!!",
+      "lang": {
+        "de": "Deutsch",
+        "en": "English"
+      },
+      "checkout": {
+        "cart": "Warenkorb"
+      },
+      "payment": {
+        "methods": {
+          "paypal": "PayPal",
+          "vorkasse": "Vorkasse",
+          "rechnung": "Rechnung"
+        }
+      }
+    },
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-10-26 17:11:48.934Z",
+    "description": "",
+    "id": "o6sysqggzwygkpf",
+    "key": "lang_de",
+    "public": true,
+    "updated": "2024-10-26 19:04:20.901Z",
+    "value": ""
+  }
+]
