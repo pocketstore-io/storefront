@@ -1,4 +1,4 @@
-# Nuxt 3 Minimal Starter
+# PocketStore.io - Storefront
 
 ## Setup
 
@@ -38,4 +38,5 @@ bun run build
 bun x pm2 start ecosystem.config.cjs
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Available under localhost:4000 or your Domain
+
