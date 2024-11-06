@@ -21,9 +21,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: | 
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-            source ~/.bashrc
-            nvm install --lts
-            npm install -g bun pm2
-            bun install
-            bun run build
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash && \
+            source ~/.bashrc && \
+            nvm install --lts && \
+            npm install -g bun pm2 && \
+            bun install && \
+            bun run build && \
