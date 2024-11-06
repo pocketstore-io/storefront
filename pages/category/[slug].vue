@@ -68,13 +68,13 @@ onMounted(async () => {
       </div>
       <div class="col-span-6">
         <div class="drawer">
-          <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+          <input id="my-drawer" type="checkbox" class="drawer-toggle" >
           <div class="drawer-content">
             <!-- Page content here -->
             <label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
           </div>
           <div class="drawer-side z-10">
-            <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+            <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"/>
             <section class="menu bg-base-200 text-base-content min-h-full w-96 max-w-full p-4">
               <section class="grid grid-cols-6">
                 <div class="col-span-6 bg-red-400 px-3 py-3 flex justify-between">
@@ -98,28 +98,28 @@ onMounted(async () => {
                       <button class="btn btn-sm btn-block flex justify-between">
                         <input type="checkbox" class="checkbox checkbox-sm checkbox-primary">
                         <span>Hallo</span>
-                        <span class="invisible"></span>
+                        <span class="invisible"/>
                       </button>
                     </div>
                     <div class="col-span-6 md:col-span-3">
                       <button class="btn btn-sm btn-block flex justify-between">
                         <input type="checkbox" class="checkbox checkbox-sm checkbox-primary">
                         <span>Hallo</span>
-                        <span class="invisible"></span>
+                        <span class="invisible"/>
                       </button>
                     </div>
                     <div class="col-span-6 md:col-span-3">
                       <button class="btn btn-sm btn-block flex justify-between">
                         <input type="checkbox" class="checkbox checkbox-sm checkbox-primary">
                         <span>Hallo</span>
-                        <span class="invisible"></span>
+                        <span class="invisible"/>
                       </button>
                     </div>
                     <div class="col-span-6 md:col-span-3">
                       <button class="btn btn-sm btn-block flex justify-between">
                         <input type="checkbox" class="checkbox checkbox-sm checkbox-primary">
                         <span>Hallo</span>
-                        <span class="invisible"></span>
+                        <span class="invisible"/>
                       </button>
                     </div>
                   </section>

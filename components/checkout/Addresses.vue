@@ -79,7 +79,8 @@
     </div>
     <div class="col-span-6 flex justify-between py-3">
       <button class="btn btn-primary" @click="checkoutStep = 'customer'">Back to Customer</button>
-      <button class="btn btn-primary" :disabled="(!valid.payment && !same) || !valid.shipping"
+      <button
+class="btn btn-primary" :disabled="(!valid.payment && !same) || !valid.shipping"
         @click="checkoutStep = 'payment'"><span>Continue</span>
         <Fa :icon="faChevronCircleRight" />
       </button>

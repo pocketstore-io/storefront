@@ -3,14 +3,14 @@
     <div class="grid grid-cols-6">
       <div class="col-span-6 hero bg-base-200 py-32">
         <div class="hero-content flex-col lg:flex-row-reverse">
-          <div class="text-center lg:text-left" v-if="!pb.authStore.isValid">
+          <div v-if="!pb.authStore.isValid" class="text-center lg:text-left">
             <h1 class="text-5xl font-bold">Login now!</h1>
             <p class="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
               quasi. In deleniti eaque aut repudiandae et a id nisi.
             </p>
           </div>
-          <div class="text-center lg:text-left" v-else>
+          <div v-else class="text-center lg:text-left">
             <h1 class="text-2xl font-bold">Deine Vorteile als Kunde</h1>
             <p class="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
@@ -18,19 +18,20 @@
             </p>
           </div>
           <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form class="card-body" v-if="!pb.authStore.isValid">
+            <form v-if="!pb.authStore.isValid" class="card-body">
               <div class="form-control">
                 <label class="label">
                   <span class="label-text">Email</span>
                 </label>
-                <input type="email" v-model="email" placeholder="email" class="input input-bordered" required />
+                <input v-model="email" type="email" placeholder="email" class="input input-bordered" required >
               </div>
               <div class="form-control">
                 <label class="label">
                   <span class="label-text">Password</span>
                 </label>
-                <input type="password" v-model="password" placeholder="password" class="input input-bordered"
-                  required />
+                <input
+v-model="password" type="password" placeholder="password" class="input input-bordered"
+                  required >
                 <label class="label">
                   <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
                 </label>
@@ -43,14 +44,15 @@
               <p class="text-sm text-center font-bold block">
                 Weiter als Kunde
               </p>
-              <button @click="checkoutStep='addresses'" class="btn btn-sm btn-secondary">{{pb.authStore.model?.name}}</button>
+              <button class="btn btn-sm btn-secondary" @click="checkoutStep='addresses'">{{pb.authStore.model?.name}}</button>
             </section>
           </div>
         </div>
       </div>
       <div class="col-span-6 flex justify-between py-3">
         <button class="btn btn-primary" @click="checkoutStep = 'cart'">Back to Cart</button>
-        <button class="btn btn-primary" :disabled="!pb.authStore.isValid"
+        <button
+class="btn btn-primary" :disabled="!pb.authStore.isValid"
           @click="checkoutStep = 'addresses'"><span>Continue</span>
           <Fa :icon="faChevronCircleRight" />
         </button>

@@ -1,6 +1,7 @@
 <template>
-  <input type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2" aria-label="Tab - Reviews"
-    checked="checked" />
+  <input
+type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2" aria-label="Tab - Reviews"
+    checked="checked" >
   <div role="tabpanel" class="tab-content my-6">
     <Review v-for="review in reviews" :identifier="review.id" />
     <CatalogReviewForm />

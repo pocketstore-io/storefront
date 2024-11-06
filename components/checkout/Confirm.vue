@@ -9,7 +9,7 @@
     </div>
     <div class="col-span-6 flex justify-between py-3">
       <button class="btn btn-primary" @click="checkoutStep = 'payment'">Back to Payment</button>
-      <button @click="confirmOrder()" class="btn btn-primary">{{ $t('checkout.order') }}</button>
+      <button class="btn btn-primary" @click="confirmOrder()">{{ $t('checkout.order') }}</button>
     </div>
   </section>
 </template>
@@ -56,7 +56,7 @@ const payment = useLocalStorage('payment', {
 
 const confirmOrder = async () => {
   // console.log();
-  let order = await pb.collection('orders').create({
+  const order = await pb.collection('orders').create({
     customer: pb.authStore.model?.id,
     cart: cart.value,
     payment_method: paymentMethod.value,

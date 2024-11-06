@@ -4,17 +4,19 @@
       <h2 class="font-bold text-lg">{{ $t('checkout.payment-method') }} {{ $t('general.select') }} </h2>
       <section v-for="(option, index) in optionsPayment" :key="option">
         <section class="alert alert-neutral flex">
-          <input v-model="paymentMethod" :checked="index === 0" type="radio" :value="option.code" name="paymentMethod"
+          <input
+v-model="paymentMethod" :checked="index === 0" type="radio" :value="option.code" name="paymentMethod"
             class="radio mt-2 mr-3">
           <label class="label">{{ $t('payment.methods.' + option.code) }}</label>
         </section>
         <div v-if="option.options && option.code == paymentMethod">
           <div v-for="(field, key) in option.options.fields">
             <label for="" class="label">{{ $t('payment.label.' + key) }}</label>
-            <input v-model="paymentMethodInfo[field.name]" :type="field.type"
+            <input
+v-model="paymentMethodInfo[field.name]" :type="field.type"
               class="input input-bordered input-primary w-full">
           </div>
-          <div v-if="option.code == 'paypal'" class="mt-3" id="paypal-button-container"></div>
+          <div v-if="option.code == 'paypal'" id="paypal-button-container" class="mt-3"/>
         </div>
       </section>
     </div>
@@ -23,7 +25,8 @@
       <section v-for="(option, index) in optionsShipping" :key="option" class="bg-base-200 rounded-lg py-6 px-3 w-full">
         <div class="flex justify-between items-center">
           <section class="input-group flex">
-            <input v-model="shippingMethod" type="radio" :value="option.code" name="shippingMethod"
+            <input
+v-model="shippingMethod" type="radio" :value="option.code" name="shippingMethod"
               class="ml-auto radio mt-2 mr-3">
             <label for="" class="label">{{ $t('shipping.methods.' + option.code) }}</label>
           </section>
@@ -34,7 +37,7 @@
       </section>
       <section v-if="shippingMethod == 'click-and-collect'">
         <label for="" class="label font-bold text-lg">Stores</label>
-        <select class="select w-full bg-base-200" v-model="selectedStore">
+        <select v-model="selectedStore" class="select w-full bg-base-200">
           <option v-for="store in stores" :value="store.id">
             {{ store.street }} {{ store.number }}, {{ store.zip }} {{ store.city }}
           </option>

@@ -1,6 +1,6 @@
 <template>
   <section class="form">
-    <form @submit.prevent="save()" class="w-full bg-red-400">
+    <form class="w-full bg-red-400" @submit.prevent="save()">
       <div class="grid grid-cols-6 gap-3">
         <div class="col-span-6 md:col-span-2">
           customer preview <br>
@@ -11,16 +11,16 @@
           date<br>
           <div class="grid grid-cols-6 gap-3">
             <div class="col-span-6 md:col-span-2">
-              <input type="date" v-model="date" readonly class="input input-primary input-bordered w-full">
+              <input v-model="date" type="date" readonly class="input input-primary input-bordered w-full">
             </div>
             <div class="col-span-6 md:col-span-4">
               <input type="text" placeholder="Title" class="input input-primary input-bordered w-full">
             </div>
             <div class="col-span-6 md:col-span-4">
-              <textarea name="" id="" class="textarea w-full"></textarea>
+              <textarea id="" name="" class="textarea w-full"/>
             </div>
             <div class="col-span-6 md:col-span-2">
-              <input type="date" v-model="date" readonly class="input input-primary input-bordered w-full">
+              <input v-model="date" type="date" readonly class="input input-primary input-bordered w-full">
             </div>
           </div>
           description<br>
