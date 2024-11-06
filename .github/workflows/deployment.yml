@@ -21,9 +21,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |    
-            nvm install --lts        
             node -v && \
-            source ~/.bashrc && \
             npm install -g bun pm2 && \
             bun install && \
             bun run build && \
