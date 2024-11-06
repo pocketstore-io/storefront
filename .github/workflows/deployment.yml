@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: node/23-alpine3.19
+    runs-on: node:lts
 
     steps:
       - name: Checkout code
