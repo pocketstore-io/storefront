@@ -18,6 +18,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            cd /var/www/nuxt
             bun install
             bun run build
             pm2 restart ecosystem.config.cjs
