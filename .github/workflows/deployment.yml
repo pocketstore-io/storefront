@@ -21,4 +21,4 @@ jobs:
             cd /var/www/nuxt
             bun install
             bun run build
-            pm2 restart ecosystem.config.cjs
+            bun xs pm2 restart ecosystem.config.cjs
