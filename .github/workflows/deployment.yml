@@ -20,7 +20,8 @@ jobs:
           username: "root"  
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          script: |            
+          script: |    
+            nvm install --lts        
             node -v && \
             source ~/.bashrc && \
             npm install -g bun pm2 && \
