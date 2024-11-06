@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: SSH and Run Commands
         uses: appleboy/ssh-action@v0.1.5
         with:
@@ -23,3 +20,4 @@ jobs:
           script: |
             bun install
             bun run build
+            pm2 restart ecosystem.config.cjs
