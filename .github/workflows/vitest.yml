@@ -18,6 +18,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /var/www/demo
+            cd /var/www/demo/storefront
             bun install
             bun run test
