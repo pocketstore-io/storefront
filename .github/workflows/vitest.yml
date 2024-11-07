@@ -18,6 +18,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /var/www/nuxt
+            cd /var/www/demo
             bun install
             bun run test
