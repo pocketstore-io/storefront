@@ -63,111 +63,59 @@
     "value": ""
   },
   {
-    "additional": [
-      {
-        "label": "PayPal",
-        "code": "paypal"
-      },
-      {
-        "label": "Vorkasse",
-        "code": "vorkasse"
-      },
-      {
-        "label": "Rechung",
-        "code": "rechnung"
-      }
-    ],
-    "collectionId": "gnnv6wvhrxdcb1v",
-    "collectionName": "settings",
-    "created": "2024-10-26 11:11:57.268Z",
-    "description": "",
-    "id": "fmn12ijaytv5k4k",
-    "key": "payment_methods",
-    "public": true,
-    "updated": "2024-10-26 15:41:17.355Z",
-    "value": ""
-  },
-  {
-    "additional": [
-      {
-        "label": "DHL",
-        "code": "dhl",
-        "price": 1.5
-      },
-      {
-        "label": "Click & Collect",
-        "code": "click-and-collect",
-        "price": 1.5
-      },
-      {
-        "label": "DHL Express",
-        "code": "dhl-express",
-        "price": 1.5
-      },
-      {
-        "label": "Hermes",
-        "code": "hermes",
-        "price": 1.5
-      },
-      {
-        "label": "DPD",
-        "code": "dpd",
-        "price": 1.5
-      }
-    ],
-    "collectionId": "gnnv6wvhrxdcb1v",
-    "collectionName": "settings",
-    "created": "2024-10-26 11:12:25.386Z",
-    "description": "",
-    "id": "ip90jklwv81tr0f",
-    "key": "shipping_methods",
-    "public": true,
-    "updated": "2024-10-26 17:00:28.707Z",
-    "value": ""
-  },
-  {
-    "additional": [
-      {
-        "name": "Bergneustadt",
-        "city": "Bergneustadt",
-        "zip": 51702,
-        "street": "Kölnerstrasse",
-        "number": 123
-      },
-      {
-        "name": "Gummersbach",
-        "city": "Gummersbach",
-        "zip": 51645,
-        "street": "Kölnerstrasse",
-        "number": 456
-      }
-    ],
-    "collectionId": "gnnv6wvhrxdcb1v",
-    "collectionName": "settings",
-    "created": "2024-10-26 15:11:11.761Z",
-    "description": "",
-    "id": "hz16pbrr4qtq3p9",
-    "key": "stores_options",
-    "public": true,
-    "updated": "2024-10-26 15:11:59.487Z",
-    "value": ""
-  },
-  {
     "additional": {
-      "search": "Suchen",
+      "general": {
+        "search": "Suchen",
+        "select": "wählen"
+      },
+      "breadcrumb": {
+        "home": "Startseite",
+        "checkout": "Kasse",
+        "cart": "Warenkorb",
+        "category-view": "Kategorie",
+        "checkout-cart": "Kasse - Warenkorb",
+        "checkout-addresses": "Kasse - Adressen",
+        "checkout-payment": "Kasse - Bezahlung & Versand",
+        "checkout-confirm": "Kasse - Bestätigen"
+      },
       "note": "Dieser Shop basiert auf Pocketbase, steht aber in keinem Zusammenhang mit dem Projekt Pocketbase.io!!!",
       "lang": {
         "de": "Deutsch",
         "en": "English"
       },
       "checkout": {
-        "cart": "Warenkorb"
+        "checkout": "Kasse",
+        "cart": "Warenkorb",
+        "addresses": "Adressen",
+        "payment-and-shipping": "Bezahlung & Versand",
+        "confirm": "Bestätigung",
+        "payment-method": "Bezahlart",
+        "same": "Beide gleich",
+        "customer": "Kundenkonto",
+        "order": "Zahlungspflichtig bestellen"
+      },
+      "country": {
+        "de": "Deutschland"
       },
       "payment": {
         "methods": {
           "paypal": "PayPal",
           "vorkasse": "Vorkasse",
-          "rechnung": "Rechnung"
+          "invoice": "Rechnung"
+        },
+        "label": {
+          "name": "Name",
+          "iban": "IBAN"
+        }
+      },
+      "shipping": {
+        "methods": {
+          "dhl": "DHL",
+          "dhl-express": "DHL Express",
+          "hermes": "Hermes",
+          "dpd": "DPD",
+          "delivery": "Lieferung",
+          "click-and-collect": "Click & Collect"
         }
       }
     },
@@ -178,7 +126,70 @@
     "id": "o6sysqggzwygkpf",
     "key": "lang_de",
     "public": true,
-    "updated": "2024-10-26 19:04:20.901Z",
+    "updated": "2024-11-02 12:39:55.964Z",
+    "value": ""
+  },
+  {
+    "additional": {
+      "general": {
+        "search": "Search",
+        "select": "Select"
+      },
+      "breadcrumb": {
+        "home": "Home",
+        "checkout": "Checkout",
+        "cart": "Cart",
+        "category-view": "Category",
+        "checkout-cart": "Checkout - Cart",
+        "checkout-addresses": "Checkout - Addresses",
+        "checkout-payment": "Checkout - Payment & Shipping",
+        "checkout-confirm": "Checkout - Confirm"
+      },
+      "note": "This shop is based on Pocketbase but is not affiliated with the Pocketbase.io project!!!",
+      "lang": {
+        "de": "German",
+        "en": "English"
+      },
+      "checkout": {
+        "checkout": "Checkout",
+        "cart": "Cart",
+        "addresses": "Addresses",
+        "payment-and-shipping": "Payment & Shipping",
+        "confirm": "Confirmation",
+        "payment-method": "Payment Method",
+        "same": "Both Same",
+        "customer": "Customer Account",
+        "order": "Place Order"
+      },
+      "country": {
+        "de": "Germany"
+      },
+      "payment": {
+        "methods": {
+          "paypal": "PayPal",
+          "vorkasse": "Advance Payment",
+          "invoice": "Invoice"
+        }
+      },
+      "shipping": {
+        "methods": {
+          "dhl": "DHL",
+          "dhl-express": "DHL Express",
+          "hermes": "Hermes",
+          "dpd": "DPD",
+          "delivery": "Delivery",
+          "click-and-collect": "Click & Collect"
+        }
+      }
+    },
+    "collectionId": "gnnv6wvhrxdcb1v",
+    "collectionName": "settings",
+    "created": "2024-11-01 13:43:25.434Z",
+    "description": "",
+    "id": "ce9jgc14moztlh8",
+    "key": "lang_en",
+    "public": true,
+    "updated": "2024-11-02 12:18:18.875Z",
     "value": ""
   }
 ]
