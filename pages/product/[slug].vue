@@ -102,7 +102,7 @@ class="aspect-square"
             </section>
           </div>
           <div class="col-span-6 md:col-span-4">
-            <button class="btn btn-secondary btn-block col-span-6 md:col-span-3">
+            <button @click="addToCart(item.id)" class="btn btn-secondary btn-block col-span-6 md:col-span-3">
               Buy Now
             </button>
           </div>
@@ -216,13 +216,51 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
+import { useMessagesStore } from '~/stores/messages';
+import { useLocalStorage } from '@vueuse/core';
 
+const storeMessages = useMessagesStore();
 const route = useRoute();
 const store = usePocketbaseStore();
 const { url } = storeToRefs(store);
 const pb = new PocketBase(url.value);
 const item = ref({});
 const qty = ref(1);
+const cart = useLocalStorage('cart', [], {});
+
+const addToCart = async function (id, qty = 1) {
+  let found = false;
+  if (typeof cart.value == "undefined") {
+    cart.value = [];
+  }
+
+  const product = await pb.collection('products').getOne(id);
+
+  cart.value.map((item) => {
+    if (item.id == id) {
+      found = true;
+      storeMessages.add({
+        message: 'Update ' + id
+      })
+    }
+  });
+
+  if (found) {
+    cart.value.map((item) => {
+      if (item.id == id) {
+        item.qty += qty
+      }
+    });
+  }
+  else {
+    storeMessages.add({
+      message: 'new ID ' + id
+    })
+    cart.value.push({
+      qty, id, product
+    });
+  }
+}
 
 const load = async () => {
   item.value = (await pb.collection('products').getFirstListItem('slug="' + route.params.slug.replace('.html', '') + '"'))
