@@ -22,7 +22,7 @@ v-model="paymentMethodInfo[field.name]" :type="field.type"
     </div>
     <div class="col-span-6 md:col-span-3 space-y-3">
       <h2 class="font-bold text-lg">Versandart wählen</h2>
-      <section v-for="(option, index) in optionsShipping" :key="option" class="bg-base-200 rounded-lg py-6 px-3 w-full">
+      <section v-for="(option) in optionsShipping" :key="option" class="bg-base-200 rounded-lg py-6 px-3 w-full">
         <div class="flex justify-between items-center">
           <section class="input-group flex">
             <input
@@ -61,8 +61,8 @@ import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
 
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
+const storePb = usePocketbaseStore();
+const { url } = storeToRefs(storePb);
 const pb = new PocketBase(url.value);
 
 const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});

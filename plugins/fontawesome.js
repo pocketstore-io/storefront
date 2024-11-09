@@ -12,6 +12,7 @@ config.autoAddCss = false
 // can add other styles or just individual icons.
 library.add(fas)
 
+// eslint-disable-next-line
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('Fa', FontAwesomeIcon, {})
 })

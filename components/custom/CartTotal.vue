@@ -27,21 +27,8 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from '@vueuse/core';
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
-const paymentMethod = useLocalStorage('paymentMethod', 'vorkasse', {});
-const shippingMethod = useLocalStorage('shippingMethod', 'dhl', {});
-
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
-
-onMounted(() => {
-
-});
 
 const cart = useLocalStorage('cart', [], {});
-
 const total = computed(() => {
   let total = 0;
   cart.value.map((item) => {

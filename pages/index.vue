@@ -1,7 +1,6 @@
 <script setup>
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
-import { useLocalStorage } from '@vueuse/core';
 import { useBreadcrumbStore } from '~/stores/breadcrumb';
 
 const store = usePocketbaseStore();

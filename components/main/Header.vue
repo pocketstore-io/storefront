@@ -125,12 +125,12 @@ v-if="query !== '' && items.length > 0"
 </template>
 
 <script lang="ts" setup>
-import { faUser, faList, faRightFromBracket, faCartShopping, faLayerGroup, faHome, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faRightFromBracket, faCartShopping, faLayerGroup, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
 import { useLocalStorage } from '@vueuse/core';
 
-const { locale, setLocale } = useI18n()
+const { setLocale } = useI18n()
 const store = usePocketbaseStore();
 const { url } = storeToRefs(store);
 const pb = new PocketBase(url.value);

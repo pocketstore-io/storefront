@@ -1,3 +1,5 @@
 <template>
-    Rechnungen
+    <div class="test">
+        Invoice Index
+    </div>
 </template>

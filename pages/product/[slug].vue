@@ -102,7 +102,7 @@ class="aspect-square"
             </section>
           </div>
           <div class="col-span-6 md:col-span-4">
-            <button @click="addToCart(item.id)" class="btn btn-secondary btn-block col-span-6 md:col-span-3">
+            <button class="btn btn-secondary btn-block col-span-6 md:col-span-3" @click="addToCart(item.id)">
               Buy Now
             </button>
           </div>

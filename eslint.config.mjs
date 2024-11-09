@@ -1,5 +1,7 @@
 import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
 
-export default createConfigForNuxt({
-  // options here
-})
+export default createConfigForNuxt({}).overrideRules({
+  'vue/multi-word-component-names': 'off',
+  'vue/require-v-for-key': 'off',
+  'vue/require-default-prop': 'off',
+});

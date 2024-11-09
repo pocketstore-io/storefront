@@ -68,7 +68,6 @@ import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
 
 const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
-const valid = useLocalStorage('checkout-valid', { cart: false, addresses: false, payment: false, shipping: false, confirm: false, customer: false }, {});
 const store = usePocketbaseStore();
 const { url } = storeToRefs(store);
 const pb = new PocketBase(url.value);

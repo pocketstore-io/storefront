@@ -2,7 +2,6 @@
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
 import { useBreadcrumbStore } from '~/stores/breadcrumb';
-import { useLocalStorage } from '@vueuse/core';
 
 const store = usePocketbaseStore();
 const storeBreadcrumb = useBreadcrumbStore();
@@ -10,39 +9,6 @@ const { url } = storeToRefs(store);
 const pb = new PocketBase(url.value);
 const category = ref({});
 const products = ref([]);
-
-const cart = useLocalStorage('cart', [], {
-  JSON: true
-});
-
-
-const addToCart = function (id, qty = 1) {
-  let found = false;
-  if (typeof cart.value == "undefined") {
-    cart.value = [];
-  }
-
-  cart.value.map((item) => {
-    if (item.id == id) {
-      found = true;
-    }
-  });
-
-  if (found) {
-    cart.value.map((item) => {
-      if (item.id == id) {
-        item.qty += qty
-      }
-    });
-  }
-  else {
-    cart.value.push({
-      qty, id
-    });
-  }
-
-
-}
 
 onMounted(async () => {
   category.value = await pb.collection('categories').getFirstListItem('name="Welcome"', {
