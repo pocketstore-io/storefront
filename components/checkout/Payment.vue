@@ -4,9 +4,9 @@
       <h2 class="font-bold text-lg">{{ $t('checkout.payment-method') }} {{ $t('general.select') }} </h2>
       <section v-for="(option, index) in optionsPayment" :key="option">
         <section class="alert alert-neutral flex">
-          <input v-model="paymentMethod" :checked="index === 0" type="radio" :value="option.code" name="paymentMethod"
+          <input v-model="paymentMethod" :disabled="paymentMethodInfo.status == 'locked'" type="radio" :id="'radio-'+option.code" :value="option.code" name="paymentMethod"
             class="radio mt-2 mr-3">
-          <label class="label">{{ $t('payment.methods.' + option.code) }}</label>
+          <label class="label" :for="'radio-'+option.code">{{ $t('payment.methods.' + option.code) }}</label>
         </section>
         <div v-if="option.options && option.code == paymentMethod">
           <div v-for="(field, key) in option.options.fields">
@@ -15,9 +15,10 @@
               class="input input-bordered input-primary w-full">
           </div>
           <div v-if="option.code == 'paypal'" id="paypal-button-container" class="mt-3" />
-          <CheckoutPaymentStripe v-if="option.code == 'stripe'" class="mt-3" />
+          <CheckoutPaymentStripe v-if="option.code == 'stripe' && paymentMethod == 'stripe'" :locked="paymentMethodInfo.status == 'locked'" class="mt-3" />
         </div>
       </section>
+      {{ paymentMethod }}
     </div>
     <div class="col-span-6 md:col-span-3 space-y-3">
       <h2 class="font-bold text-lg">Versandart wählen</h2>
@@ -58,11 +59,12 @@ import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const storePb = usePocketbaseStore();
 const { url } = storeToRefs(storePb);
 const pb = new PocketBase(url.value);
-
 
 const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
 const paymentMethod = useLocalStorage('paymentMethod', 'vorkasse', {});
@@ -152,5 +154,12 @@ onMounted(async () => {
   else {
     shippingMethodInfo.value = {}
   }
+
+  if (route.query.stripe && route.query.stripe !== "") {
+    paymentMethod.value = 'stripe';
+    paymentMethodInfo.value.stripe = route.query.stripe;
+    paymentMethodInfo.value.status = 'locked';
+  }
+
 });
 </script>

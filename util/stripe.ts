@@ -15,12 +15,11 @@ export function useStripe() {
 
     try {
       const stripe = await stripePromise;
-
-      await stripe.redirectToCheckout({
+      return await stripe.redirectToCheckout({
         lineItems: [{ price: priceId, quantity: 1 }],
         mode: 'payment',
-        successUrl: window.location.origin + '/checkout/stripe/success',  // Replace with your success URL
-        cancelUrl: window.location.origin + '/checkout/stripe/cancel',   // Replace with your cancel URL
+        successUrl: window.location.origin + '/checkout/?stripe={CHECKOUT_SESSION_ID}',  // Replace with your success URL
+        cancelUrl: window.location.origin + '/checkout',   // Replace with your cancel URL
       });
     } catch (err) {
       error.value = err;

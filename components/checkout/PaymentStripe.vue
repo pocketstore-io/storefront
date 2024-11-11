@@ -1,10 +1,11 @@
 <template>
   <div>
-    <button id="custom-stripe-button" @click="startCheckout" :disabled="loading">
+    <button v-if="!locked" id="custom-stripe-button" @click="startCheckout" :disabled="loading">
       <Fa :icon="faStripeS" class="mr-2" />
       <span class="mt-2">{{ loading ? 'Redirecting...' : 'Buy Now' }}</span>
       <Fa :icon="faStripeS" class="ml-2" />
     </button>
+    <button class="btn btn-neutral w-full">{{$t('payment.stripe.locked')}}</button>
     <p v-if="error" class="error">{{ error.message }}</p>
   </div>
 </template>
@@ -12,6 +13,16 @@
 <script setup>
 import { faStripeS } from '@fortawesome/free-brands-svg-icons';
 import { useStripe } from '~/util/stripe';
+
+const { locked } = defineProps({
+  locked: {
+    type: Boolean,
+    required: false,
+    default: ()=>{
+      return false;
+    }
+  }
+});
 
 const { redirectToCheckout, error, loading } = useStripe();
 

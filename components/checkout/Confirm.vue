@@ -3,9 +3,11 @@
     <div class="col-span-6">
       {{ cart }} <br><br>
       {{ shippingMethod }}<br><br>
+      {{ shippingMethodInfo }}<br><br>
       {{ shipping }}<br><br>
       <div v-if="!same"> {{ payment }}</div>
       {{ paymentMethod }}<br><br>
+      {{ paymentMethodInfo }}<br><br>
     </div>
     <div class="col-span-6 flex justify-between py-3">
       <button class="btn btn-primary" @click="checkoutStep = 'payment'">Back to Payment</button>
