@@ -29,6 +29,7 @@
     "@fortawesome/vue-fontawesome": "latest-3",
     "@paypal/paypal-js": "^8.1.2",
     "@pinia/nuxt": "^0.5.5",
+    "@stripe/stripe-js": "^4.9.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vue/test-utils": "^2.4.6",
     "@vueuse/core": "^11.2.0",
@@ -41,6 +42,7 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
     "vite": "^5.4.10",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.4",
+    "vue-stripe-js": "^1.0.3"
   }
 }
