@@ -4,9 +4,9 @@
       <h2 class="font-bold text-lg">{{ $t('checkout.payment-method') }} {{ $t('general.select') }} </h2>
       <section v-for="(option, index) in optionsPayment" :key="option">
         <section class="alert alert-neutral flex">
-          <input v-model="paymentMethod" :disabled="paymentMethodInfo.status == 'locked'" type="radio" :id="'radio-'+option.code" :value="option.code" name="paymentMethod"
-            class="radio mt-2 mr-3">
-          <label class="label" :for="'radio-'+option.code">{{ $t('payment.methods.' + option.code) }}</label>
+          <input v-model="paymentMethod" :disabled="paymentMethodInfo.status == 'locked'" type="radio"
+            :id="'radio-' + option.code" :value="option.code" name="paymentMethod" class="radio mt-2 mr-3">
+          <label class="label" :for="'radio-' + option.code">{{ $t('payment.methods.' + option.code) }}</label>
         </section>
         <div v-if="option.options && option.code == paymentMethod">
           <div v-for="(field, key) in option.options.fields">
@@ -15,10 +15,11 @@
               class="input input-bordered input-primary w-full">
           </div>
           <div v-if="option.code == 'paypal'" id="paypal-button-container" class="mt-3" />
-          <CheckoutPaymentStripe v-if="option.code == 'stripe' && paymentMethod == 'stripe'" :locked="paymentMethodInfo.status == 'locked'" class="mt-3" />
+          <CheckoutPaymentStripe v-if="option.code == 'stripe' && paymentMethod == 'stripe'"
+            :locked="paymentMethodInfo.status == 'locked'" class="mt-3" />
+          <CheckoutPaymentKlarna  v-if="option.code == 'klarna' && paymentMethod == 'klarna'" :locked="paymentMethodInfo.status == 'locked'" />
         </div>
       </section>
-      {{ paymentMethod }}
     </div>
     <div class="col-span-6 md:col-span-3 space-y-3">
       <h2 class="font-bold text-lg">Versandart wählen</h2>
@@ -158,6 +159,11 @@ onMounted(async () => {
   if (route.query.stripe && route.query.stripe !== "") {
     paymentMethod.value = 'stripe';
     paymentMethodInfo.value.stripe = route.query.stripe;
+    paymentMethodInfo.value.status = 'locked';
+  }
+  if (route.query.klarna && route.query.klarna !== "") {
+    paymentMethod.value = 'klarna';
+    paymentMethodInfo.value.klarna = route.query.klarna;
     paymentMethodInfo.value.status = 'locked';
   }
 
