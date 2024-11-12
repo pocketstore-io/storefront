@@ -14,6 +14,7 @@
             <input v-model="paymentMethodInfo[field.name]" :type="field.type"
               class="input input-bordered input-primary w-full">
           </div>
+          <!--| Move PayPal into component |-->
           <div v-if="option.code == 'paypal'" id="paypal-button-container" class="mt-3" />
           <CheckoutPaymentStripe v-if="option.code == 'stripe' && paymentMethod == 'stripe'"
             :locked="paymentMethodInfo.status == 'locked'" class="mt-3" />
@@ -21,6 +22,7 @@
         </div>
       </section>
     </div>
+    <!--| Split up Payment & Shipping by Component Level |-->
     <div class="col-span-6 md:col-span-3 space-y-3">
       <h2 class="font-bold text-lg">Versandart wählen</h2>
       <section v-for="(option) in optionsShipping" :key="option" class="bg-base-200 rounded-lg py-6 px-3 w-full">

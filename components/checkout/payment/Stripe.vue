@@ -2,27 +2,36 @@
   <div>
     <button v-if="!locked" id="custom-stripe-button" @click="startCheckout" :disabled="loading">
       <Fa :icon="faStripeS" class="mr-2" />
-      <span class="mt-2">{{ loading ? 'Redirecting...' : 'Buy Now' }}</span>
+      <span class="mt-2">{{ loading ? 'Weiterleitung...' : 'Jetzt kaufen' }}</span>
       <Fa :icon="faStripeS" class="ml-2" />
     </button>
-    <button v-else class="btn btn-neutral w-full">{{$t('payment.stripe.locked')}}</button>
+    <button v-else class="btn btn-neutral w-full">{{ $t('payment.stripe.locked') }}</button>
     <p v-if="error" class="error">{{ error.message }}</p>
+    <button v-if="locked" @click="resetLock()" class="btn btn-secondary w-full mt-3">
+      <Fa :icon="faTrash" /> <span>Reset Stripe Payment</span>
+      <Fa :icon="faTrash" />
+    </button>
   </div>
 </template>
 
 <script setup>
+// TODO get config by option
 import { faStripeS } from '@fortawesome/free-brands-svg-icons';
+import { useLocalStorage } from '@vueuse/core';
 import { useStripe } from '~/util/stripe';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const { locked } = defineProps({
   locked: {
     type: Boolean,
     required: false,
-    default: ()=>{
+    default: () => {
       return false;
     }
   }
 });
+
+const paymentMethodInfo = useLocalStorage('paymentMethodInfo', {}, {});
 
 const { redirectToCheckout, error, loading } = useStripe();
 
@@ -31,6 +40,10 @@ const priceId = 'price_1QK0wTR5d3xw1mbRZXQKTEoM';
 
 function startCheckout() {
   redirectToCheckout(priceId);
+}
+
+const resetLock = function () {
+  paymentMethodInfo.value.status = 'unlocked';
 }
 </script>
 

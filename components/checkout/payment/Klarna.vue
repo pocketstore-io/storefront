@@ -1,20 +1,31 @@
 <template>
   <div v-if="!locked" id="klarna-container" class="w-full mt-3"></div>
-  <button v-else class="btn btn-neutral w-full">{{$t('payment.klarna.locked')}}</button>
+  <button v-else class="btn btn-neutral w-full mt-3">{{ $t('payment.klarna.locked') }}</button>
+  <button v-if="locked" @click="resetLock()" class="btn btn-secondary w-full mt-3">
+    <Fa :icon="faTrash" /> <span>Reset Klarna Payment</span>
+    <Fa :icon="faTrash" />
+  </button>
 </template>
 
 <script setup lang="ts">
+// TODO get config by option
+// TODO prepare payload by Cart
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
+import { cartToKlarnaPayload } from '~/util/klarna';
 
 const { locked } = defineProps({
   locked: {
     type: Boolean,
     required: false,
-    default: ()=>{
+    default: () => {
       return false;
     }
   }
 });
+
+const paymentMethodInfo = useLocalStorage('paymentMethodInfo', {}, {});
 
 const router = useRouter();
 useHead({
@@ -32,6 +43,10 @@ useHead({
   ]
 });
 
+const resetLock = function () {
+  paymentMethodInfo.value.status = 'unlocked'; klarnaAsyncCallback()
+}
+
 let klarnaAsyncCallback = function () {
   window.Klarna.Payments.Buttons.init({
     client_id: "klarna_test_client_cVMhVCU_b0RwVG4pcml3ay16SCUxcnJqeVVJKnkjbmQsY2YzZWM4NDEtOTNlOS00MDc5LWI2NDctNzE0ZmZjZTM5M2Q2LDEsQ2F5OUJIMndTOXd5b3k4dzFGdTlkbVk1YlNkcUdRVGFhb1hoTnpsT0tNYz0",
@@ -44,28 +59,11 @@ let klarnaAsyncCallback = function () {
         // Here you should invoke authorize with the order payload.
         authorize(
           { collect_shipping_address: true },
-          {
-            "purchase_country": "DE",
-            "purchase_currency": "EUR",
-            "locale": "de-DE",
-            "order_amount": 11900,          // 100.00 EUR in minor units
-            "order_tax_amount": 1900,       // 19.00 EUR tax in minor units
-            "order_lines": [
-              {
-                "type": "physical",
-                "reference": "19-402",
-                "name": "T-shirt",
-                "quantity": 1,
-                "unit_price": 11900,         // 100.00 EUR
-                "tax_rate": 1900,            // 20% tax rate
-                "total_amount": 11900,       // 100.00 EUR total for the item
-                "total_tax_amount": 1900     // 19.00 EUR total tax
-              }
-            ]
-          }, // order payload 
+          cartToKlarnaPayload(), // order payload 
           (result) => {
-            console.log('auth result: ', result);
-            router.push('/checkout/?klarna=' + result.session_id);
+            if (result.session_id) {
+              router.push('/checkout/?klarna=' + result.session_id);
+            }
           },
         );
       },
@@ -76,4 +74,5 @@ let klarnaAsyncCallback = function () {
     },
   );
 };
+
 </script>
