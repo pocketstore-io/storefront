@@ -36,7 +36,7 @@
     "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.14",
     "eslint": "^9.14.0",
-    "marked": "^14.1.4",
+    "marked": "^15.0.0",
     "pinia": "^2.2.6",
     "pocketbase": "^0.21.5",
     "postcss": "^8.4.47",
