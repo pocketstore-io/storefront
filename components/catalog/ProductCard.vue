@@ -1,7 +1,7 @@
 <template>
   <div v-if="product" class="card shadow-xl">
     <figure>
-      <a :href="'/de/product/' + product.slug + '.html'">
+      <a :href="'/' + locale+'/product/' + product.slug + '.html'">
         <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes">
       </a>
     </figure>
@@ -9,9 +9,10 @@
       <h2 class="card-title">{{ product.name }}</h2>
       <p>If a dog chews shoes whose shoes does he choose?</p>
       <div class="card-actions justify-end join">
-        <a v-if="product.price" :href="'/de/product/' + product.slug + '.html'" class="btn btn-primary join-item">{{
+        <a v-if="product.price" :href="'/' + locale+'/product/' + product.slug + '.html'" class="btn btn-primary join-item">{{
           product.price.toFixed(2) }} €</a>
-        <button class="btn btn-secondary join-item" @click="addToCart(product.id)">Buy Now</button>
+        <button class="btn btn-secondary join-item"
+          @click="addToCart(product.id)">{{ $t('checkout.add-to-cart') }}</button>
       </div>
     </div>
   </div>
@@ -22,6 +23,8 @@ import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
 import { useLocalStorage } from '@vueuse/core';
 import { useMessagesStore } from '~/stores/messages';
+const i18n = useI18n();
+const locale = i18n.locale;
 
 const storeMessages = useMessagesStore();
 

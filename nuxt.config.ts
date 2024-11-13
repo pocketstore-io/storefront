@@ -7,15 +7,16 @@ export default defineNuxtConfig({
     storesDirs: ['./stores/**'],
   },
   i18n: {
+    strategy: 'prefix',
     langDir: 'configuration/lang/',
     locales: [
       {
         code: 'de',
-        file: 'lang_de.json'
+        file: 'de.json'
       },
       {
         code: 'en',
-        file: 'lang_en.json'
+        file: 'en.json'
       }
     ],
     defaultLocale: 'en'

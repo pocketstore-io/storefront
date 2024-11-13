@@ -6,6 +6,8 @@
 .cache
 dist
 configuration/lang
+vendor
+composer.lock
 
 # Node dependencies
 node_modules

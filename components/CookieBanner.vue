@@ -1,18 +1,14 @@
 <template>
   <dialog id="my_modal_2" class="modal" :open="open">
     <div class="modal-box">
-      <h3 class="text-lg font-bold">Cookie Banner</h3>
+      <h3 class="text-lg font-bold">{{$t('cookie.headline')}}</h3>
       <p class="py-4">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi officia aliquam quos unde molestiae deleniti
-        cumque veniam doloribus corrupti quibusdam error sed, odit omnis in vitae doloremque illo necessitatibus
-        dolorum.
+        {{$t('cookie.note')}}
       </p>
       <section class="actions">
         <div class="join grid grid-cols-6">
-          <button class="btn btn-error join-item col-span-6 md:col-span-3" @click="open = false; cookie = false">Tracking
-            deaktivieren</button>
-          <button class="btn btn-primary join-item col-span-6 md:col-span-3" @click="open = false; cookie = true">Cookies
-            Akzeptieren</button>
+          <button class="btn btn-error join-item col-span-6 md:col-span-3" @click="open = false; cookie = false">{{$t('cookie.disable')}}</button>
+          <button class="btn btn-primary join-item col-span-6 md:col-span-3" @click="open = false; cookie = true">{{$t('cookie.accept')}}</button>
         </div>
       </section>
     </div>
