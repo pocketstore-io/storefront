@@ -9,16 +9,17 @@
           <label class="label" :for="'radio-' + option.code">{{ $t('payment.methods.' + option.code) }}</label>
         </section>
         <div v-if="option.options && option.code == paymentMethod">
+          <CheckoutPaymentPaypal v-if="option.code == 'paypal' && paymentMethod == 'paypal'"
+            :locked="paymentMethodInfo.status == 'locked'" />
+          <CheckoutPaymentStripe v-if="option.code == 'stripe' && paymentMethod == 'stripe'"
+            :locked="paymentMethodInfo.status == 'locked'" class="mt-3" />
+          <CheckoutPaymentKlarna v-if="option.code == 'klarna' && paymentMethod == 'klarna'"
+            :locked="paymentMethodInfo.status == 'locked'" />
           <div v-for="(field, key) in option.options.fields">
             <label for="" class="label">{{ $t('payment.label.' + key) }}</label>
             <input v-model="paymentMethodInfo[field.name]" :type="field.type"
               class="input input-bordered input-primary w-full">
           </div>
-          <!--| Move PayPal into component |-->
-          <div v-if="option.code == 'paypal'" id="paypal-button-container" class="mt-3" />
-          <CheckoutPaymentStripe v-if="option.code == 'stripe' && paymentMethod == 'stripe'"
-            :locked="paymentMethodInfo.status == 'locked'" class="mt-3" />
-          <CheckoutPaymentKlarna  v-if="option.code == 'klarna' && paymentMethod == 'klarna'" :locked="paymentMethodInfo.status == 'locked'" />
         </div>
       </section>
     </div>
@@ -57,7 +58,6 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from '@vueuse/core';
-import { loadScript } from "@paypal/paypal-js";
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import PocketBase from 'pocketbase';
@@ -80,15 +80,10 @@ const optionsPayment = ref([]);
 const optionsShipping = ref([]);
 const optionsCountry = ref([]);
 const selectedStore = ref(null);
+
 watch(selectedStore, (value) => {
   shippingMethodInfo.value = {
     store: value
-  }
-});
-
-watch(paymentMethod, (value) => {
-  if (value === 'paypal') {
-    initPaypal();
   }
 });
 
@@ -98,48 +93,7 @@ watch(shippingMethod, (value) => {
   }
 });
 
-watch(checkoutStep, (value) => {
-  if (paymentMethod.value == 'paypal' && value == 'payment') {
-    initPaypal();
-  }
-});
-
-const initPaypal = () => {
-  loadScript({ "client-id": 'AUtZarD95T0LXYT1Dn51mBIBswWY3QDb-S380C-_xgfhqqJ6IEJHZh-wuRnRzNy184Lj5fpbXokZBiOk', currency: 'EUR' })
-    .then((paypal) => {
-      paypal.Buttons({
-        createOrder: function (data, actions) {
-          // Directly create an order with the amount, no server needed
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                currency_code: 'EUR',
-                value: '99.99',
-              }
-            }]
-          });
-        },
-        onApprove: function (data, actions) {
-          return actions.order.capture().then(function (details) {
-            alert('Transaction completed by ' + details.payer.name.given_name);
-            console.log(details); // You can log or handle the transaction details here
-          });
-          // TODO store details for order
-        },
-        onError: function (err) {
-          console.error('An error occurred during the transaction', err);
-        }
-      }).render('#paypal-button-container');
-    })
-    .catch((err) => {
-      console.error("failed to load the PayPal JS SDK script", err);
-    });
-}
-
 onMounted(async () => {
-  if (paymentMethod.value == 'paypal' && checkoutStep.value == 'payment') {
-    initPaypal();
-  }
   stores.value = await pb.collection('stores').getFullList();
   optionsPayment.value = await pb.collection('payment_methods').getFullList({
     filter: 'active=true',
@@ -168,6 +122,5 @@ onMounted(async () => {
     paymentMethodInfo.value.klarna = route.query.klarna;
     paymentMethodInfo.value.status = 'locked';
   }
-
 });
 </script>
