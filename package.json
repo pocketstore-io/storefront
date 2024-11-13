@@ -26,7 +26,7 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
-    "@fortawesome/vue-fontawesome": "latest-3",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
     "@paypal/paypal-js": "^8.1.2",
     "@pinia/nuxt": "^0.5.5",
     "@stripe/stripe-js": "^4.9.0",
@@ -36,7 +36,6 @@
     "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.14",
     "eslint": "^9.14.0",
-    "marked": "^14.1.4",
     "pinia": "^2.2.6",
     "pocketbase": "^0.21.5",
     "postcss": "^8.4.47",
