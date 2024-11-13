@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # Ecosystem (e.g., "npm", "pip", "docker", etc.)
+    directory: "/" # Directory of the package manager files
+    schedule:
+      interval: "daily" # Frequency (daily, weekly, or monthly)
