@@ -30,9 +30,9 @@
     "created": "2024-10-20 10:00:07.833Z",
     "description": "",
     "id": "1j16nojnluxr27a",
-    "key": "currency",
+    "key": "euro",
     "public": true,
-    "updated": "2024-10-26 15:09:44.569Z",
+    "updated": "2024-11-13 16:48:40.019Z",
     "value": "€"
   },
   {
@@ -63,133 +63,15 @@
     "value": ""
   },
   {
-    "additional": {
-      "general": {
-        "search": "Suchen",
-        "select": "wählen"
-      },
-      "breadcrumb": {
-        "home": "Startseite",
-        "checkout": "Kasse",
-        "cart": "Warenkorb",
-        "category-view": "Kategorie",
-        "checkout-cart": "Kasse - Warenkorb",
-        "checkout-addresses": "Kasse - Adressen",
-        "checkout-payment": "Kasse - Bezahlung & Versand",
-        "checkout-confirm": "Kasse - Bestätigen"
-      },
-      "note": "Dieser Shop basiert auf Pocketbase, steht aber in keinem Zusammenhang mit dem Projekt Pocketbase.io!!!",
-      "lang": {
-        "de": "Deutsch",
-        "en": "English"
-      },
-      "checkout": {
-        "checkout": "Kasse",
-        "cart": "Warenkorb",
-        "addresses": "Adressen",
-        "payment-and-shipping": "Bezahlung & Versand",
-        "confirm": "Bestätigung",
-        "payment-method": "Bezahlart",
-        "same": "Beide gleich",
-        "customer": "Kundenkonto",
-        "order": "Zahlungspflichtig bestellen"
-      },
-      "country": {
-        "de": "Deutschland"
-      },
-      "payment": {
-        "methods": {
-          "paypal": "PayPal",
-          "vorkasse": "Vorkasse",
-          "invoice": "Rechnung"
-        },
-        "label": {
-          "name": "Name",
-          "iban": "IBAN"
-        }
-      },
-      "shipping": {
-        "methods": {
-          "dhl": "DHL",
-          "dhl-express": "DHL Express",
-          "hermes": "Hermes",
-          "dpd": "DPD",
-          "delivery": "Lieferung",
-          "click-and-collect": "Click & Collect"
-        }
-      }
-    },
+    "additional": {},
     "collectionId": "gnnv6wvhrxdcb1v",
     "collectionName": "settings",
-    "created": "2024-10-26 17:11:48.934Z",
-    "description": "",
-    "id": "o6sysqggzwygkpf",
-    "key": "lang_de",
+    "created": "2024-11-13 16:52:16.394Z",
+    "description": "Currency",
+    "id": "ei9wcm1wbbavovs",
+    "key": "currency",
     "public": true,
-    "updated": "2024-11-02 12:39:55.964Z",
-    "value": ""
-  },
-  {
-    "additional": {
-      "general": {
-        "search": "Search",
-        "select": "Select"
-      },
-      "breadcrumb": {
-        "home": "Home",
-        "checkout": "Checkout",
-        "cart": "Cart",
-        "category-view": "Category",
-        "checkout-cart": "Checkout - Cart",
-        "checkout-addresses": "Checkout - Addresses",
-        "checkout-payment": "Checkout - Payment & Shipping",
-        "checkout-confirm": "Checkout - Confirm"
-      },
-      "note": "This shop is based on Pocketbase but is not affiliated with the Pocketbase.io project!!!",
-      "lang": {
-        "de": "German",
-        "en": "English"
-      },
-      "checkout": {
-        "checkout": "Checkout",
-        "cart": "Cart",
-        "addresses": "Addresses",
-        "payment-and-shipping": "Payment & Shipping",
-        "confirm": "Confirmation",
-        "payment-method": "Payment Method",
-        "same": "Both Same",
-        "customer": "Customer Account",
-        "order": "Place Order"
-      },
-      "country": {
-        "de": "Germany"
-      },
-      "payment": {
-        "methods": {
-          "paypal": "PayPal",
-          "vorkasse": "Advance Payment",
-          "invoice": "Invoice"
-        }
-      },
-      "shipping": {
-        "methods": {
-          "dhl": "DHL",
-          "dhl-express": "DHL Express",
-          "hermes": "Hermes",
-          "dpd": "DPD",
-          "delivery": "Delivery",
-          "click-and-collect": "Click & Collect"
-        }
-      }
-    },
-    "collectionId": "gnnv6wvhrxdcb1v",
-    "collectionName": "settings",
-    "created": "2024-11-01 13:43:25.434Z",
-    "description": "",
-    "id": "ce9jgc14moztlh8",
-    "key": "lang_en",
-    "public": true,
-    "updated": "2024-11-02 12:18:18.875Z",
-    "value": ""
+    "updated": "2024-11-13 16:52:16.394Z",
+    "value": "euro"
   }
 ]

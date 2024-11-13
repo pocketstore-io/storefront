@@ -2,16 +2,26 @@
   <section class="header bg-[#1f6fed] px-3 py-3">
     <section class="flex justify-between">
       <section class="logo mt-3 text-white md:text-black md:mt-0">
-        <a href="/" class="font-bold">Pocketstore.io</a>
+        <a href="/" class="font-bold">{{ $t('general.title') }}</a>
       </section>
       <nav class="hidden md:block">
         <ul class="flex space-x-3">
           <li class="">
             <div>
               <div>
+                <select v-model="currency" class="select select-sm">
+                  <option value="euro">{{ $t('currency.euro') }}</option>
+                  <option value="dollar">{{ $t('currency.dollar') }}</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div>
+              <div>
                 <select v-model="lang" class="select select-sm">
-                  <option value="de">{{$t('lang.de')}}</option>
-                  <option value="en">{{$t('lang.en')}}</option>
+                  <option value="de">{{ $t('lang.de') }}</option>
+                  <option value="en">{{ $t('lang.en') }}</option>
                 </select>
               </div>
             </div>
@@ -25,14 +35,13 @@
             <input v-model="query" type="search" class="input input-sm" :placeholder="$t('general.search')">
             <details :open="query !== ''">
               <summary class="hidden" />
-              <ul
-v-if="query !== '' && items.length > 0"
+              <ul v-if="query !== '' && items.length > 0"
                 class="absolute menu bg-base-100 rounded-box z-5 w-52 p-2 shadow">
-                <li v-for="item in items"><a :href="'/product/' + item.id+'.html'">{{ item.name }}</a></li>
+                <li v-for="item in items"><a :href="'/product/' + item.id + '.html'">{{ item.name }}</a></li>
               </ul>
               <div class="menu">
                 <p v-if="query !== '' && items.length == 0" class="text-sm font-bold text-center bg-white px-3 py-3">
-                  Kein Produkt gefunden
+                  {{ $t('catalog.no-product-found') }}
                 </p>
               </div>
             </details>
@@ -79,42 +88,42 @@ v-if="query !== '' && items.length > 0"
             <input v-model="query" type="search" class="input input-sm w-full input-primary my-3" placeholder="Search">
             <details :open="query !== ''" class="form-control">
               <summary class="hidden" />
-              <ul
-v-if="query !== '' && items.length > 0"
+              <ul v-if="query !== '' && items.length > 0"
                 class="absolute menu bg-base-100 rounded-box z-5 w-52 p-2 shadow">
-                <li v-for="item in items" :key="item.id"><a :href="'/product/' + item.id+'.html'">{{ item.name }}</a></li>
+                <li v-for="item in items" :key="item.id"><a :href="'/product/' + item.id + '.html'">{{ item.name }}</a>
+                </li>
               </ul>
               <div class="menu">
                 <p v-if="query !== '' && items.length == 0" class="text-sm font-bold text-center bg-white px-3 py-3">
-                  Kein Produkt gefunden
+                  {{ $t('catalog.no-product-found') }}
                 </p>
               </div>
             </details>
             <div class="divider divider-primary">Menu</div>
             <div class="md:hidden grid grid-cols-6 gap-3">
               <div class="col-span-3">
-                <a href="/category/welcome" class="btn btn-primary btn-block">Category</a>
+                <a href="/category/welcome" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
               </div>
               <div class="col-span-3">
-                <a href="/checkout/" class="btn btn-primary btn-block">Checkout</a>
+                <a href="/checkout/" class="btn btn-primary btn-block">{{ $t('checkout.checkout') }}</a>
               </div>
               <div class="col-span-3">
-                <a href="/category/welcome" class="btn btn-primary btn-block">Category</a>
+                <a href="/category/welcome" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
               </div>
               <div class="col-span-3">
-                <a href="/checkout/" class="btn btn-primary btn-block">Checkout</a>
+                <a href="/checkout/" class="btn btn-primary btn-block">{{ $t('checkout.checkout') }}</a>
               </div>
               <div class="col-span-3">
-                <a href="/category/welcome" class="btn btn-primary btn-block">Category</a>
+                <a href="/category/welcome" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
               </div>
               <div class="col-span-3">
-                <a href="/checkout/" class="btn btn-primary btn-block">Checkout</a>
+                <a href="/checkout/" class="btn btn-primary btn-block">{{ $t('checkout.checkout') }}</a>
               </div>
             </div>
             <div class="modal-action">
               <form method="dialog">
                 <!-- if there is a button in form, it will close the modal -->
-                <button class="btn">Close</button>
+                <button class="btn">{{ $t('general.close') }}</button>
               </form>
             </div>
           </div>
@@ -129,6 +138,7 @@ import { faUser, faRightFromBracket, faCartShopping, faLayerGroup, faBars, faTim
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
 import { useLocalStorage } from '@vueuse/core';
+import propertyManager from '~/util/settings'
 
 const { setLocale } = useI18n()
 const store = usePocketbaseStore();
@@ -140,6 +150,7 @@ const items = ref([]);
 const open = ref(false);
 const query = ref('');
 const lang = ref('de');
+const currency = ref(propertyManager.getSettingsValue('currency'));
 
 watch(lang, (value) => {
   setLocale(value);

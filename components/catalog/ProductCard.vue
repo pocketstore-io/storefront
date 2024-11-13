@@ -7,7 +7,7 @@
     </figure>
     <div class="card-body">
       <h2 class="card-title">{{ product.name }}</h2>
-      <p>If a dog chews shoes whose shoes does he choose?</p>
+      <p>{{product.description}}</p>
       <div class="card-actions justify-end join">
         <a v-if="product.price" :href="'/' + locale+'/product/' + product.slug + '.html'" class="btn btn-primary join-item">{{
           product.price.toFixed(2) }} €</a>
