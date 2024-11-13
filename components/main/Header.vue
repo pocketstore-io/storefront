@@ -102,6 +102,18 @@
             <div class="divider divider-primary">Menu</div>
             <div class="md:hidden grid grid-cols-6 gap-3">
               <div class="col-span-3">
+                <select v-model="lang" class="select select-primary w-full">
+                  <option value="de">{{ $t('lang.de') }}</option>
+                  <option value="en">{{ $t('lang.en') }}</option>
+                </select>
+              </div>
+              <div class="col-span-3">
+                <select v-model="currency" class="select select-primary w-full">
+                  <option value="euro">{{ $t('currency.euro') }}</option>
+                  <option value="dollar">{{ $t('currency.dollar') }}</option>
+                </select>
+              </div>
+              <div class="col-span-3">
                 <a href="/category/welcome" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
               </div>
               <div class="col-span-3">
