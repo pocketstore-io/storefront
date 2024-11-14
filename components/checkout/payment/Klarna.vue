@@ -8,8 +8,6 @@
 </template>
 
 <script setup lang="ts">
-// TODO get config by option
-// TODO prepare payload by Cart
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
@@ -58,13 +56,11 @@ const klarnaAsyncCallback = function () {
       theme: "default",
       shape: "default",
       on_click: (authorize) => {
-        // Here you should invoke authorize with the order payload.
         authorize(
           { collect_shipping_address: true },
-          cartToKlarnaPayload(), // order payload 
+          cartToKlarnaPayload(),
           (result) => {
             if (result.session_id) {
-              // TODO fix locale
               router.push('/' + i18n.locale + '/checkout/?klarna=' + result.session_id);
             }
           },
@@ -73,7 +69,6 @@ const klarnaAsyncCallback = function () {
     },
     function load_callback(loadResult) {
       console.log('result', loadResult);
-      // Here you can handle the result of loading the button
     },
   );
 };
