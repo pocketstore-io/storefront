@@ -1,13 +1,14 @@
 # Nuxt dev/build outputs
 .output
-.data
 .nuxt
-.nitro
 .cache
-dist
+
+# i18n
 i18n/locales/*
-vendor
+
+# Composer dependencies
 composer.lock
+vendor
 
 # Node dependencies
 node_modules
