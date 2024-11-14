@@ -20,23 +20,17 @@ class RoboFile extends \Robo\Tasks
 
         foreach ($languages as $language) {
             $file[$language] = [];
-            $response = $pb->collection('translations')->getFullList(500, ['filter' => 'lang="' . $language . '"']);
+            $response = $pb->collection('translations')->getFullList(['filter' => 'lang="' . $language . '"']);
 
             if (!empty($response['items']) && count($response['items']) > 0) {
                 foreach ($response['items'] as $item) {
                     $explode = explode('.', $item['key']);
-                    if (count($explode) === 1) {
-                        if (empty($file[$language][$explode[0]])) {
-                            $file[$language][$explode[0]] = [];
-                        }
-                        $file[$language][$explode[0]] = array_merge($file[$language][$explode[0]], [$explode[0] => $item['translated']]);
-                    }
-                    else if (count($explode) === 2) {
-                        if(!empty($file[$language][$explode[0]][$explode[0]])){
-                            $file[$language][$explode[0]][$explode[0]][$explode[1]] = $item['translated'];
+                    if (count($explode) === 2) {                       
+                        if(!empty($file[$language][$explode[0]][$explode[1]])){
+                            $file[$language][$explode[0]][$explode[1]] =  [];
                         }
                         else {
-                            $file[$language][$explode[0]][$explode[0]] = [$explode[1] => $item['translated']];
+                            $file[$language][$explode[0]][$explode[1]] = [$explode[1] => $item['translated']];
                         }
                     } else if (count($explode) === 3) {
                         if(!empty($file[$language][$explode[0]][$explode[1]][$explode[1]])){
@@ -45,7 +39,6 @@ class RoboFile extends \Robo\Tasks
                         else {
                             $file[$language][$explode[0]][$explode[1]][$explode[1]] = [$explode[2] => $item['translated']];
                         }
-                    } else {
                     }
                 }
             }
