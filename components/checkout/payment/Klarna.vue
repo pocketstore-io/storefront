@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!locked" id="klarna-container" class="w-full mt-3"/>
+  <div v-if="!locked" id="klarna-container" class="w-full mt-3" />
   <button v-else class="btn btn-neutral w-full mt-3">{{ $t('payment.klarna.locked') }}</button>
   <button v-if="locked" class="btn btn-secondary w-full mt-3" @click="resetLock()">
     <Fa :icon="faTrash" /> <span>Reset Klarna Payment</span>
@@ -14,6 +14,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
 import { cartToKlarnaPayload } from '~/util/klarna';
+
+const i18n = useI18n();
 
 const { locked } = defineProps({
   locked: {
@@ -62,7 +64,8 @@ const klarnaAsyncCallback = function () {
           cartToKlarnaPayload(), // order payload 
           (result) => {
             if (result.session_id) {
-              router.push('/checkout/?klarna=' + result.session_id);
+              // TODO fix locale
+              router.push('/' + i18n.locale + '/checkout/?klarna=' + result.session_id);
             }
           },
         );
