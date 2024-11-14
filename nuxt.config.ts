@@ -8,7 +8,6 @@ export default defineNuxtConfig({
   },
   i18n: {
     strategy: 'prefix',
-    langDir: 'configuration/lang/',
     locales: [
       {
         code: 'de',

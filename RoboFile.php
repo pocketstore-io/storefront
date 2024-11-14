@@ -13,6 +13,8 @@ class RoboFile extends \Robo\Tasks
         $domain = 'admin.pocketstore.io';
         $adminUrl = 'https://' . $domain;
 
+        exec('mkdir -p i18n/locales');
+
         $pb = new \Pb\Client($adminUrl);
         $languages = ['de', 'en'];
 
@@ -53,7 +55,7 @@ class RoboFile extends \Robo\Tasks
 
         foreach ($languages as $language) {
             $file[$language] = $this->recursiveTransform($file[$language]);
-            file_put_contents('configuration/lang/' . $language . '.json', json_encode($file[$language], JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE));
+            file_put_contents('i18n/locales/' . $language . '.json', json_encode($file[$language], JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE));
         }
     }
 

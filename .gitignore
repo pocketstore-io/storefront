@@ -5,7 +5,7 @@
 .nitro
 .cache
 dist
-configuration/lang
+i18n/locales/*
 vendor
 composer.lock
 
