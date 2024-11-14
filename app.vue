@@ -8,7 +8,7 @@
       <section class="alert alert-error flex mb-3">
         <Fa :icon="faInfoCircle" class="text-white" />
         <p class="text-sm font-bold w-full text-center">
-          {{ $t('note') }}
+          {{ $t('general.note') }}
         </p>
         <Fa :icon="faInfoCircle" class="text-white" />
       </section>

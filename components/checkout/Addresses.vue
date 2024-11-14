@@ -78,9 +78,9 @@
       </section>
     </div>
     <div class="col-span-6 flex justify-between py-3">
-      <button class="btn btn-primary" @click="checkoutStep = 'customer'">{{ $t('back.to.customer') }}</button>
+      <button class="btn btn-primary" @click="checkoutStep = 'customer'">{{ $t('checkout.back.customer') }}</button>
       <button class="btn btn-primary" :disabled="(!valid.payment && !same) || !valid.shipping"
-        @click="checkoutStep = 'payment'"><span>{{ $t('contiue.to.payment') }}</span>
+        @click="checkoutStep = 'payment'"><span>{{ $t('checkout.back.payment') }}</span>
         <Fa :icon="faChevronCircleRight" />
       </button>
     </div>

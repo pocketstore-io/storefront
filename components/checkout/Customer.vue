@@ -50,10 +50,10 @@ v-model="password" type="password" placeholder="password" class="input input-bor
         </div>
       </div>
       <div class="col-span-6 flex justify-between py-3">
-        <button class="btn btn-primary" @click="checkoutStep = 'cart'">Back to Cart</button>
+        <button class="btn btn-primary" @click="checkoutStep = 'cart'">{{$t('checkout.back.cart')}}</button>
         <button
 class="btn btn-primary" :disabled="!pb.authStore.isValid"
-          @click="checkoutStep = 'addresses'"><span>Continue</span>
+          @click="checkoutStep = 'addresses'"><span>{{$t('checkout.continue.addresses')}}</span>
           <Fa :icon="faChevronCircleRight" />
         </button>
       </div>

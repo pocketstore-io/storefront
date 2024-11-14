@@ -4,8 +4,8 @@
       <table v-if="cart.length > 0" class="w-full">
         <thead>
           <tr class="grid grid-cols-12 gap-3 font-bold text-sm text-left px-3 py-3 bg-gray-200 my-3 mx-3">
-            <th class="col-span-6 md:col-span-2">Anzahl</th>
-            <th class="col-span-6 md:col-span-10">Product - Name</th>
+            <th class="col-span-6 md:col-span-2">{{$t('checkout.cart.qty')}}</th>
+            <th class="col-span-6 md:col-span-10">{{$t('checkout.cart.product-and-name')}}</th>
           </tr>
         </thead>
         <tbody>
@@ -29,7 +29,7 @@
       <section v-else class="px-3 py-3">
         <section v-if="loaded" class="alert alert-warning text-white">
           <p class="block text-center">
-            Dein Warenkorb ist leer, füge etwas hinzu bevor du es kaufen kannst.
+            {{$t('checkout.cart.empty')}}
           </p>
         </section>
       </section>
@@ -40,7 +40,7 @@
     </div>
     <div v-if="cart.length > 0" class="col-span-6 flex justify-end px-3 py-3">
       <button class="btn btn-primary" :disabled="!valid.cart" @click="checkoutStep = 'customer'">
-        <span>Continue</span>
+        <span>{{$t('checkout.continue.customer')}}</span>
         <Fa :icon="faChevronCircleRight" />
       </button>
     </div>

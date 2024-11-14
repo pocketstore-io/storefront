@@ -10,7 +10,7 @@
       {{ paymentMethodInfo }}<br><br>
     </div>
     <div class="col-span-6 flex justify-between py-3">
-      <button class="btn btn-primary" @click="checkoutStep = 'payment'">{{ $t('back.to.payment') }}</button>
+      <button class="btn btn-primary" @click="checkoutStep = 'payment'">{{ $t('checkout.back.payment') }}</button>
       <button class="btn btn-primary" @click="confirmOrder()">{{ $t('checkout.order') }}</button>
     </div>
   </section>

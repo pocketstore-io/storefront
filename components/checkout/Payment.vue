@@ -48,8 +48,8 @@
       </section>
     </div>
     <div class="col-span-6 flex justify-between py-3">
-      <button class="btn btn-primary" @click="checkoutStep = 'addresses'">{{ $t('back.to.addresses') }}</button>
-      <button class="btn btn-primary" @click="checkoutStep = 'confirm'"><span>{{ $t('continue.to.confirm') }}</span>
+      <button class="btn btn-primary" @click="checkoutStep = 'addresses'">{{ $t('checkout.back.addresses') }}</button>
+      <button class="btn btn-primary" @click="checkoutStep = 'confirm'"><span>{{ $t('checkout.continue.confirm') }}</span>
         <Fa :icon="faChevronCircleRight" />
       </button>
     </div>
