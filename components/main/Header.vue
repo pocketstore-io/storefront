@@ -10,8 +10,8 @@
             <div>
               <div>
                 <select v-model="currency" class="select select-sm">
-                  <option value="euro">{{ $t('currency.euro') }}</option>
-                  <option value="dollar">{{ $t('currency.dollar') }}</option>
+                  <option value="euro">{{ $t('checkout.currency.euro') }}</option>
+                  <option value="dollar">{{ $t('checkout.currency.dollar') }}</option>
                 </select>
               </div>
             </div>
@@ -111,8 +111,8 @@ v-if="query !== '' && items.length > 0"
               </div>
               <div class="col-span-3">
                 <select v-model="currency" class="select select-primary w-full">
-                  <option value="euro">{{ $t('currency.euro') }}</option>
-                  <option value="dollar">{{ $t('currency.dollar') }}</option>
+                  <option value="euro">{{ $t('checkout.currency.euro') }}</option>
+                  <option value="dollar">{{ $t('checkout.currency.dollar') }}</option>
                 </select>
               </div>
               <div class="col-span-3">
