@@ -1,13 +1,13 @@
 <template>
   <div>
-    <button v-if="!locked" id="custom-stripe-button" @click="startCheckout" :disabled="loading">
+    <button v-if="!locked" id="custom-stripe-button" :disabled="loading" @click="startCheckout">
       <Fa :icon="faStripeS" class="mr-2" />
       <span class="mt-2">{{ loading ? 'Weiterleitung...' : 'Jetzt kaufen' }}</span>
       <Fa :icon="faStripeS" class="ml-2" />
     </button>
     <button v-else class="btn btn-neutral w-full">{{ $t('payment.stripe.locked') }}</button>
     <p v-if="error" class="error">{{ error.message }}</p>
-    <button v-if="locked" @click="resetLock()" class="btn btn-secondary w-full mt-3">
+    <button v-if="locked" class="btn btn-secondary w-full mt-3" @click="resetLock()">
       <Fa :icon="faTrash" /> <span>Reset Stripe Payment</span>
       <Fa :icon="faTrash" />
     </button>

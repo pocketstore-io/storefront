@@ -4,4 +4,5 @@ export default createConfigForNuxt({}).overrideRules({
   'vue/multi-word-component-names': 'off',
   'vue/require-v-for-key': 'off',
   'vue/require-default-prop': 'off',
+  'vue/first-attribute-linebreak': 'off',
 });

@@ -11,7 +11,8 @@
       <div class="card-actions join gap-0 justify-end">
         <a v-if="product.price" :href="'/' + locale+'/product/' + product.slug + '.html'" class="btn btn-primary join-item">{{
           product.price.toFixed(2) }} €</a>
-        <button class="btn btn-secondary join-item"
+        <button
+class="btn btn-secondary join-item"
           @click="addToCart(product.id)">{{ $t('checkout.add-to-cart') }}</button>
       </div>
     </div>

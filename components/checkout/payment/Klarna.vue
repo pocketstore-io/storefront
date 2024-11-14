@@ -1,7 +1,7 @@
 <template>
-  <div v-if="!locked" id="klarna-container" class="w-full mt-3"></div>
+  <div v-if="!locked" id="klarna-container" class="w-full mt-3"/>
   <button v-else class="btn btn-neutral w-full mt-3">{{ $t('payment.klarna.locked') }}</button>
-  <button v-if="locked" @click="resetLock()" class="btn btn-secondary w-full mt-3">
+  <button v-if="locked" class="btn btn-secondary w-full mt-3" @click="resetLock()">
     <Fa :icon="faTrash" /> <span>Reset Klarna Payment</span>
     <Fa :icon="faTrash" />
   </button>
@@ -47,7 +47,7 @@ const resetLock = function () {
   paymentMethodInfo.value.status = 'unlocked'; klarnaAsyncCallback()
 }
 
-let klarnaAsyncCallback = function () {
+const klarnaAsyncCallback = function () {
   window.Klarna.Payments.Buttons.init({
     client_id: "klarna_test_client_cVMhVCU_b0RwVG4pcml3ay16SCUxcnJqeVVJKnkjbmQsY2YzZWM4NDEtOTNlOS00MDc5LWI2NDctNzE0ZmZjZTM5M2Q2LDEsQ2F5OUJIMndTOXd5b3k4dzFGdTlkbVk1YlNkcUdRVGFhb1hoTnpsT0tNYz0",
   }).load(

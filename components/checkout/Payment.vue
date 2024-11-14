@@ -2,10 +2,10 @@
   <section v-if="checkoutStep == 'payment'" class="grid grid-cols-6 gap-3 mx-auto max-w-6xl px-3 py-3">
     <div class="col-span-6 md:col-span-3 space-y-3">
       <h2 class="font-bold text-lg">{{ $t('checkout.payment-method') }} {{ $t('general.select') }} </h2>
-      <section v-for="(option, index) in optionsPayment" :key="option">
+      <section v-for="(option) in optionsPayment" :key="option">
         <section class="alert alert-neutral flex">
-          <input v-model="paymentMethod" :disabled="paymentMethodInfo.status == 'locked'" type="radio"
-            :id="'radio-' + option.code" :value="option.code" name="paymentMethod" class="radio mt-2 mr-3">
+          <input :id="'radio-' + option.code" v-model="paymentMethod" :disabled="paymentMethodInfo.status == 'locked'"
+            type="radio" :value="option.code" name="paymentMethod" class="radio mt-2 mr-3">
           <label class="label" :for="'radio-' + option.code">{{ $t('payment.methods.' + option.code) }}</label>
         </section>
         <div v-if="option.options && option.code == paymentMethod">
@@ -25,7 +25,7 @@
     </div>
     <!--| Split up Payment & Shipping by Component Level |-->
     <div class="col-span-6 md:col-span-3 space-y-3">
-      <h2 class="font-bold text-lg">{{$t('checkout.shipping-method')}} {{$t('general.select')}}</h2>
+      <h2 class="font-bold text-lg">{{ $t('checkout.shipping-method') }} {{ $t('general.select') }}</h2>
       <section v-for="(option) in optionsShipping" :key="option" class="bg-base-200 rounded-lg py-6 px-3 w-full">
         <div class="flex justify-between items-center">
           <section class="input-group flex">
@@ -39,7 +39,7 @@
         </div>
       </section>
       <section v-if="shippingMethod == 'click-and-collect'">
-        <label for="" class="label font-bold text-lg">{{$t('general.stores')}}</label>
+        <label for="" class="label font-bold text-lg">{{ $t('general.stores') }}</label>
         <select v-model="selectedStore" class="select w-full bg-base-200">
           <option v-for="store in stores" :value="store.id">
             {{ store.street }} {{ store.number }}, {{ store.zip }} {{ store.city }}
@@ -48,8 +48,8 @@
       </section>
     </div>
     <div class="col-span-6 flex justify-between py-3">
-      <button class="btn btn-primary" @click="checkoutStep = 'addresses'">{{$t('back.to.addresses')}}</button>
-      <button class="btn btn-primary" @click="checkoutStep = 'confirm'"><span>{{$t('continue.to.confirm')}}</span>
+      <button class="btn btn-primary" @click="checkoutStep = 'addresses'">{{ $t('back.to.addresses') }}</button>
+      <button class="btn btn-primary" @click="checkoutStep = 'confirm'"><span>{{ $t('continue.to.confirm') }}</span>
         <Fa :icon="faChevronCircleRight" />
       </button>
     </div>

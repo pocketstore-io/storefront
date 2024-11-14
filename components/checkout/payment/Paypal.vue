@@ -2,7 +2,7 @@
   <div>
     <!--| Move PayPal into component |-->
     <div id="paypal-button-container" class="mt-3" />
-    <button v-if="locked" @click="resetLock()" class="btn btn-secondary w-full mt-3">
+    <button v-if="locked" class="btn btn-secondary w-full mt-3" @click="resetLock()">
       <Fa :icon="faTrash" /> <span>Reset Stripe Payment</span>
       <Fa :icon="faTrash" />
     </button>
