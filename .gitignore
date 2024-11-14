@@ -6,6 +6,9 @@
 # i18n
 i18n/locales/*
 
+# Ignore Configuration
+configuration/*
+
 # Composer dependencies
 composer.lock
 vendor
