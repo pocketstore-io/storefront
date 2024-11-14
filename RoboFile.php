@@ -25,6 +25,7 @@ class RoboFile extends \Robo\Tasks
             if (!empty($response['items']) && count($response['items']) > 0) {
                 foreach ($response['items'] as $item) {
                     $explode = explode('.', $item['key']);
+
                     if (count($explode) === 2) {                       
                         if(!empty($file[$language][$explode[0]][$explode[1]])){
                             $file[$language][$explode[0]][$explode[1]] =  [];
@@ -33,11 +34,14 @@ class RoboFile extends \Robo\Tasks
                             $file[$language][$explode[0]][$explode[1]] = [$explode[1] => $item['translated']];
                         }
                     } else if (count($explode) === 3) {
-                        if(!empty($file[$language][$explode[0]][$explode[1]][$explode[1]])){
-                            $file[$language][$explode[0]][$explode[1]][$explode[1]][$explode[2]] =   $item['translated'];
+                        if(empty($file[$language][$explode[0]][$explode[1]][$explode[2]])){
+                            $file[$language][$explode[0]][$explode[1]][$explode[2]] = [$explode[2] => $item['translated']];
                         }
                         else {
-                            $file[$language][$explode[0]][$explode[1]][$explode[1]] = [$explode[2] => $item['translated']];
+                            $file[$language][$explode[0]][$explode[1]][$explode[2]] = array_merge(
+                                [$explode[2] => $item['translated']], 
+                                $file[$language][$explode[0]][$explode[1]][$explode[2]]
+                            );
                         }
                     }
                 }
