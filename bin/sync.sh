@@ -7,7 +7,6 @@ OUTPUT_FILE="configuration/settings.json"
 # Fetch data from PocketBase API
 response=$(curl -s "$API_URL")
 
-
 mkdir -p configuration
 
 # Check if the API call was successful
