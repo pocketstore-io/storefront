@@ -4,7 +4,7 @@ module.exports = {
       name: 'NuxtPocketStorefront',
       port: '4000',
       exec_mode: 'cluster',
-      instances: 'max',
+      instances: '4',
       script: '.output/server/index.mjs',
     }
   ]
