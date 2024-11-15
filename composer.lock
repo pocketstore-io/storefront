@@ -1,0 +1,51 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f2946cbc7faf0bd3f3fc4236c0ca2d43",
+    "packages": [
+        {
+            "name": "jonathan-martz/pocketbase-php-sdk",
+            "version": "v0.1.7.7",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.jonathan-martz.de/softwareentwicklung/pocketbase-php-sdk.git",
+                "reference": "2ab938c2f4c5f1b1849e5519bc42c63fab1384f8"
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": "^8.1|^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/Client.php",
+                    "src/Settings.php",
+                    "src/Collection.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Martz",
+                    "role": "Maintainer"
+                }
+            ],
+            "time": "2024-11-14T15:54:18+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}
