@@ -1,19 +1,21 @@
 <template>
   <div v-if="product" class="card shadow-xl">
     <figure>
-      <a :href="'/' + locale+'/product/' + product.slug + '.html'">
+      <a :href="'/' + locale + '/product/' + product.slug + '.html'">
         <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes">
       </a>
     </figure>
     <div class="card-body">
       <h2 class="card-title">{{ product.name }}</h2>
-      <p class="text-ellipsis line-clamp-2">{{product.description}}</p>
+      <p class="text-ellipsis line-clamp-2">{{ product.description }}</p>
       <div class="card-actions join gap-0 justify-end">
-        <a v-if="product.price" :href="'/' + locale+'/product/' + product.slug + '.html'" class="btn btn-primary join-item">{{
-          product.price.toFixed(2) }} €</a>
-        <button
-class="btn btn-secondary join-item"
-          @click="addToCart(product.id)">{{ $t('checkout.add-to-cart') }}</button>
+        <a v-if="product.price" :href="'/' + locale + '/product/' + product.slug + '.html'"
+          class="btn btn-primary join-item">
+          {{ product.price.toFixed(2) }} €
+        </a>
+        <button class="btn btn-secondary join-item" @click="addToCart(product.id)">
+          {{ $t('checkout.add-to-cart') }}
+        </button>
       </div>
     </div>
   </div>
@@ -74,12 +76,10 @@ const addToCart = async function (id, qty = 1) {
 }
 
 const load = async function () {
-  product.value = (await pb.collection('products').getOne(identifier));
+  product.value = (await pb.collection('products').getOne(identifier ?? ''));
 }
 
 onMounted(() => {
   load();
 });
 </script>
-
-<style></style>
