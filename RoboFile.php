@@ -33,7 +33,7 @@ class RoboFile extends \Robo\Tasks
                         else {
                             $file[$language][$explode[0]][$explode[1]] = [$explode[1] => $item['translated']];
                         }
-                    } else if (count($explode) === 3) {
+                    } else if (count($explode) === 3) {                        
                         if(empty($file[$language][$explode[0]][$explode[1]][$explode[2]])){
                             $file[$language][$explode[0]][$explode[1]][$explode[2]] = [$explode[2] => $item['translated']];
                         }
