@@ -10,7 +10,6 @@ i18n/locales/*
 configuration/*
 
 # Composer dependencies
-composer.lock
 vendor
 
 # Node dependencies
