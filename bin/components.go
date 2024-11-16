@@ -23,9 +23,10 @@ func checkFileLines(filePath string) (bool, int, error) {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		lineCount++
-		if lineCount > maxLines {
-			return true, lineCount, nil
-		}
+	}
+
+	if lineCount > maxLines {
+		return true, lineCount, nil
 	}
 
 	if err := scanner.Err(); err != nil {
