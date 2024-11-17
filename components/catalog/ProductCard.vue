@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product" class="card shadow-xl">
+  <div v-if="product" class="card shadow-xl bg-white">
     <figure>
       <a :href="'/' + locale + '/product/' + product.slug + '.html'">
         <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes">
