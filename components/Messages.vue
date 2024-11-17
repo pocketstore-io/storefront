@@ -1,4 +1,5 @@
 <template>
+  <Disclaimer />
   <section class="messages space-y-3 mb-3">
     <section v-for="message in messages">
       <section v-if="time < message.timer" class="alert alert-success">

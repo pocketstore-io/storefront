@@ -1,5 +1,5 @@
 /* eslint-disable */
-import PocketBase from 'pocketbase'
+// import PocketBase from 'pocketbase'
 export default defineNuxtPlugin((nuxtApp) => {
     // nuxtApp.$i18n.setMissingHandler(async (locale, message) => {
     //     const pb = new PocketBase('https://admin.pocketstore.io');
