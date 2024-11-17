@@ -42,7 +42,7 @@ storeBreadcrumb.clear();
                     </div>
                 </div>
             </div>
-            <div v-for="product in products" class="col-span-6 md:col-span-2 py-3">
+            <div v-for="product in products" :key="product.id" class="col-span-6 md:col-span-2 py-3">
                 <CatalogProductCard :identifier="product.id" />
             </div>
         </div>
