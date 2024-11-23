@@ -5,5 +5,5 @@ export default createConfigForNuxt({}).overrideRules({
   'vue/no-multiple-template-root': 'off',
   'vue/require-v-for-key': 'off',
   'vue/require-default-prop': 'off',
-  'vue/first-attribute-linebreak': 'off',
+  'vue/first-attribute-linebreak': 'off'
 });

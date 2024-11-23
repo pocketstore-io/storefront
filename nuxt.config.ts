@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@fortawesome/fontawesome-svg-core/styles.css'],
-  modules: ['@pinia/nuxt', '@nuxtjs/i18n'],
+  modules: ['@pinia/nuxt', '@nuxtjs/i18n','nuxt-vue3-google-signin'],
+  googleSignIn: {
+    clientId: '897877024261-d84fc3v63gqvcujvb1b8alqhv40i14en.apps.googleusercontent.com',
+  },
   pinia: {
     storesDirs: ['./stores/**'],
   },

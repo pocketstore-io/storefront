@@ -4,7 +4,7 @@
             <Header />
             <div class="wave" />
         </header>
-        <main class="mx-auto max-w-5xl min-h-screen px-3 md:px-0">
+        <main class="mx-auto max-w-6xl min-h-screen px-3 md:px-0">
             <Messages />
             <Breadcrumb />
             <CookieBanner />
