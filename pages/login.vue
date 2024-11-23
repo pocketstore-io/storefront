@@ -1,10 +1,10 @@
 <template>
   <div class="grid grid-cols-6 gap-3">
-    <div class="col-span-6">
-     <LoginHero />
-    </div>
     <div class="col-span-6 md:col-span-3">
       <FormLogin />
+    </div>
+    <div class="col-span-6">
+     <LoginHero />
     </div>
   </div>
 </template>
