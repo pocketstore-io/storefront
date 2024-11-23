@@ -120,7 +120,7 @@ const loginViaGoogle = async function () {
   console.log(authData);
 }
 const loginViaGithub = async function () {
-  const authData = await pb.collection('customer').authWithOAuth2({ provider: 'github', redirect: 'https://demo.pocketstore.io/de/login' });
+  const authData = await pb.collection('customer').authWithOAuth2({ provider: 'github', redirectUrl: 'https://demo.pocketstore.io/de/login' });
   console.log(authData);
 }
 </script>
