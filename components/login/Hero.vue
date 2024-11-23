@@ -78,19 +78,19 @@
             <section class="grid grid-cols-6 gap-3">
               <div class="form-control col-span-6 md:col-span-3">
                 <label for="" class="label text-sm font-bold">Hallo Welt</label>
-                <input type="text" class="input" placeholder="Name" >
+                <input type="text" class="input" placeholder="Name">
               </div>
               <div class="form-control col-span-6 md:col-span-3">
                 <label for="" class="label text-sm font-bold">Hallo Welt</label>
-                <input type="text" class="input" placeholder="Name" >
+                <input type="text" class="input" placeholder="Name">
               </div>
               <div class="form-control col-span-6">
                 <label for="" class="label text-sm font-bold">Hallo Welt</label>
-                <input type="text" class="input" placeholder="Name" >
+                <input type="text" class="input" placeholder="Name">
               </div>
               <div class="form-control col-span-6">
                 <label for="" class="label text-sm font-bold">Hallo Welt</label>
-                <input type="text" class="input" placeholder="Name" >
+                <input type="text" class="input" placeholder="Name">
               </div>
               <section class="actions flex justify-between">
                 <button class="btn btn-primary">Hallo</button>
@@ -120,7 +120,7 @@ const loginViaGoogle = async function () {
   console.log(authData);
 }
 const loginViaGithub = async function () {
-  const authData = await pb.collection('customer').authWithOAuth2({ provider: 'github' });
+  const authData = await pb.collection('customer').authWithOAuth2({ provider: 'github', redirect: 'https://demo.pocketstore.io/de/login' });
   console.log(authData);
 }
 </script>
