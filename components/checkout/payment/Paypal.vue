@@ -3,7 +3,7 @@
     <!--| Move PayPal into component |-->
     <div id="paypal-button-container" class="mt-3" />
     <button v-if="locked" class="btn btn-secondary w-full mt-3" @click="resetLock()">
-      <Fa :icon="faTrash" /> <span>Reset Stripe Payment</span>
+      <Fa :icon="faTrash" /> <span>Reset PayPal Payment</span>
       <Fa :icon="faTrash" />
     </button>
   </div>
@@ -13,6 +13,7 @@
 import { useLocalStorage } from '@vueuse/core';
 import { loadScript } from "@paypal/paypal-js";
 import { cartToPurchaseUnits } from '~/util/paypal';
+import findSettingByKey from '~/util/settings';
 
 const { locked } = defineProps({
   locked: {
@@ -27,12 +28,14 @@ const { locked } = defineProps({
 const paymentMethod = useLocalStorage('paymentMethod', 'vorkasse', {});
 const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
 
-const resetLock = function(){
+const resetLock = function () {
 
 }
 
+
+
 const initPaypal = () => {
-  loadScript({ "client-id": 'AUtZarD95T0LXYT1Dn51mBIBswWY3QDb-S380C-_xgfhqqJ6IEJHZh-wuRnRzNy184Lj5fpbXokZBiOk', currency: 'EUR' })
+  loadScript({ "client-id": findSettingByKey('paypal')['client-id'], currency: findSettingByKey('paypal')['currency'] })
     .then((paypal) => {
       paypal.Buttons({
         createOrder: function (data, actions) {

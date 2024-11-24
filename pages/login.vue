@@ -4,7 +4,7 @@
       <FormLogin />
     </div>
     <div class="col-span-6">
-     <LoginHero />
+      <LoginHero />
     </div>
   </div>
 </template>

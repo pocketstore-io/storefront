@@ -60,10 +60,9 @@
 </template>
 
 <script lang="ts" setup>
-import propertyManager from '~/util/settings'
-
-const currency = ref(propertyManager.getSettingsValue('currency'));
-const lang = ref(propertyManager.getSettingsValue('language'));
+import findSettingByKey from '~/util/settings';
+const currency = ref(findSettingByKey('currency'));
+const lang = ref(findSettingByKey('lang'));
 const items = ref([]);
 const query = ref('');
 </script>

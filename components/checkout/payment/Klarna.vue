@@ -49,7 +49,7 @@ const resetLock = function () {
 
 const klarnaAsyncCallback = function () {
   window.Klarna.Payments.Buttons.init({
-    client_id: "klarna_test_client_cVMhVCU_b0RwVG4pcml3ay16SCUxcnJqeVVJKnkjbmQsY2YzZWM4NDEtOTNlOS00MDc5LWI2NDctNzE0ZmZjZTM5M2Q2LDEsQ2F5OUJIMndTOXd5b3k4dzFGdTlkbVk1YlNkcUdRVGFhb1hoTnpsT0tNYz0",
+    client_id: findSettingByKey('klarna')['client-id'],
   }).load(
     {
       container: "#klarna-container",

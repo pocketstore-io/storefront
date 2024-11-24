@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import propertyManager from '~/util/settings'
-
-const currency = ref(propertyManager.getSettingsValue('currency'));
+import findSettingByKey from '~/util/settings';
+const currency = ref(findSettingByKey('currency'));
 </script>

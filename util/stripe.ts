@@ -1,9 +1,10 @@
 // src/composables/useStripe.js
 import { ref } from 'vue';
 import { loadStripe } from '@stripe/stripe-js';
+import findSettingByKey from './settings';
 
 // Replace with your Stripe publishable key
-const stripePromise = loadStripe('pk_test_51QJlDLR5d3xw1mbRyaq24na2qlIiPpPjYfnq9m6TL2PSmhjvt2DFh0DHK6aUGaw5M4Mp81wlCOhpqW2jcvZfi3YQ000eWIgGiJ');
+const stripePromise = loadStripe(findSettingByKey('stripe')['client-id']);
 
 export function useStripe() {
   const error = ref(null);
