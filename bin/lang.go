@@ -19,7 +19,7 @@ type Record struct {
 
 // Function to fetch data from the PocketBase API
 func fetchPocketBaseData(baseURL, collectionName, authToken string) ([]Record, error) {
-	url := fmt.Sprintf("%s/api/collections/%s/records", baseURL, collectionName)
+	url := fmt.Sprintf("%s/api/collections/%s/records?perPage=1000", baseURL, collectionName)
 
 	// Create the HTTP request
 	req, err := http.NewRequest("GET", url, nil)
@@ -71,9 +71,29 @@ func buildNestedJSON(records []Record) (map[string]interface{}, error) {
 
 		for i, key := range keys {
 			if i == len(keys)-1 {
+				// Final key: check for conflicts
+				if existing, exists := current[key]; exists {
+					// Conflict: log a warning and skip
+					if _, ok := existing.(map[string]interface{}); ok {
+						return nil, fmt.Errorf(
+							"conflict: key '%s' is a map but tried to assign a string",
+							record.Key,
+						)
+					}
+				}
 				current[key] = record.Translation
 			} else {
-				if _, exists := current[key]; !exists {
+				// Intermediate key: ensure it's a map
+				if existing, exists := current[key]; exists {
+					if _, ok := existing.(map[string]interface{}); !ok {
+						// Conflict: log a warning and overwrite
+						return nil, fmt.Errorf(
+							"conflict: key '%s' is a string but tried to assign a map",
+							strings.Join(keys[:i+1], "."),
+						)
+					}
+				} else {
+					// Key doesn't exist, create a new map
 					current[key] = make(map[string]interface{})
 				}
 				current = current[key].(map[string]interface{})
