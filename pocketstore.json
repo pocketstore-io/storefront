@@ -1,5 +1,5 @@
 {
-    "domain": "https://admin.pocketstore.io",
+    "domain": "admin.pocketstore.io",
     "authToken": "your_admin_auth_token",
     "settings": {
         "theme": "default",
