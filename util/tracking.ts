@@ -1,7 +1,8 @@
 import PocketBase from 'pocketbase';
+import config from '../pocketstore.json';
 
 // TODO get pocketbase url from Nuxt Config ?
-const pb = new PocketBase('https://admin.pocketstore.io/');
+const pb = new PocketBase('https://'+config.domain);
 
 export default {
     async trackPage() {
