@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loaded" class="breadcrumbs text-sm px-3 py-3">
+  <div v-if="loaded" class="breadcrumbs text-sm px-3 py-3 bg-white text-black">
     <ul>
       <li>
         <a href="/de" class="">{{ $t('breadcrumb.home') }}</a>
