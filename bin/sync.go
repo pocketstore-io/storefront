@@ -26,7 +26,7 @@ func main() {
 	}
 
 	// API URL for the "settings" collection
-	apiURL := fmt.Sprintf("%s/api/collections/settings/records", config.Domain)
+	apiURL := fmt.Sprintf("%s/api/collections/settings/records", "https://"+config.Domain)
 
 	// First, delete all existing settings
 	err = deleteAllSettings(apiURL, config.AuthToken)
