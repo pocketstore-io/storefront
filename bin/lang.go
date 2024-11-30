@@ -10,29 +10,51 @@ import (
 	"strings"
 )
 
+// Config represents the structure of the JSON config file
+type Config struct {
+	Domain string `json:"domain"`
+}
+
 // Record represents the PocketBase record structure
 type Record struct {
 	Key         string `json:"key"`
 	Translation string `json:"translated"`
-	Lang        string `json:"lang"` // Assumes records include a language field
+	Lang        string `json:"lang"`
+}
+
+// Function to fetch the domain from pocketstore.json
+func getDomainFromConfig(configFile string) (string, error) {
+	file, err := os.Open(configFile)
+	if err != nil {
+		return "", fmt.Errorf("error opening config file: %w", err)
+	}
+	defer file.Close()
+
+	var config Config
+	if err := json.NewDecoder(file).Decode(&config); err != nil {
+		return "", fmt.Errorf("error decoding config file: %w", err)
+	}
+
+	if config.Domain == "" {
+		return "", fmt.Errorf("domain not found in config file")
+	}
+
+	return config.Domain, nil
 }
 
 // Function to fetch data from the PocketBase API
 func fetchPocketBaseData(baseURL, collectionName, authToken string) ([]Record, error) {
 	url := fmt.Sprintf("%s/api/collections/%s/records?perPage=1000", baseURL, collectionName)
 
-	// Create the HTTP request
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	// Add authorization if token is provided
 	if authToken != "" {
 		req.Header.Add("Authorization", "Bearer "+authToken)
 	}
 
-	// Perform the request
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
@@ -40,7 +62,6 @@ func fetchPocketBaseData(baseURL, collectionName, authToken string) ([]Record, e
 	}
 	defer resp.Body.Close()
 
-	// Read and parse the response
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
@@ -50,7 +71,6 @@ func fetchPocketBaseData(baseURL, collectionName, authToken string) ([]Record, e
 		return nil, fmt.Errorf("failed to fetch data: %s", string(body))
 	}
 
-	// Unmarshal JSON into the records slice
 	var result struct {
 		Items []Record `json:"items"`
 	}
@@ -61,7 +81,7 @@ func fetchPocketBaseData(baseURL, collectionName, authToken string) ([]Record, e
 	return result.Items, nil
 }
 
-// Function to convert records to a nested JSON object
+// Function to build a nested JSON object
 func buildNestedJSON(records []Record) (map[string]interface{}, error) {
 	result := make(map[string]interface{})
 
@@ -71,29 +91,9 @@ func buildNestedJSON(records []Record) (map[string]interface{}, error) {
 
 		for i, key := range keys {
 			if i == len(keys)-1 {
-				// Final key: check for conflicts
-				if existing, exists := current[key]; exists {
-					// Conflict: log a warning and skip
-					if _, ok := existing.(map[string]interface{}); ok {
-						return nil, fmt.Errorf(
-							"conflict: key '%s' is a map but tried to assign a string",
-							record.Key,
-						)
-					}
-				}
 				current[key] = record.Translation
 			} else {
-				// Intermediate key: ensure it's a map
-				if existing, exists := current[key]; exists {
-					if _, ok := existing.(map[string]interface{}); !ok {
-						// Conflict: log a warning and overwrite
-						return nil, fmt.Errorf(
-							"conflict: key '%s' is a string but tried to assign a map",
-							strings.Join(keys[:i+1], "."),
-						)
-					}
-				} else {
-					// Key doesn't exist, create a new map
+				if _, exists := current[key]; !exists {
 					current[key] = make(map[string]interface{})
 				}
 				current = current[key].(map[string]interface{})
@@ -107,7 +107,6 @@ func buildNestedJSON(records []Record) (map[string]interface{}, error) {
 // Function to save translations by language
 func saveTranslationsByLanguage(records []Record, langs []string, outputDir string) error {
 	for _, lang := range langs {
-		// Filter records by the current language
 		var filteredRecords []Record
 		for _, record := range records {
 			if record.Lang == lang {
@@ -115,18 +114,15 @@ func saveTranslationsByLanguage(records []Record, langs []string, outputDir stri
 			}
 		}
 
-		// Build nested JSON for this language
 		nestedJSON, err := buildNestedJSON(filteredRecords)
 		if err != nil {
 			return fmt.Errorf("error building nested JSON for language %s: %w", lang, err)
 		}
 
-		// Create output directory if it doesn't exist
 		if err := os.MkdirAll(outputDir, 0755); err != nil {
 			return fmt.Errorf("error creating output directory: %w", err)
 		}
 
-		// Create the file
 		filePath := filepath.Join(outputDir, lang+".json")
 		file, err := os.Create(filePath)
 		if err != nil {
@@ -134,7 +130,6 @@ func saveTranslationsByLanguage(records []Record, langs []string, outputDir stri
 		}
 		defer file.Close()
 
-		// Use a custom encoder to write JSON without escaping HTML characters
 		encoder := json.NewEncoder(file)
 		encoder.SetIndent("", "  ")
 		encoder.SetEscapeHTML(false)
@@ -150,28 +145,37 @@ func saveTranslationsByLanguage(records []Record, langs []string, outputDir stri
 }
 
 func main() {
-	// PocketBase instance details
-	baseURL := "https://admin.pocketstore.io"
-	collectionName := "translations"
-	authToken := "" // Replace with your actual PocketBase API token
-
-	// List of language codes
-	langs := []string{"en", "de"} // Add or modify the language codes as needed
-
-	// Output directory
-	outputDir := "i18n/locales"
-
-	// Fetch data from PocketBase
-	records, err := fetchPocketBaseData(baseURL, collectionName, authToken)
+	// Load domain from the pocketstore.json configuration
+	configFilePath := "pocketstore.json"
+	domain, err := getDomainFromConfig(configFilePath)
 	if err != nil {
-		fmt.Println("Error fetching data:", err)
+		fmt.Printf("Error reading domain from config file: %v\n", err)
 		return
 	}
 
-	// Save translations by language
+	fmt.Printf("Using domain: %s\n", domain)
+
+	// PocketBase collection details
+	collectionName := "translations"
+	authToken := "" // Replace with your API token if necessary
+
+	// Language codes
+	langs := []string{"en", "de"}
+
+	// Output directory for translations
+	outputDir := "i18n/locales"
+
+	// Fetch translations from PocketBase
+	records, err := fetchPocketBaseData(domain, collectionName, authToken)
+	if err != nil {
+		fmt.Printf("Error fetching data: %v\n", err)
+		return
+	}
+
+	// Save translations
 	err = saveTranslationsByLanguage(records, langs, outputDir)
 	if err != nil {
-		fmt.Println("Error saving translations:", err)
+		fmt.Printf("Error saving translations: %v\n", err)
 		return
 	}
 }
