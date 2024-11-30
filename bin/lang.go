@@ -44,7 +44,7 @@ func getDomainFromConfig(configFile string) (string, error) {
 
 // Function to fetch data from the PocketBase API
 func fetchPocketBaseData(baseURL, collectionName, authToken string) ([]Record, error) {
-	url := fmt.Sprintf("%s/api/collections/%s/records?perPage=1000", baseURL, collectionName)
+	url := fmt.Sprintf("%s/api/collections/%s/records?perPage=1000", "https://"+baseURL, collectionName)
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
