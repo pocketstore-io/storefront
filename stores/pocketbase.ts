@@ -4,7 +4,7 @@ import config from '../pocketstore.json';
 export const usePocketbaseStore = defineStore({
   id: 'pocketbaseStore',
   state: () => ({
-    url: config.domain
+    url: 'https://'+config.domain
   }),
   actions: {}
 })
