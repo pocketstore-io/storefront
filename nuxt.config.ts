@@ -29,7 +29,14 @@ export default defineNuxtConfig({
   nitro: {
     routeRules: {
       // Only apply .html suffix to routes starting with "product/"
-      '/product/**': { static: true, redirect: (to) => `${to}.html`}
+      '/product/**': { static: true, redirect: (to) => `${to}.html` }
+    }
+  },
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
     }
   },
   compatibilityDate: '2024-10-19',
