@@ -24,5 +24,20 @@
         "cookiefirst": {
             "id": "36ed47d8-6292-415a-bfce-f218a0e0d183"
         }
+    },
+    "daisyui": {
+        "themes": [
+            {
+                "light": {
+                    "primary": "teal",
+                    "primary-content": "white",
+                    "neutral": "black",
+                    "neutral-content": "white",
+                    "secondary": "white",
+                    "base-300": "#CCC",
+                    "base-200": "#DDD"
+                }
+            }
+        ]
     }
 }
