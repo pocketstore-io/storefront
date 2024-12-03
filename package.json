@@ -18,7 +18,7 @@
     "@nuxtjs/i18n": "^9.1.0",
     "@playwright/test": "^1.49.0",
     "happy-dom": "^15.11.7",
-    "nuxt": "3.13.2",
+    "nuxt": "^3.14.1592",
     "playwright-core": "^1.49.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
@@ -34,7 +34,7 @@
     "@vue/test-utils": "^2.4.6",
     "@vueuse/core": "^11.3.0",
     "autoprefixer": "^10.4.20",
-    "caniuse-lite": "^1.0.30001685",
+    "caniuse-lite": "^1.0.30001686",
     "daisyui": "^4.12.14",
     "eslint": "^9.16.0",
     "pinia": "^2.2.8",
