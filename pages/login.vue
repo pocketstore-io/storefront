@@ -21,7 +21,7 @@ const router = useRouter();
 
 onMounted(() => {
   if (pb.authStore.isValid) {
-    // router.push('/')
+    router.push('/')
   }
 });
 </script>

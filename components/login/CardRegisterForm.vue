@@ -59,7 +59,6 @@
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const store = usePocketbaseStore();
 const { url } = storeToRefs(store);
