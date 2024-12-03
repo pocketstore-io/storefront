@@ -1,16 +1,8 @@
+import config from './pocketstore.json';
+
 module.exports = {
     plugins: [require('daisyui')],
-    daisyui: {
-        themes: [
-            {
-                light: {
-                    ...require("daisyui/src/theming/themes")["light"],
-                    primary: "#1f6fed",
-                    secondary: "teal",
-                },
-            }
-        ],
-    },
+    daisyui: config.daisyui,
     content: [
         "./components/**/*.{js,vue,ts}",
         "./layouts/**/*.vue",
