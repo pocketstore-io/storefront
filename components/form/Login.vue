@@ -39,7 +39,7 @@ const form = ref({
 });
 
 const send = async function () {
-  await pb.collection('customer').authWithPassword(form.value.login.email, form.value.login.password)
+  await pb.collection('customers').authWithPassword(form.value.login.email, form.value.login.password)
   if (pb.authStore.isValid) {
     router.push('/customer/profile');
   }
