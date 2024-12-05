@@ -75,7 +75,7 @@ const pb = new PocketBase(url.value);
 const email = ref('');
 const password = ref('');
 const login = async () => {
-  await pb.collection('customer').authWithPassword(email.value, password.value);
+  await pb.collection('customers').authWithPassword(email.value, password.value);
 
   if (pb.authStore.isValid) {
     checkoutStep.value = 'addresses';

@@ -65,11 +65,11 @@ const { url } = storeToRefs(store);
 const pb = new PocketBase(url.value);
 
 const loginViaGoogle = async function () {
-  const authData = await pb.collection('customer').authWithOAuth2({ provider: 'google' });
+  const authData = await pb.collection('customers').authWithOAuth2({ provider: 'google' });
   console.log(authData);
 }
 const loginViaGithub = async function () {
-  const authData = await pb.collection('customer').authWithOAuth2({ provider: 'github' });
+  const authData = await pb.collection('customers').authWithOAuth2({ provider: 'github' });
   console.log(authData);
 }
 </script>
