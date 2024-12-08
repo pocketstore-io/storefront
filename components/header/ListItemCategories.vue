@@ -1,6 +1,6 @@
 <template>
   <li class="mt-1">
-    <a href="/category/welcome">
+    <a href="/category/bowling">
       <Fa :icon="faLayerGroup" class="text-white mx-2 mt-1" />
     </a>
   </li>

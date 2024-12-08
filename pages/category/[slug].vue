@@ -19,7 +19,7 @@ onMounted(async () => {
   storeBreadcrumb.clear();
   storeBreadcrumb.add({
     label: 'Category View',
-    link: 'category/welcome',
+    link: 'category/bowling',
     id: 'category-view'
   });
 });
