@@ -11,7 +11,7 @@ const category = ref({});
 const products = ref([]);
 
 onMounted(async () => {
-  category.value = await pb.collection('categories').getFirstListItem('name="Welcome"', {
+  category.value = await pb.collection('categories').getFirstListItem('slug="bowling"', {
     expand: 'products',
     sort: '-products.created'
   });
@@ -19,7 +19,7 @@ onMounted(async () => {
   storeBreadcrumb.clear();
   storeBreadcrumb.add({
     label: 'Category View',
-    link: 'category/welcome',
+    link: 'category/bowling',
     id: 'category-view'
   });
 });

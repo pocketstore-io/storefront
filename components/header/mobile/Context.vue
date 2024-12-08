@@ -31,19 +31,19 @@
           </select>
         </div>
         <div class="col-span-3">
-          <a href="/category/welcome" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
+          <a href="/category/bowling" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
         </div>
         <div class="col-span-3">
           <a href="/checkout/" class="btn btn-primary btn-block">{{ $t('checkout.checkout') }}</a>
         </div>
         <div class="col-span-3">
-          <a href="/category/welcome" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
+          <a href="/category/bowling" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
         </div>
         <div class="col-span-3">
           <a href="/checkout/" class="btn btn-primary btn-block">{{ $t('checkout.checkout') }}</a>
         </div>
         <div class="col-span-3">
-          <a href="/category/welcome" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
+          <a href="/category/bowling" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
         </div>
         <div class="col-span-3">
           <a href="/checkout/" class="btn btn-primary btn-block">{{ $t('checkout.checkout') }}</a>
