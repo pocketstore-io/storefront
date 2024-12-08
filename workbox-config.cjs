@@ -1,6 +1,5 @@
 module.exports = {
 	globDirectory: '.output',
-	globIgnores: [],
 	swDest: 'public/sw.js',
 	runtimeCaching: [
 		{
