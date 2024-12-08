@@ -3,6 +3,10 @@
 .nuxt
 .cache
 
+public/workbox-*.js
+public/workbox-*.js.map
+public/sw.js*
+
 # i18n
 i18n/locales/*
 
