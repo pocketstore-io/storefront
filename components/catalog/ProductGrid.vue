@@ -19,7 +19,7 @@ const category = ref({});
 const products = ref([]);
 
 onMounted(async () => {
-  category.value = await pb.collection('categories').getFirstListItem('name="' + categoryName + '"', {
+  category.value = await pb.collection('categories').getFirstListItem('slug="' + categoryName + '"', {
     expand: 'products',
     sort: 'products.created'
   });
