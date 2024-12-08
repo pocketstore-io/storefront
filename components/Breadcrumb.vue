@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loaded" class="breadcrumbs text-sm px-3 py-3 bg-white text-black mb-3 rounded-lg">
+  <div v-if="loaded" class="breadcrumbs text-sm px-3 py-3 bg-white text-black mb-3 rounded-lg mx-3 xl:mx-auto">
     <ul>
       <li>
         <Fa :icon="faHouse" class="mr-3"/>
