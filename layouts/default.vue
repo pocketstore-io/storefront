@@ -8,6 +8,8 @@
             <Messages />
             <Breadcrumb />
             <CookieBanner />
+            <LiveChat />
+            <BackToTop />
             <slot />
         </main>
         <footer class="">
@@ -22,6 +24,8 @@ import tracking from '~/util/tracking';
 import { useBreadcrumbStore } from '~/stores/breadcrumb';
 import Footer from '~/components/Footer.vue';
 import Header from '~/components/Header.vue';
+import LiveChat from '~/components/LiveChat.vue';
+import BackToTop from '~/components/BackToTop.vue';
 
 const store = useBreadcrumbStore();
 

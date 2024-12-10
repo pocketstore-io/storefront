@@ -54,52 +54,15 @@ class="aspect-square"
           </div>
         </h3>
 
-        <section class="grid grid-cols-8 mb-6 gap-3">
-          <div class="col-span-8">
-            <label for="" class="label">Text:</label>
-            <input type="text" class="input-bordered input-primary w-full px-3 py-3">
-            <p class="text-sm mt-3 mb-3">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum, unde facilis dolorem blanditiis
-              provident, sequi repellendus consequuntur tempore, numquam totam maiores fugit! Velit necessitatibus
-              asperiores facere excepturi enim aut ex?
-            </p>
-          </div>
-          <div class="col-span-4 md:col-span-4">
-            <section class="grid grid-cols-6">
-              <div class="col-span-6 md:col-span-2">
-                <label for="" class="label text-sm font-bold mt-1">Hallo Welt</label>
-              </div>
-              <div class="col-span-6 md:col-span-4">
-                <select required class="select select-bordered w-full max-w-xs">
-                  <option disabled selected>Who shot first?</option>
-                  <option>Han Solo</option>
-                  <option>Greedo</option>
-                </select>
-              </div>
-            </section>
-          </div>
-          <div class="col-span-4 md:col-span-4">
-            <section class="grid grid-cols-6">
-              <div class="col-span-6 md:col-span-2">
-                <label for="" class="label text-sm font-bold mt-1">Hallo Welt</label>
-              </div>
-              <div class="col-span-6 md:col-span-4">
-                <select required class="select select-bordered w-full max-w-xs">
-                  <option disabled selected>Who shot first?</option>
-                  <option>Han Solo</option>
-                  <option>Greedo</option>
-                </select>
-              </div>
-            </section>
-          </div>
-        </section>
-
         <div class="form-control grid grid-cols-6 gap-3 text-right">
           <div class="col-span-6 md:col-span-2">
             <section class="grid grid-cols-8">
               <label for="" class="label col-span-8 md:col-span-3 text-sm">Anzahl</label>
               <input v-model="qty" type="number" class="input input-bordered input-primary col-span-8 md:col-span-5">
             </section>
+          </div>
+          <div class="col-span-6">
+            <ProductCustomFields :fields="item.config?.fields"/>
           </div>
           <div class="col-span-6 md:col-span-4">
             <button class="btn btn-secondary btn-block col-span-6 md:col-span-3" @click="addToCart(item.id)">

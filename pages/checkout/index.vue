@@ -8,7 +8,7 @@
         <button
 class="btn btn-block"
           :class="{ 'btn-secondary': checkoutStep == 'cart', 'btn-neutral': checkoutStep != 'cart' }">{{
-            $t('checkout.cart') }}</button>
+            $t('checkout.cart.headline') }}</button>
       </div>
       <div class="col-span-10 md:col-span-2">
         <button
