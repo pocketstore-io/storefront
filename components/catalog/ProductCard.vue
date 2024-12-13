@@ -36,6 +36,6 @@ const pb = new PocketBase(url.value);
 const product = ref({});
 
 onMounted(async () => {
-  product.value = (await pb.collection('products').getOne(identifier ?? ''));
+  product.value = (await pb.collection('products').getFirstListItem('slug="' + identifier + '"'));
 });
 </script>
