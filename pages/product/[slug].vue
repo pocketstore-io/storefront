@@ -2,26 +2,22 @@
   <section class="page">
     <section class="grid grid-cols-8 gap-3 px-3 py-3 mx-auto max-w-6xl">
       <div class="col-span-8 md:col-span-3">
-        <img
-class="aspect-square"
+        <img class="aspect-square"
           src="https://ld-wp73.template-help.com/woocommerce/prod_26798/v1/wp-content/uploads/2019/11/Storytime-Snowman-Singing-Stuffed-Animal-With-Motion-2.jpg"
           alt="">
         <section class="grid grid-cols-6 gap-3 mt-3">
           <div class="col-span-2">
-            <img
-class="aspect-square"
+            <img class="aspect-square"
               src="https://ld-wp73.template-help.com/woocommerce/prod_26798/v1/wp-content/uploads/2019/11/Storytime-Snowman-Singing-Stuffed-Animal-With-Motion-2.jpg"
               alt="">
           </div>
           <div class="col-span-2">
-            <img
-class="aspect-square"
+            <img class="aspect-square"
               src="https://ld-wp73.template-help.com/woocommerce/prod_26798/v1/wp-content/uploads/2019/11/Storytime-Snowman-Singing-Stuffed-Animal-With-Motion-2.jpg"
               alt="">
           </div>
           <div class="col-span-2">
-            <img
-class="aspect-square"
+            <img class="aspect-square"
               src="https://ld-wp73.template-help.com/woocommerce/prod_26798/v1/wp-content/uploads/2019/11/Storytime-Snowman-Singing-Stuffed-Animal-With-Motion-2.jpg"
               alt="">
           </div>
@@ -55,26 +51,26 @@ class="aspect-square"
         </h3>
 
         <div class="form-control grid grid-cols-6 gap-3 text-right">
-          <div class="col-span-6 md:col-span-2">
-            <section class="grid grid-cols-8">
-              <label for="" class="label col-span-8 md:col-span-3 text-sm">Anzahl</label>
-              <input v-model="qty" type="number" class="input input-bordered input-primary col-span-8 md:col-span-5">
-            </section>
+          <div class="col-span-6">
+            <ProductCustomFields :fields="item.config?.fields" />
           </div>
           <div class="col-span-6">
-            <ProductCustomFields :fields="item.config?.fields"/>
-          </div>
-          <div class="col-span-6 md:col-span-4">
-            <button class="btn btn-secondary btn-block col-span-6 md:col-span-3" @click="addToCart(item.id)">
-              {{ $t('checkout.add-to-cart') }}
-            </button>
+            <section class="grid grid-cols-6 gap-3">
+              <div class="col-span-6 md:col-span-1">
+                <input type="number" min="1" placeholder="123" class="input placeholder-black w-full bg-white rounded-lg text-center">
+              </div>
+              <div class="col-span-6 md:col-span-5">
+                <button class="btn btn-secondary w-full" @click="addToCart(item.id)">
+                  {{ $t('checkout.add-to-cart') }}
+                </button>
+              </div>
+            </section>
           </div>
         </div>
       </div>
       <div class="col-span-8 mt-12">
         <div role="tablist" class="tabs tabs-bordered grid grid-cols-8">
-          <input
-type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2"
+          <input type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2"
             aria-label="Tab - Beschreibung">
           <div role="tabpanel" class="tab-content p-10">
             <section>
@@ -92,12 +88,10 @@ type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2"
                     quick.</p>
                 </div>
                 <div class="grid grid-cols-2 gap-4 mt-8">
-                  <img
-class="w-full rounded-lg"
+                  <img class="w-full rounded-lg"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
                     alt="office content 1">
-                  <img
-class="mt-4 w-full lg:mt-10 rounded-lg"
+                  <img class="mt-4 w-full lg:mt-10 rounded-lg"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
                     alt="office content 2">
                 </div>
@@ -107,12 +101,10 @@ class="mt-4 w-full lg:mt-10 rounded-lg"
               <div
                 class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
                 <div class="grid grid-cols-2 gap-4 mt-8">
-                  <img
-class="w-full rounded-lg"
+                  <img class="w-full rounded-lg"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
                     alt="office content 1">
-                  <img
-class="mt-4 w-full lg:mt-10 rounded-lg"
+                  <img class="mt-4 w-full lg:mt-10 rounded-lg"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
                     alt="office content 2">
                 </div>
@@ -144,12 +136,10 @@ class="mt-4 w-full lg:mt-10 rounded-lg"
                     quick.</p>
                 </div>
                 <div class="grid grid-cols-2 gap-4 mt-8">
-                  <img
-class="w-full rounded-lg"
+                  <img class="w-full rounded-lg"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
                     alt="office content 1">
-                  <img
-class="mt-4 w-full lg:mt-10 rounded-lg"
+                  <img class="mt-4 w-full lg:mt-10 rounded-lg"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
                     alt="office content 2">
                 </div>
@@ -162,8 +152,7 @@ class="mt-4 w-full lg:mt-10 rounded-lg"
           <input type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2" aria-label="Tab Simliar">
           <div role="tabpanel" class="tab-content p-10">Tab Simliar</div>
 
-          <input
-type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2"
+          <input type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2"
             aria-label="Tab Additional Product">
           <div role="tabpanel" class="tab-content p-10">Tab Additional Product</div>
         </div>

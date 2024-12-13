@@ -1,15 +1,21 @@
 <template>
-  <dialog id="my_modal_2" class="modal" :open="open">
-    <div class="modal-box">
-      <h3 class="text-lg font-bold">{{$t('cookie.headline')}}</h3>
-      <p class="py-4">
-        {{$t('cookie.note')}}
-      </p>
-      <section class="actions">
-        <div class="join grid grid-cols-6">
-          <button class="btn btn-error join-item col-span-6 md:col-span-3" @click="open = false; cookie = false">{{$t('cookie.disable')}}</button>
-          <button class="btn btn-primary join-item col-span-6 md:col-span-3" @click="open = false; cookie = true">{{$t('cookie.accept')}}</button>
-        </div>
+  <dialog id="my_modal_3" class="modal" :open="open">
+    <div class="modal-box max-h-[80vh] min-w-[75vw]">
+      <h3 class="text-xl font-bold block text-center mb-6">
+        <span>Live Chat by JMSE</span>
+      </h3>
+      <section class="chat w-full grid grid-cols-6">
+        <ul class="w-full col-span-6">
+          <li v-for="item in items">
+            <div class="chat" :class="{ 'chat-start': item.from == 'from', 'chat-end': item.from != 'from' }">
+              <div class="chat-bubble"
+                :class="{ 'chat-bubble-primary': item.from == 'from', 'chat-bubble-neutral': item.from != 'from' }"
+                @click="beep()">
+                {{ item.message }}
+              </div>
+            </div>
+          </li>
+        </ul>
       </section>
     </div>
     <form method="dialog" class="modal-backdrop bg-black opacity-75" @click="open = !open;">
@@ -26,22 +32,55 @@
 <script lang="ts" setup>
 import { faComments, faCookieBite } from '@fortawesome/free-solid-svg-icons';
 import { useLocalStorage } from '@vueuse/core';
+import PocketBase from 'pocketbase';
+import { usePocketbaseStore } from '~/stores/pocketbase';
 
 const open = ref(false);
 const cookie = useLocalStorage('cookie', null, {});
+const store = usePocketbaseStore();
+const { url } = storeToRefs(store);
+const pb = new PocketBase(url.value);
 
+const items: Ref = ref([]);
+
+const load = async function () {
+  items.value = (await pb.collection('support_chat').getList(1, 50)).items;
+}
+
+watch(items, () => {
+  watch(
+    () => items.value.length,
+    (newLength, oldLength) => {
+      if (newLength !== oldLength && oldLength == 0) {
+        beep();
+      }
+    }
+  );
+});
 
 
 onMounted(() => {
   if (cookie.value === null) {
     open.value = true;
   }
+  load();
+  if (!items.value.length) {
+    items.value = items.value.push({ message: 'Hallo Welt' });
+  }
+  setInterval(() => {
+    load();
+  }, 10000);
 });
+
+let beep = function () {
+  var snd = new Audio('/sounds/bling.mp3');
+  snd.play();
+}
 </script>
 
 
 <style>
-.live-chat-icon:hover{
+.live-chat-icon:hover {
   cursor: pointer;
 }
 </style>

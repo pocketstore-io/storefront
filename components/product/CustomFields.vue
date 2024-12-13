@@ -1,9 +1,10 @@
 <template>
   <section class="">
-    <section class="field" v-for="item in fields">
-      <ProductCustomField :field="item" />
+    <section class="card py-3 px-3 bg-white mb-3">
+      <div class="card-body px-3 py-3 m-0 grid grid-cols-4 gap-3">
+        <ProductCustomField v-for="item in fields" :field="item" />
+      </div>
     </section>
-    Hallo 123
   </section>
 </template>
 

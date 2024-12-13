@@ -1,12 +1,24 @@
 <template>
-  <section class="field">
-    <div v-if="field.type== 'text'" class="grid grid-cols-6">
-      <label for="" class="label col-span-6 md:col-span-2 text-sm font-bold">
-        Hallo Welt
-      </label>
-      <input type="text" class="input col-span-6 md:col-span-4" placeholder="Hallo Welt">
+  <div v-if="field.type == 'text'" class="col-span-2">
+    <div class="divider divider-primary">
+      {{ $t('product.config.' + field.label.replaceAll(' ', '-')) }}
     </div>
-  </section>
+    <p class="text-sm text-left">
+      {{ field.desc }}
+    </p>
+    <input type="text" class="input input-primary bg-base-200 placeholder-black w-full mt-3" placeholder="Hallo Welt">
+  </div>
+  <div v-if="field.type == 'select'" class="col-span-2">
+    <div class="divider divider-primary">
+      {{ $t('product.config.' + field.label.replaceAll(' ', '-')) }}
+    </div>
+    <p class="text-sm text-left">
+      {{ field.desc }}
+    </p>
+    <select name="test" id="test" class="select w-full select-primary mt-3 bg-base-200">
+      <option value="test" v-for="option in field.options">{{ option }}</option>
+    </select>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -15,6 +27,4 @@ const { field } = defineProps({
 });
 </script>
 
-<style>
-
-</style>
+<style></style>

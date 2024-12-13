@@ -2,8 +2,8 @@
   <section class="bg-white">
     <div class="grid grid-cols-7 px-3 py-3 text-center mx-auto max-w-5xl">
       <div class="col-span-7 md:col-span-2">
-        <NuxtLink :to="'/impressum'" class="text-blue-400">{{ $t('footer.impressum') }}</NuxtLink>
-        & <a href="/data-privacy" class="text-blue-400">{{ $t('footer.data-privacy') }}</a>
+        <NuxtLink :to="'/de/impressum'" class="text-blue-400">{{ $t('footer.impressum') }}</NuxtLink>
+        & <a href="/de/data-privacy" class="text-blue-400">{{ $t('footer.data-privacy') }}</a>
       </div>
       <div class="col-span-7 md:col-span-2">{{ $t('footer.made-with') }}
         <a :href="'https://' + url.value" target="_blank" rel="noopener noreferrer">
