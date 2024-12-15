@@ -11,11 +11,8 @@ const category = ref({});
 const products = ref([]);
 
 onMounted(async () => {
-  category.value = await pb.collection('categories').getFirstListItem('name="Welcome"', {
-    expand: 'products',
-    sort: '-products.created'
-  });
-  products.value = category.value.expand.products;
+  category.value = await pb.collection('categories').getFirstListItem('slug="bowling"');
+  products.value = await pb.collection('products').getFirstListItem('category="'+category.value.div+'"');
   storeBreadcrumb.clear();
   storeBreadcrumb.add({
     label: 'Category View',
