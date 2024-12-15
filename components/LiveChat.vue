@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { faComments, faCookieBite } from '@fortawesome/free-solid-svg-icons';
+import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { useLocalStorage } from '@vueuse/core';
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
@@ -72,8 +72,8 @@ onMounted(() => {
   }, 10000);
 });
 
-let beep = function () {
-  var snd = new Audio('/sounds/bling.mp3');
+const beep = function () {
+  const snd = new Audio('/sounds/bling.mp3');
   snd.play();
 }
 </script>

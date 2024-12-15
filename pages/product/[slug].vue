@@ -175,7 +175,6 @@ const store = usePocketbaseStore();
 const { url } = storeToRefs(store);
 const pb = new PocketBase(url.value);
 const item = ref({});
-const qty = ref(1);
 const cart = useLocalStorage('cart', [], {});
 
 const addToCart = async function (id, qty = 1) {

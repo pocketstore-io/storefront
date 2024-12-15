@@ -15,8 +15,8 @@
     <p class="text-sm text-left">
       {{ field.desc }}
     </p>
-    <select name="test" id="test" class="select w-full select-primary mt-3 bg-base-200">
-      <option value="test" v-for="option in field.options">{{ option }}</option>
+    <select id="test" name="test" class="select w-full select-primary mt-3 bg-base-200">
+      <option v-for="option in field.options" value="test">{{ option }}</option>
     </select>
   </div>
 </template>

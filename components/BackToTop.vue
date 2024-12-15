@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import { faArrowCircleUp, faArrowUp, faComments, faCookieBite } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { useLocalStorage } from '@vueuse/core';
 
 const open = ref(false);
