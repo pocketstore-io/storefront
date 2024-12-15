@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-for="product in products"
-    :key="product.id"
-    class="col-span-6 md:col-span-2 py-3"
-  >
+  <div v-for="product in products" :key="product.id" class="col-span-6 md:col-span-2 py-3">
     <CatalogProductCard :identifier="product.slug" />
   </div>
 </template>
@@ -26,8 +22,12 @@ onMounted(async () => {
   category.value = await pb
     .collection("categories")
     .getFirstListItem('slug="' + identifier + '"');
-  products.value = await pb
+  products.value = (await pb
     .collection("products")
-    .getFirstListItem('category="' + category.value.id + '"');
+    .getList(1, 25,
+      {
+        filter: 'category="' + category.value.id + '"'
+      }
+    )).items;
 });
 </script>
