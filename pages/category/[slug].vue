@@ -12,7 +12,7 @@ const products = ref([]);
 
 onMounted(async () => {
   category.value = await pb.collection('categories').getFirstListItem('slug="bowling"');
-  products.value = await pb.collection('products').getFirstListItem('category="'+category.value.div+'"');
+  products.value = await pb.collection('products').getFirstListItem('category="'+category.value.id+'"');
   storeBreadcrumb.clear();
   storeBreadcrumb.add({
     label: 'Category View',
