@@ -1,6 +1,6 @@
 <template>
   <div v-for="product in products" :key="product.id" class="col-span-6 md:col-span-2 py-3">
-    <CatalogProductCard :identifier="product.slug" />
+    <CatalogProductCard :identifier="product.id" />
   </div>
 </template>
 
