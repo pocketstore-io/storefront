@@ -8,7 +8,7 @@
     "test": "vitest --dir unittests",
     "playwright": "playwright test",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "PORT=4000 nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint ."
   },
@@ -43,5 +43,8 @@
     "vue-router": "^4.5.0",
     "vue-stripe-js": "^1.0.3",
     "workbox-cli": "^7.3.0"
+  },
+  "overrides": {
+    "chokidar": "^3.6.0"
   }
 }

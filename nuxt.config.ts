@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   css: ['@fortawesome/fontawesome-svg-core/styles.css'],
   modules: ['@pinia/nuxt', '@nuxtjs/i18n'],
   pinia: {
