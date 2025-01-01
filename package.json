@@ -8,7 +8,7 @@
     "test": "vitest --dir unittests",
     "playwright": "playwright test",
     "generate": "nuxt generate",
-    "preview": "PORT=4000 nuxt preview",
+    "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint ."
   },
