@@ -60,9 +60,6 @@ watch(items, () => {
 
 
 onMounted(() => {
-  if (cookie.value === null) {
-    open.value = true;
-  }
   load();
   if (!items.value.length) {
     items.value = items.value.push({ message: 'Hallo Welt' });
