@@ -1,6 +1,6 @@
 <template>
     <section class="page" :class="{
-        'bg-white rounded': checkoutStep != 'confirm'
+        'bg-white rounded': bgWhite
     }">
         <section v-if="loaded && checkoutStep != 'confirm'" class="grid grid-cols-10 px-3 py-3 gap-3">
             <div class="col-span-10">
@@ -49,6 +49,10 @@ const storeBreadcrumb = useBreadcrumbStore();
 const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
 
 const loaded = ref(false);
+
+const bgWhite = computed(()=>{
+    return checkoutStep.value != 'confirm';
+})
 
 watch(checkoutStep, () => {
     storeBreadcrumb.clear();
