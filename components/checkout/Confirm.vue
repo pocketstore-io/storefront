@@ -4,7 +4,7 @@
             <div class="mx-auto bg-white shadow-md rounded-lg overflow-hidden my-24 max-w-2xl">
                 <div class="bg-indigo-600 text-white text-center py-6">
                     <h1 class="text-2xl font-bold">Deine Bestellung in allen Details!</h1>
-                    <p class="mt-2 text-lg">Order #?????</p>
+                    <p class="mt-2 text-lg">Nur noch 1 Schritt zum Versand von Uns.</p>
                 </div>
                 <div class="p-6">
                     <p class="text-gray-700 text-lg">
@@ -16,9 +16,9 @@
                     <table class="w-full mt-4 border border-gray-200">
                         <thead>
                             <tr class="bg-gray-100 text-left">
-                                <th class="p-3 border-b border-gray-200">Item</th>
-                                <th class="p-3 border-b border-gray-200">Quantity</th>
-                                <th class="p-3 border-b border-gray-200">Price</th>
+                                <th class="p-3 border-b border-gray-200">{{ $t('checkout.cart.product-and-name') }}</th>
+                                <th class="p-3 border-b border-gray-200">{{ $t('checkout.cart.qty') }}</th>
+                                <th class="p-3 border-b border-gray-200">{{ $t('checkout.cart.price') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,7 +31,7 @@
                     </table>
                     <div class="mt-6">
                         <p class="text-gray-700 text-lg flex justify-end">Total: <strong class="ml-3">{{
-                                total.toFixed(2) }} €</strong></p>
+                            total.toFixed(2) }} €</strong></p>
                     </div>
 
                     <div class="divider divider-neutral">Versand- und Rechnungsadresse</div>
@@ -44,7 +44,7 @@
                             {{ shipping.number }}<br>
                             {{ shipping.zip }}
                             {{ shipping.city }}<br>
-                            {{ shipping.country }}
+                            {{ $t('country.'+shipping.country) }}
                         </div>
                         <div v-if="!same" class="col-span-6 md:col-span-3">
                             {{ payment.name }}
@@ -53,7 +53,7 @@
                             {{ payment.number }}<br>
                             {{ payment.zip }}
                             {{ payment.city }}<br>
-                            {{ payment.country }}
+                            {{ $t('country.'+payment.country) }}
                         </div>
                         <div v-else class="col-span-6 md:col-span-3">
                             {{ shipping.name }}
@@ -62,7 +62,7 @@
                             {{ shipping.number }}<br>
                             {{ shipping.zip }}
                             {{ shipping.city }}<br>
-                            {{ shipping.country }}
+                            {{ $t('country.'+shipping.country) }}
                         </div>
                     </div>
 
@@ -70,13 +70,13 @@
 
                     <section class="grid grid-cols-6">
                         <div class="col-span-6 md:col-span-3">
-                            {{ paymentMethod }}
+                            {{ $t('payment.methods.'+paymentMethod) }}
                             <div v-for="(value, key) in paymentMethodInfo">
-                                <b>{{ $t('checkout.label.' + key) }}</b>: {{ value }} <br>
+                                <b>{{ $t('payment.label.' + key) }}</b>: {{ value }} <br>
                             </div>
                         </div>
                         <div class="col-span-6 md:col-span-3">
-                            {{ shippingMethod }}
+                            {{ $t('shipping.methods.'+shippingMethod) }}
                             <div v-for="(value, key) in shippingMethodInfo">
                                 <b>{{ $t('checkout.label.' + key) }}</b>: {{ value }} <br>
                             </div>
