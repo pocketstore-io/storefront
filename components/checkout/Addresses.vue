@@ -4,83 +4,83 @@
       <h2 class="font-bold text-lg">{{ $t('checkout.shipping-address') }}</h2>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.firstname') }}</label>
-        <input v-model="shipping.name" type="text" class="input input-bordered">
+        <input v-model="shipping.name" type="text" class="input input-bordered input-primary border-2">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.surname') }}</label>
-        <input v-model="shipping.surname" type="text" class="input input-bordered">
+        <input v-model="shipping.surname" type="text" class="input input-primary border-2 input-bordered">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.street') }}</label>
-        <input v-model="shipping.street" type="text" class="input input-bordered">
+        <input v-model="shipping.street" type="text" class="input input-primary border-2 input-bordered">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.number') }}</label>
-        <input v-model="shipping.number" type="number" class="input input-bordered">
+        <input v-model="shipping.number" type="number" class="input input-primary border-2 input-bordered">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.zip') }}</label>
-        <input v-model="shipping.zip" type="text" class="input input-bordered">
+        <input v-model="shipping.zip" type="text" class="input input-primary border-2 input-bordered">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.city') }}</label>
-        <input v-model="shipping.city" type="text" class="input input-bordered">
+        <input v-model="shipping.city" type="text" class="input input-primary border-2 input-bordered">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.country') }}</label>
-        <select v-model="shipping.country" class="select select-bordered">
+        <select v-model="shipping.country" class="select select-bordered select-primary border-2">
           <option v-for="(country, index) in countries" :value="index">{{ country }}</option>
         </select>
       </div>
     </div>
     <div v-if="!same" class="col-span-6 md:col-span-3">
       <h2 class="font-bold text-lg mb-3">Payment</h2>
-      <section class="alert alert-secondary">
-        <input v-model="same" type="checkbox" class="checkbox">
+      <section class="alert alert-neutral input-primary border-2">
+        <input v-model="same" type="checkbox" class="checkbox checkbox-primary border-2 bg-white">
         <span>{{ $t('checkout.same') }}</span>
       </section>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.firstname') }}</label>
-        <input v-model="payment.name" type="text" class="input input-bordered">
+        <input v-model="payment.name" type="text" class="input input-bordered input-primary border-2">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.surname') }}</label>
-        <input v-model="payment.surname" type="text" class="input input-bordered">
+        <input v-model="payment.surname" type="text" class="input input-bordered input-primary border-2">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.street') }}</label>
-        <input v-model="payment.street" type="text" class="input input-bordered">
+        <input v-model="payment.street" type="text" class="input input-bordered input-primary border-2">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.number') }}</label>
-        <input v-model="payment.number" type="number" class="input input-bordered">
+        <input v-model="payment.number" type="number" class="input input-bordered input-primary border-2">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.zip') }}</label>
-        <input v-model="payment.zip" type="text" class="input input-bordered">
+        <input v-model="payment.zip" type="text" class="input input-bordered input-primary border-2">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.city') }}</label>
-        <input v-model="payment.city" type="text" class="input input-bordered">
+        <input v-model="payment.city" type="text" class="input input-bordered input-primary border-2">
       </div>
       <div class="form-control">
         <label for="" class="label font-bold text-sm">{{ $t('checkout.label.country') }}</label>
-        <select v-model="payment.country" class="select select-bordered">
+        <select v-model="payment.country" class="select select-bordered select-primary border-2">
           <option v-for="(country, index) in countries" :value="index">{{ country }}</option>
         </select>
       </div>
     </div>
     <div v-else class="col-span-6 md:col-span-3">
       <h2 class="font-bold text-lg mb-3">{{ $t('checkout.payment-address') }}</h2>
-      <section class="alert alert-secondary">
+      <section class="alert border-primary border-2">
         <input v-model="same" type="checkbox" class="checkbox">
         <span>{{ $t('checkout.same') }}</span>
       </section>
     </div>
     <div class="col-span-6 flex justify-between py-3">
-      <button class="btn btn-primary" @click="checkoutStep = 'customer'">{{ $t('checkout.back.customer') }}</button>
+      <button class="btn btn-neutral" @click="checkoutStep = 'customer'">{{ $t('checkout.back.customer') }}</button>
       <button class="btn btn-primary" :disabled="(!valid.payment && !same) || !valid.shipping"
-        @click="checkoutStep = 'payment'"><span>{{ $t('checkout.back.payment') }}</span>
+        @click="checkoutStep = 'payment'"><span>{{ $t('checkout.continue.addresses') }}</span>
         <Fa :icon="faChevronCircleRight" />
       </button>
     </div>
