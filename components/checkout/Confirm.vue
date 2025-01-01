@@ -46,7 +46,7 @@
                             {{ shipping.city }}<br>
                             {{ shipping.country }}
                         </div>
-                        <div class="col-span-6 md:col-span-3" v-if="!same">
+                        <div v-if="!same" class="col-span-6 md:col-span-3">
                             {{ payment.name }}
                             {{ payment.surname }} <br>
                             {{ payment.street }}
@@ -55,7 +55,7 @@
                             {{ payment.city }}<br>
                             {{ payment.country }}
                         </div>
-                        <div class="col-span-6 md:col-span-3" v-else>
+                        <div v-else class="col-span-6 md:col-span-3">
                             {{ shipping.name }}
                             {{ shipping.surname }} <br>
                             {{ shipping.street }}
