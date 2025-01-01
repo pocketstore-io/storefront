@@ -31,9 +31,7 @@
 import { useLocalStorage } from '@vueuse/core';
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
-import { useRoute } from 'vue-router';
 
-const route = useRoute();
 const storePb = usePocketbaseStore();
 const { url } = storeToRefs(storePb);
 const pb = new PocketBase(url.value);
