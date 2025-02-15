@@ -1,0 +1,21 @@
+{
+    "name": "My Nuxt 3 App",
+    "short_name": "Nuxt3App",
+    "description": "My Awesome Nuxt 3 Application",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000",
+    "theme_color": "#1f6fed",
+    "icons": [
+      {
+        "src": "/icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
