@@ -1,6 +1,6 @@
 <template>
   <dialog id="my_modal_3" class="modal" :open="open">
-    <div class="modal-box max-h-[80vh] min-w-[75vw]">
+    <div class="modal-box max-h-[80vh]">
       <h3 class="text-xl font-bold block text-center mb-6">
         <span>Live Chat by JMSE</span>
       </h3>
