@@ -17,4 +17,13 @@ if (navigator && 'serviceWorker' in navigator) {
       });
   });
 }
+
+useHead({
+      link: [
+        {
+          rel: 'manifest',
+          href: '/site.webmanifest'
+        }
+      ]
+    });
 </script>
