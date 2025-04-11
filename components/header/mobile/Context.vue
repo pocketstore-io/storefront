@@ -26,8 +26,8 @@
         </div>
         <div class="col-span-3">
           <select v-model="currency" class="select select-primary w-full">
-            <option value="euro">{{ $t('checkout.currency.euro') }}</option>
-            <option value="dollar">{{ $t('checkout.currency.dollar') }}</option>
+            <option value="€">{{ $t('checkout.currency.euro') }}</option>
+            <option value="$">{{ $t('checkout.currency.dollar') }}</option>
           </select>
         </div>
         <div class="col-span-3">
@@ -60,9 +60,9 @@
 </template>
 
 <script lang="ts" setup>
-import findSettingByKey from '~/util/settings';
-const currency = ref(findSettingByKey('currency'));
-const lang = ref(findSettingByKey('lang'));
+import { useLocalStorage } from '@vueuse/core';
+const lang = useLocalStorage('lang', 'de', {});
+const currency = useLocalStorage('currency', 'euro', {});
 const items = ref([]);
 const query = ref('');
 </script>

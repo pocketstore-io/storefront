@@ -26,6 +26,7 @@ const items = ref([]);
 const query = ref('');
 
 watch(query, async () => {
+  pb.autoCancellation(false)
   items.value = (await pb.collection('products').getList(1, 6, {
     filter: 'name~"' + query.value + '"'
   })).items;
