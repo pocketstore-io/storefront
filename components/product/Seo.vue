@@ -1,9 +1,3 @@
-<template>
-  <div>
-
-  </div>
-</template>
-
 <script lang="ts" setup>
 import { usePocketBase } from '~/util/pocketbase';
 import { defineProps } from 'vue';

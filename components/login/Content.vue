@@ -53,6 +53,4 @@
 
 <script setup lang="ts">
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-
-const form = ref('register');
 </script>
