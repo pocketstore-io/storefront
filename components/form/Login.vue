@@ -1,4 +1,5 @@
 <template>
+      <!--| TODO style Template nice |-->
   <form class="py-6 px-3" @submit.prevent="send()">
     <h2 class="font-bold text-lg ml-1 mb-3 text-center">Login Formular</h2>
     <div class="grid grid-cols-6">
