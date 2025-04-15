@@ -1,5 +1,6 @@
 <template>
   <section class="page">
+    <ProductSeo v-if="item" :product="item" />
     <section class="grid grid-cols-8 gap-3 px-3 py-3 mx-auto max-w-6xl">
       <div class="col-span-8 md:col-span-3">
         <img class="aspect-square"
@@ -57,7 +58,8 @@
           <div class="col-span-6">
             <section class="grid grid-cols-6 gap-3">
               <div class="col-span-6 md:col-span-1">
-                <input type="number" min="1" placeholder="123" class="input placeholder-black w-full bg-white rounded-lg text-center">
+                <input type="number" min="1" placeholder="123"
+                  class="input placeholder-black w-full bg-white rounded-lg text-center">
               </div>
               <div class="col-span-6 md:col-span-5">
                 <button class="btn btn-secondary w-full" @click="addToCart(item.id)">
