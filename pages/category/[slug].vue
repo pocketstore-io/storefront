@@ -19,6 +19,14 @@ onMounted(async () => {
     filter: 'category="' + category.value.id + '"'
   }
   )).items;
+
+  useHead({
+    title: category.value.name + ' - Kategorie - '+category.value.number,
+    meta: [{
+      name: 'description',
+      content: category.value.description
+    }]
+  });
   storeBreadcrumb.clear();
   storeBreadcrumb.add({
     label: 'Category View',
