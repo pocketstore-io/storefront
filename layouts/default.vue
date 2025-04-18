@@ -19,17 +19,14 @@
 <script setup lang="ts">
 import '~/main.css';
 import tracking from '~/util/tracking';
-import { useBreadcrumbStore } from '~/stores/breadcrumb';
 import Footer from '~/components/Footer.vue';
 import Header from '~/components/Header.vue';
 import LiveChat from '~/components/LiveChat.vue';
 import BackToTop from '~/components/BackToTop.vue';
 
-const store = useBreadcrumbStore();
 
 onMounted(() => {
     tracking.trackPage()
-    store.clear()
 });
 </script>
 

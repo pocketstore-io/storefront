@@ -1,9 +1,7 @@
 <script setup>
-import { useBreadcrumbStore } from '~/stores/breadcrumb';
 import { useRoute } from 'vue-router';
 import { usePocketBase } from '~/util/pocketbase';
 
-const storeBreadcrumb = useBreadcrumbStore();
 const pb = usePocketBase();
 const category = ref({});
 const products = ref([]);
@@ -23,12 +21,6 @@ onMounted(async () => {
       name: 'description',
       content: category.value.description
     }]
-  });
-  storeBreadcrumb.clear();
-  storeBreadcrumb.add({
-    label: 'Category View',
-    link: 'category/bowling',
-    id: 'category-view'
   });
 });
 

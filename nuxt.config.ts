@@ -1,13 +1,11 @@
+import config from './pocketstore.json'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['@fortawesome/fontawesome-svg-core/styles.css'],
 
   // TODO remove pinia
-  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@vite-pwa/nuxt'],
-  pinia: {
-    storesDirs: ['./stores/**'],
-  },
+  modules: ['@nuxtjs/i18n', '@vite-pwa/nuxt'],
   i18n: {
     strategy: 'prefix',
     // TODO allow custom lang
@@ -15,13 +13,9 @@ export default defineNuxtConfig({
       {
         code: 'de',
         file: 'de.json'
-      },
-      {
-        code: 'en',
-        file: 'en.json'
       }
     ],
-    defaultLocale: 'en'
+    defaultLocale: 'de'
   },
   postcss: {
     plugins: {
@@ -31,7 +25,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      // TODO allow custom rules
+      // TODO custom rules by pocketstore
       '/product/**': { static: true, redirect: (to) => `${to}.html` },
       '/category/**': { static: true, redirect: (to) => `${to}.html` }
     }

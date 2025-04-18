@@ -166,11 +166,9 @@
 <script lang="ts" setup>
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
-import { useMessagesStore } from '~/stores/messages';
 import { useLocalStorage } from '@vueuse/core';
 import { usePocketBase } from '~/util/pocketbase';
 
-const storeMessages = useMessagesStore();
 const route = useRoute();
 const pb = usePocketBase();
 const item = ref({});
@@ -187,9 +185,6 @@ const addToCart = async function (id, qty = 1) {
   cart.value.map((item) => {
     if (item.id == id) {
       found = true;
-      storeMessages.add({
-        message: 'Update ' + id
-      })
     }
   });
 

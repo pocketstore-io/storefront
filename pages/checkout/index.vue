@@ -43,9 +43,7 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from '@vueuse/core';
-import { useBreadcrumbStore } from '~/stores/breadcrumb';
 
-const storeBreadcrumb = useBreadcrumbStore();
 const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
 
 const loaded = ref(false);
@@ -55,11 +53,6 @@ const bgWhite = computed(()=>{
 })
 
 watch(checkoutStep, () => {
-    storeBreadcrumb.clear();
-    storeBreadcrumb.add({
-        link: "checkout/" + checkoutStep.value,
-        id: "checkout-" + checkoutStep.value,
-    });
     document.getElementById('headline')?.scrollIntoView({
         behavior: "smooth"
     });
