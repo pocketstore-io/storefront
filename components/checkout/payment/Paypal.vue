@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!--| Move PayPal into component |-->
     <div id="paypal-button-container" class="mt-3" />
     <button v-if="locked" class="btn btn-secondary w-full mt-3" @click="resetLock()">
       <Fa :icon="faTrash" /> <span>Reset PayPal Payment</span>
@@ -14,6 +13,7 @@ import { useLocalStorage } from '@vueuse/core';
 import { loadScript } from "@paypal/paypal-js";
 import { cartToPurchaseUnits } from '~/util/paypal';
 import findSettingByKey from '~/util/settings';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const { locked } = defineProps({
   locked: {
@@ -31,8 +31,6 @@ const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
 const resetLock = function () {
 
 }
-
-
 
 const initPaypal = () => {
   loadScript({ "client-id": findSettingByKey('paypal')['client-id'], currency: findSettingByKey('paypal')['currency'] })
