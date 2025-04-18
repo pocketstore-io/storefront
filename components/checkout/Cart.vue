@@ -2,34 +2,15 @@
   <section v-if="checkoutStep == 'cart' && loaded" class="grid grid-cols-6 gap-3 mx-auto max-w-6xl">
     <div class="col-span-6 md:col-span-4">
       <table v-if="cart.length > 0" class="w-full">
-        <thead>
-          <tr class="grid grid-cols-12 gap-3 font-bold text-sm text-left px-3 py-3 bg-gray-200 my-3 mx-3">
-            <th class="col-span-6 md:col-span-2">{{$t('checkout.cart.qty')}}</th>
-            <th class="col-span-6 md:col-span-10">{{$t('checkout.cart.product-and-name')}}</th>
-          </tr>
-        </thead>
+        <CartHeader />
         <tbody>
-          <tr v-for="(item, index) in cart" :key="item.id" class="grid grid-cols-12 px-3 py-3 gap-3">
-            <td class="col-span-6 md:col-span-2">{{ item.qty }}</td>
-            <CustomCartItemRow :identifier="item.id" :qty="item.qty" />
-            <td class="col-span-6 md:col-span-3 join flex justify-end">
-              <button class="btn btn-primary join-item btn-sm" @click="increaseCart(index)">
-                <Fa :icon="faPlus" />
-              </button>
-              <button class="btn btn-error join-item btn-sm" @click="cart.splice(index, 1)">
-                <Fa :icon="faTrash" />
-              </button>
-              <button class="btn btn-neutral join-item btn-sm" @click="decreaseCart(index)">
-                <Fa :icon="faMinus" />
-              </button>
-            </td>
-          </tr>
+          <CartItem :item="item" :index="index" v-for="(item, index) in cart" :key="item.id" />
         </tbody>
       </table>
       <section v-else class="px-3 py-3">
         <section v-if="loaded" class="alert alert-warning text-white">
           <p class="block text-center">
-            {{$t('checkout.cart.empty')}}
+            {{ $t('checkout.cart.empty') }}
           </p>
         </section>
       </section>
@@ -39,43 +20,25 @@
       <CustomCartTotal />
     </div>
     <div v-if="cart.length > 0" class="col-span-6 flex justify-end px-3 py-3">
-      <button class="btn btn-primary" :disabled="!valid.cart" @click="checkoutStep = 'customer'">
-        <span>{{$t('checkout.continue.customer')}}</span>
-        <Fa :icon="faChevronCircleRight" />
-      </button>
+      <CartNext />
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import { faPlus, faTrash, faMinus, faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon as Fa } from "@fortawesome/vue-fontawesome";
 import { useLocalStorage } from "@vueuse/core";
+import CartItem from './cart/Item.vue'
+import CartNext from './cart/Next.vue'
+import CartHeader from './cart/Header.vue'
 
 const cart = useLocalStorage("cart", [], {});
 const valid = useLocalStorage(
   "checkout-valid",
-  { cart: false, addresses: false, payment: false, shipping: false, confirm: false,customer: false },
+  { cart: false, addresses: false, payment: false, shipping: false, confirm: false, customer: false },
   {}
 );
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const loaded = ref(false);
-
-const increaseCart = (index) => {
-  cart.value[index].qty++;
-  if (cart.value.length > 0) {
-    valid.value.cart = true;
-  }
-};
-
-const decreaseCart = (index) => {
-  if (cart.value[index].qty > 1) {
-    cart.value[index].qty--;
-  }
-  if (cart.value.length > 0) {
-    valid.value.cart = true;
-  }
-};
 
 onMounted(() => {
   loaded.value = true;
