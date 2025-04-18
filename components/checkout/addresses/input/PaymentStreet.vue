@@ -1,7 +1,7 @@
 <template>
   <div class="form-control">
     <label for="" class="label font-bold text-sm">{{ $t(props.label) }}</label>
-    <input v-model="payment[props.var]" :type="type" class="input input-bordered input-primary border-2">
+    <input v-model="payment[props.var]" :type="props.type" class="input input-bordered input-primary border-2">
   </div>
 </template>
 
