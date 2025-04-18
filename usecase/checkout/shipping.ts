@@ -10,7 +10,7 @@ export const select = (value,shipping) =>{
       }
       else {
         addressess.value.map((item) => {
-          if (item.id = value) {
+          if (item.id == value) {
             shipping.value.name = item.name.split(' ')[0];
             shipping.value.surname = item.name.split(' ')[1];
             shipping.value.street = item.street;
