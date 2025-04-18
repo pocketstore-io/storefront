@@ -24,6 +24,13 @@ useHead({
           rel: 'manifest',
           href: '/site.webmanifest'
         }
+      ],
+      script: [
+        {
+          defer: true,
+          src: 'https://tracking.jmse.cloud/js/script.outbound-links.pageview-props.revenue.tagged-events.js',
+          "data-domain": 'demo.pocketstore.io'
+        }
       ]
     });
 </script>
