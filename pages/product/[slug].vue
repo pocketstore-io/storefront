@@ -196,9 +196,6 @@ const addToCart = async function (id, qty = 1) {
     });
   }
   else {
-    storeMessages.add({
-      message: 'new ID ' + id
-    })
     cart.value.push({
       qty, id, product
     });
