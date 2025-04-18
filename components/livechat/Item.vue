@@ -3,7 +3,7 @@
     <div class="chat-bubble"
       :class="{ 'chat-bubble-primary': props.item.from == 'from', 'chat-bubble-neutral': props.item.from != 'from' }"
       @click="beep()">
-      {{ iprops.itemtem.message }}
+      {{ props.item.message }}
     </div>
   </div>
 </template>

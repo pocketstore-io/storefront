@@ -7,7 +7,7 @@
       <section class="chat w-full grid grid-cols-6">
         <ul class="w-full col-span-6">
           <li v-for="item in items">
-            <LiveChatItem :item="item" />
+            <LivechatItem :item="item" />
           </li>
         </ul>
       </section>
@@ -22,6 +22,7 @@
 import { useLocalStorage } from '@vueuse/core';
 import PocketBase from 'pocketbase';
 import { usePocketbaseStore } from '~/stores/pocketbase';
+import LivechatItem from '../livechat/Item.vue';
 
 const open = useLocalStorage('open-livechat', false, {});
 const store = usePocketbaseStore();
