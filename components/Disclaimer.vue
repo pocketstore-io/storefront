@@ -14,6 +14,6 @@
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 onMounted(()=>{
-  add
+  
 });
 </script>
