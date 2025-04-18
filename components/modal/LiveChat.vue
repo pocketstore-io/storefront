@@ -20,14 +20,11 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from '@vueuse/core';
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
 import LivechatItem from '../livechat/Item.vue';
+import { usePocketBase } from '~/util/pocketbase';
 
 const open = useLocalStorage('open-livechat', false, {});
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 const items: Ref = ref([]);
 
 const load = async function () {

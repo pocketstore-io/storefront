@@ -5,14 +5,11 @@
 </template>
 
 <script lang="ts" setup>
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
+import { usePocketBase } from '~/util/pocketbase';
 
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 
-const { identifier } = defineProps({
+const props = defineProps({
   identifier: { type: String, requiered: true },
   qty: { type: Number, requiered: true }
 });
@@ -20,12 +17,10 @@ const { identifier } = defineProps({
 const item = ref({});
 
 const load = async function () {
-  item.value = await pb.collection('products').getOne(identifier);
+  item.value = await pb.collection('products').getOne(props.identifier);
 }
 
 onMounted(() => {
   load();
 });
 </script>
-
-<style></style>

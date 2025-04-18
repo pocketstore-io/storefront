@@ -18,14 +18,10 @@
 </template>
 
 <script setup lang="ts">
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { usePocketBase } from "~/util/pocketbase";
 
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
-
+const pb = usePocketBase();
 const loginViaGoogle = async function () {
     const authData = await pb.collection('customers').authWithOAuth2({ provider: 'google' });
     console.log(authData);

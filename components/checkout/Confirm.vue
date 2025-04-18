@@ -108,8 +108,7 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
-import PocketBase from "pocketbase";
-import { usePocketbaseStore } from "~/stores/pocketbase";
+import { usePocketBase } from '~/util/pocketbase';
 
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const cart = useLocalStorage("cart", [], {});
@@ -120,9 +119,7 @@ const shippingMethod = useLocalStorage("shippingMethod", "dhl", {});
 const shippingMethodInfo = useLocalStorage("shippingMethodInfo", {}, {});
 
 const same = useLocalStorage("same", true, {});
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 
 const router = useRouter();
 const shipping = useLocalStorage(

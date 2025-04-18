@@ -29,12 +29,9 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from '@vueuse/core';
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
+import { usePocketBase } from '~/util/pocketbase';
 
-const storePb = usePocketbaseStore();
-const { url } = storeToRefs(storePb);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 const paymentMethod = useLocalStorage('paymentMethod', 'vorkasse', {});
 const paymentMethodInfo = useLocalStorage('paymentMethodInfo', {}, {});
 const optionsPayment = ref([]);

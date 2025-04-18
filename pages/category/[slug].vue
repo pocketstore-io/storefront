@@ -1,13 +1,10 @@
 <script setup>
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
 import { useBreadcrumbStore } from '~/stores/breadcrumb';
 import { useRoute } from 'vue-router';
+import { usePocketBase } from '~/util/pocketbase';
 
-const store = usePocketbaseStore();
 const storeBreadcrumb = useBreadcrumbStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 const category = ref({});
 const products = ref([]);
 const route = useRoute();

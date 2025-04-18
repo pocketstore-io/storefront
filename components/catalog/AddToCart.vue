@@ -5,10 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
 import { useLocalStorage } from '@vueuse/core';
 import { useMessagesStore } from '~/stores/messages';
+import { usePocketBase } from '~/util/pocketbase';
 
 const { product } = defineProps({
   product: {
@@ -16,9 +15,7 @@ const { product } = defineProps({
   }
 });
 
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 
 const storeMessages = useMessagesStore();
 const cart = useLocalStorage('cart', [], {});

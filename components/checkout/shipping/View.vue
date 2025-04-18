@@ -30,13 +30,10 @@
 </template>
 
 <script lang="ts" setup>
-import PocketBase from 'pocketbase';
 import { useLocalStorage } from '@vueuse/core';
-import { usePocketbaseStore } from '~/stores/pocketbase';
+import { usePocketBase } from '~/util/pocketbase';
 
-const storePb = usePocketbaseStore();
-const { url } = storeToRefs(storePb);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 
 const stores = ref([]);
 const optionsCountry = ref([]);

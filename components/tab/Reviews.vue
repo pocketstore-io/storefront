@@ -9,14 +9,11 @@ type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2" ar
 </template>
 
 <script lang="ts" setup>
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
 import { useRoute } from 'vue-router';
 import Review from '../catalog/Review.vue';
+import { usePocketBase } from '~/util/pocketbase';
 
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 const route = useRoute();
 
 const reviews = ref([]);

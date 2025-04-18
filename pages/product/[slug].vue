@@ -165,17 +165,14 @@
 
 <script lang="ts" setup>
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { useMessagesStore } from '~/stores/messages';
 import { useLocalStorage } from '@vueuse/core';
+import { usePocketBase } from '~/util/pocketbase';
 
 const storeMessages = useMessagesStore();
 const route = useRoute();
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 const item = ref({});
 const cart = useLocalStorage('cart', [], {});
 

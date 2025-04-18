@@ -10,13 +10,10 @@
 </template>
 
 <script lang="ts" setup>
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
 import { useRouter } from 'vue-router';
+import { usePocketBase } from '~/util/pocketbase';
 
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 const router = useRouter();
 
 onMounted(() => {

@@ -30,14 +30,11 @@
 <script lang="ts" setup>
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useLocalStorage } from '@vueuse/core';
-import PocketBase from 'pocketbase';
-import { usePocketbaseStore } from '~/stores/pocketbase';
 import CustomerHeroContent from './customer/HeroContent.vue'
+import { usePocketBase } from '~/util/pocketbase';
 
 const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
+const pb = usePocketBase();
 
 onMounted(() => {
   if (pb.authStore.isValid && checkoutStep.value == 'customer') {

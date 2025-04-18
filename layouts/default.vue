@@ -2,7 +2,6 @@
     <section class="bg-gray-300 min-h-screen">
         <header>
             <Header />
-            <div class="wave" />
         </header>
         <main class="mx-auto max-w-6xl min-h-screen px-3 md:px-0">
             <Messages />
@@ -12,8 +11,7 @@
             <BackToTop />
             <slot />
         </main>
-        <footer class="">
-            <div class="zigzag" />
+        <footer>
             <Footer />
         </footer>
     </section>

@@ -5,16 +5,13 @@
 </template>
 
 <script setup>
-import PocketBase from "pocketbase";
-import { usePocketbaseStore } from "~/stores/pocketbase";
+import { usePocketBase } from '~/util/pocketbase';
+const pb = usePocketBase();
 
 const { identifier } = defineProps({
   identifier: { type: String, required: true },
 });
 
-const store = usePocketbaseStore();
-const { url } = storeToRefs(store);
-const pb = new PocketBase(url.value);
 const category = ref({});
 const products = ref([]);
 

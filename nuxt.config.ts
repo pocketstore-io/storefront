@@ -2,12 +2,15 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['@fortawesome/fontawesome-svg-core/styles.css'],
+
+  // TODO remove pinia
   modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@vite-pwa/nuxt'],
   pinia: {
     storesDirs: ['./stores/**'],
   },
   i18n: {
     strategy: 'prefix',
+    // TODO allow custom lang
     locales: [
       {
         code: 'de',
@@ -28,7 +31,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      // Only apply .html suffix to routes starting with "product/"
+      // TODO allow custom rules
       '/product/**': { static: true, redirect: (to) => `${to}.html` },
       '/category/**': { static: true, redirect: (to) => `${to}.html` }
     }
