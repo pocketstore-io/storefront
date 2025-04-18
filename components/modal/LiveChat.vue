@@ -39,7 +39,7 @@ onMounted(() => {
     items.value = items.value.push({ message: 'Hallo Welt' });
   }
   setInterval(() => {
-    load();
+    // load();
   }, 10000);
 });
 
