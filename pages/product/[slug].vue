@@ -169,12 +169,6 @@ import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { useLocalStorage } from '@vueuse/core';
 import { usePocketBase } from '~/util/pocketbase';
 
-const { proxy } = useScriptPlausibleAnalytics({
-  domain: 'demo.pocketstore.io',
-  scriptInput: {
-    src: 'https://tracking.jmse.cloud/js/script.outbound-links.pageview-props.revenue.tagged-events.js'
-  }
-})
 const route = useRoute();
 const pb = usePocketBase();
 const item = ref({});
@@ -215,7 +209,5 @@ const load = async () => {
 
 onMounted(() => {
   load();
-
-  proxy.plausible('event', { name: 'conversion' })
 });
 </script>
