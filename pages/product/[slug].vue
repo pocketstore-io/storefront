@@ -197,6 +197,7 @@ const addToCart = async function (id, qty = 1) {
     });
   }
   else {
+    // TODO cart message
     cart.value.push({
       qty, id, product
     });
