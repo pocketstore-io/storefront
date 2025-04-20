@@ -23,7 +23,8 @@ if (navigator && 'serviceWorker' in navigator) {
 onMounted(() => {
   useScriptPlausibleAnalytics({
     scriptInput: {
-      src: 'https://tracking.jmse.cloud/js/script.outbound-links.pageview-props.revenue.tagged-events.js'
+      src: 'https://tracking.jmse.cloud/js/script.outbound-links.pageview-props.revenue.tagged-events.js',
+      "defer": true
     }
   })
 });
