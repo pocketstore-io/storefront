@@ -4,7 +4,7 @@
   </NuxtLayout>
 </template>
 
-<script>
+<script setup lang="ts">
 if (navigator && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
@@ -18,19 +18,11 @@ if (navigator && 'serviceWorker' in navigator) {
   });
 }
 
-useHead({
-      link: [
-        {
-          rel: 'manifest',
-          href: '/site.webmanifest'
-        }
-      ],
-      script: [
-        {
-          defer: true,
-          src: 'https://tracking.jmse.cloud/js/script.outbound-links.pageview-props.revenue.tagged-events.js',
-          "data-domain": 'demo.pocketstore.io'
-        }
-      ]
-    });
+onMounted(() => {
+  useScriptPlausibleAnalytics({
+    scriptInput: {
+      src: 'https://tracking.jmse.cloud/js/script.outbound-links.pageview-props.revenue.tagged-events.js'
+    }
+  })
+});
 </script>

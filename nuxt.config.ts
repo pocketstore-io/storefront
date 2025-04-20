@@ -3,9 +3,15 @@ import config from './pocketstore.json'
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['@fortawesome/fontawesome-svg-core/styles.css'],
-
+  scripts: {
+    registry: {
+      plausibleAnalytics: {
+        domain: 'demo.pocketstore.io'
+      }
+    }
+  },
   // TODO remove pinia
-  modules: ['@nuxtjs/i18n', '@vite-pwa/nuxt'],
+  modules: ['@nuxtjs/i18n', '@vite-pwa/nuxt', '@nuxt/scripts'],
   i18n: {
     strategy: 'prefix',
     // TODO allow custom lang
