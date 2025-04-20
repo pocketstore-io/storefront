@@ -5,6 +5,8 @@
 </template>
 
 <script setup lang="ts">
+const { proxy } = useScriptPlausibleAnalytics()
+
 if (navigator && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
