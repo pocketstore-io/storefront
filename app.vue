@@ -17,7 +17,4 @@ if (navigator && 'serviceWorker' in navigator) {
       });
   });
 }
-
-onMounted(() => {
-});
 </script>
