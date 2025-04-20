@@ -169,7 +169,7 @@ import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { useLocalStorage } from '@vueuse/core';
 import { usePocketBase } from '~/util/pocketbase';
 
-const { proxy } = useScriptPlausibleAnalytics()
+const { proxy } = useScriptPlausibleAnalytics({domain: 'demo.pocketstore.io'})
 const route = useRoute();
 const pb = usePocketBase();
 const item = ref({});

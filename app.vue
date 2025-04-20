@@ -5,7 +5,9 @@
 </template>
 
 <script setup lang="ts">
-const { proxy } = useScriptPlausibleAnalytics()
+const { proxy } = useScriptPlausibleAnalytics({
+  domain: 'demo.pocketstore.io'
+})
 
 if (navigator && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
