@@ -6,7 +6,10 @@
 
 <script setup lang="ts">
 const { proxy } = useScriptPlausibleAnalytics({
-  domain: 'demo.pocketstore.io'
+  domain: 'demo.pocketstore.io',
+  scriptInput: {
+    src: 'https://tracking.jmse.cloud/js/script.outbound-links.pageview-props.revenue.tagged-events.js'
+  }
 })
 
 if (navigator && 'serviceWorker' in navigator) {
