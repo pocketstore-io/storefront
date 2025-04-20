@@ -19,12 +19,5 @@ if (navigator && 'serviceWorker' in navigator) {
 }
 
 onMounted(() => {
-  useScriptPlausibleAnalytics({
-    domain: 'demo.pocketstore.io',
-    scriptInput: {
-      defer: true,
-      src: 'https://tracking.jmse.cloud/js/script.outbound-links.pageview-props.revenue.tagged-events.js'
-    }
-  })
 });
 </script>

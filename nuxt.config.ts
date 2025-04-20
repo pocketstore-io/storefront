@@ -3,15 +3,15 @@ import config from './pocketstore.json'
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['@fortawesome/fontawesome-svg-core/styles.css'],
-  scripts: {
-    registry: {
-      plausibleAnalytics: {
-        domain: 'demo.pocketstore.io'
-      }
-    }
+  plausible: {
+    // Prevent tracking on localhost
+    ignoredHostnames: [
+      // 'localhost'
+    ],
+    apiHost: 'https://tracking.jmse.cloud'
   },
   // TODO remove pinia
-  modules: ['@nuxtjs/i18n', '@vite-pwa/nuxt', '@nuxt/scripts'],
+  modules: ['@nuxtjs/i18n', '@vite-pwa/nuxt', '@nuxtjs/plausible'],
   i18n: {
     strategy: 'prefix',
     // TODO allow custom lang
