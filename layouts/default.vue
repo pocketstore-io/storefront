@@ -7,7 +7,6 @@
             <Messages />
             <Breadcrumb />
             <CookieBanner />
-            <LiveChat />
             <BackToTop />
             <slot />
         </main>
@@ -18,16 +17,9 @@
 </template>
 <script setup lang="ts">
 import '~/main.css';
-import tracking from '~/util/tracking';
 import Footer from '~/components/Footer.vue';
 import Header from '~/components/Header.vue';
-import LiveChat from '~/components/LiveChat.vue';
 import BackToTop from '~/components/BackToTop.vue';
-
-
-onMounted(() => {
-    tracking.trackPage()
-});
 </script>
 
 <style>
