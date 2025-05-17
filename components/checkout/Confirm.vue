@@ -44,7 +44,7 @@
                             {{ shipping.number }}<br>
                             {{ shipping.zip }}
                             {{ shipping.city }}<br>
-                            {{ $t('country.'+shipping.country) }}
+                            {{ $t('country.' + shipping.country) }}
                         </div>
                         <div v-if="!same" class="col-span-6 md:col-span-3">
                             {{ payment.name }}
@@ -53,7 +53,7 @@
                             {{ payment.number }}<br>
                             {{ payment.zip }}
                             {{ payment.city }}<br>
-                            {{ $t('country.'+payment.country) }}
+                            {{ $t('country.' + payment.country) }}
                         </div>
                         <div v-else class="col-span-6 md:col-span-3">
                             {{ shipping.name }}
@@ -62,7 +62,7 @@
                             {{ shipping.number }}<br>
                             {{ shipping.zip }}
                             {{ shipping.city }}<br>
-                            {{ $t('country.'+shipping.country) }}
+                            {{ $t('country.' + shipping.country) }}
                         </div>
                     </div>
 
@@ -70,13 +70,13 @@
 
                     <section class="grid grid-cols-6">
                         <div class="col-span-6 md:col-span-3">
-                            {{ $t('payment.methods.'+paymentMethod) }}
+                            {{ $t('payment.methods.' + paymentMethod) }}
                             <div v-for="(value, key) in paymentMethodInfo">
                                 <b>{{ $t('payment.label.' + key) }}</b>: {{ value }} <br>
                             </div>
                         </div>
                         <div class="col-span-6 md:col-span-3">
-                            {{ $t('shipping.methods.'+shippingMethod) }}
+                            {{ $t('shipping.methods.' + shippingMethod) }}
                             <div v-for="(value, key) in shippingMethodInfo">
                                 <b>{{ $t('checkout.label.' + key) }}</b>: {{ value }} <br>
                             </div>
