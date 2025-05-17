@@ -13,13 +13,13 @@
 </template>
 
 <script lang="ts" setup>
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
-import { useLocalStorage } from '@vueuse/core';
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
 
 const loaded = ref(false);
-const breadcrumbs = useLocalStorage('breadcrumbs', [], {})
+const breadcrumbs = useLocalStorage("breadcrumbs", [], {});
 
 onMounted(() => {
-  loaded.value = true;
+    loaded.value = true;
 });
 </script>

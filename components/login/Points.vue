@@ -38,5 +38,5 @@
 </template>
 
 <script setup lang="ts">
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 </script>

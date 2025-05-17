@@ -9,9 +9,9 @@ type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2" ar
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vue-router';
-import Review from '../catalog/Review.vue';
-import { usePocketBase } from '~/util/pocketbase';
+import { useRoute } from "vue-router";
+import Review from "../catalog/Review.vue";
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 const route = useRoute();
@@ -19,8 +19,10 @@ const route = useRoute();
 const reviews = ref([]);
 
 onMounted(async () => {
-  reviews.value = (await pb.collection('reviews').getList(1, 9, {
-    filter: 'product="' + route.params.slug.replace('.html', '') + '"'
-  })).items;
+    reviews.value = (
+        await pb.collection("reviews").getList(1, 9, {
+            filter: 'product="' + route.params.slug.replace(".html", "") + '"',
+        })
+    ).items;
 });
 </script>

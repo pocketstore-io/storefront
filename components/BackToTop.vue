@@ -10,27 +10,27 @@
 </template>
 
 <script lang="ts" setup>
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { useLocalStorage } from '@vueuse/core';
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
 
-const open = useLocalStorage('open', false, {});
+const open = useLocalStorage("open", false, {});
 const show = ref(false);
-const cookie = useLocalStorage('cookie', null, {});
+const cookie = useLocalStorage("cookie", null, {});
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+    window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 onMounted(() => {
-  if (cookie.value === null) {
-    open.value = true;
-  }
-  window.addEventListener("scroll", () => {
-    if (document.documentElement.scrollTop > 250) {
-      show.value = true;
-    } else {
-      show.value = false;
+    if (cookie.value === null) {
+        open.value = true;
     }
-  });
+    window.addEventListener("scroll", () => {
+        if (document.documentElement.scrollTop > 250) {
+            show.value = true;
+        } else {
+            show.value = false;
+        }
+    });
 });
 </script>

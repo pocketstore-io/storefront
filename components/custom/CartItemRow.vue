@@ -5,22 +5,22 @@
 </template>
 
 <script lang="ts" setup>
-import { usePocketBase } from '~/util/pocketbase';
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 
 const props = defineProps({
-  identifier: { type: String, requiered: true },
-  qty: { type: Number, requiered: true }
+    identifier: { type: String, requiered: true },
+    qty: { type: Number, requiered: true },
 });
 
 const item = ref({});
 
 const load = async function () {
-  item.value = await pb.collection('products').getOne(props.identifier);
-}
+    item.value = await pb.collection("products").getOne(props.identifier);
+};
 
 onMounted(() => {
-  load();
+    load();
 });
 </script>

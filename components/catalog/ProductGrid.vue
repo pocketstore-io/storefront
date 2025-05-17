@@ -5,26 +5,24 @@
 </template>
 
 <script setup>
-import { usePocketBase } from '~/util/pocketbase';
+import { usePocketBase } from "~/util/pocketbase";
 const pb = usePocketBase();
 
 const { identifier } = defineProps({
-  identifier: { type: String, required: true },
+    identifier: { type: String, required: true },
 });
 
 const category = ref({});
 const products = ref([]);
 
 onMounted(async () => {
-  category.value = await pb
-    .collection("categories")
-    .getFirstListItem('slug="' + identifier + '"');
-  products.value = (await pb
-    .collection("products")
-    .getList(1, 25,
-      {
-        filter: 'category="' + category.value.id + '"'
-      }
-    )).items;
+    category.value = await pb
+        .collection("categories")
+        .getFirstListItem('slug="' + identifier + '"');
+    products.value = (
+        await pb.collection("products").getList(1, 25, {
+            filter: 'category="' + category.value.id + '"',
+        })
+    ).items;
 });
 </script>

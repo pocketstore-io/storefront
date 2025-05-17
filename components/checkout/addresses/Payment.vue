@@ -19,12 +19,12 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core'
-import PaymentInput from './payment/Input.vue';
-import CountrySelect from './payment/CountrySelect.vue';
-import RadioSame from './payment/RadioSame.vue';
-import PaymentSelect from './payment/AddressSelect.vue';
-import CheckboxSame from './payment/CheckboxSame.vue';
+import { useLocalStorage } from "@vueuse/core";
+import PaymentInput from "./payment/Input.vue";
+import CountrySelect from "./payment/CountrySelect.vue";
+import RadioSame from "./payment/RadioSame.vue";
+import PaymentSelect from "./payment/AddressSelect.vue";
+import CheckboxSame from "./payment/CheckboxSame.vue";
 
-const same = useLocalStorage('same', true, {});
+const same = useLocalStorage("same", true, {});
 </script>

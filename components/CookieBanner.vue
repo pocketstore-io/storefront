@@ -24,15 +24,15 @@
 </template>
 
 <script lang="ts" setup>
-import { faCookieBite } from '@fortawesome/free-solid-svg-icons';
-import { useLocalStorage } from '@vueuse/core';
+import { faCookieBite } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
 
 const open = ref(false);
-const cookie = useLocalStorage('cookie', null, {});
+const cookie = useLocalStorage("cookie", null, {});
 
 onMounted(() => {
-  if (cookie.value === null) {
-    open.value = true;
-  }
+    if (cookie.value === null) {
+        open.value = true;
+    }
 });
 </script>

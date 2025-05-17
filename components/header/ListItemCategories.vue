@@ -7,7 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
-
-
+import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 </script>

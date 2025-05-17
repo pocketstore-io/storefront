@@ -12,11 +12,11 @@
 </template>
 
 <script lang="ts" setup>
-import { faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
-import { usePocketBase } from '~/util/pocketbase';
+import { faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 const isLoggedIn = computed(() => {
-  return pb.authStore.isValid == true;
+    return pb.authStore.isValid == true;
 });
 </script>

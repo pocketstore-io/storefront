@@ -1,6 +1,6 @@
 <script setup>
-import { useRoute } from 'vue-router';
-import { usePocketBase } from '~/util/pocketbase';
+import { useRoute } from "vue-router";
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 const category = ref({});
@@ -8,22 +8,27 @@ const products = ref([]);
 const route = useRoute();
 
 onMounted(async () => {
-  category.value = await pb.collection('categories').getFirstListItem('slug="' + route.params.slug.replace('.html', '') + '"');
-  products.value = (await pb.collection('products').getList(
-    1, 12, {
-    filter: 'category="' + category.value.id + '"'
-  }
-  )).items;
+    category.value = await pb
+        .collection("categories")
+        .getFirstListItem(
+            'slug="' + route.params.slug.replace(".html", "") + '"',
+        );
+    products.value = (
+        await pb.collection("products").getList(1, 12, {
+            filter: 'category="' + category.value.id + '"',
+        })
+    ).items;
 
-  useHead({
-    title: category.value.name + ' - Kategorie - '+category.value.number,
-    meta: [{
-      name: 'description',
-      content: category.value.description
-    }]
-  });
+    useHead({
+        title: category.value.name + " - Kategorie - " + category.value.number,
+        meta: [
+            {
+                name: "description",
+                content: category.value.description,
+            },
+        ],
+    });
 });
-
 </script>
 
 <template>

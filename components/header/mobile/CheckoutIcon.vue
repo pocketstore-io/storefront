@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { useLocalStorage } from '@vueuse/core';
-const cart = useLocalStorage('cart', [], {});
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
+const cart = useLocalStorage("cart", [], {});
 </script>

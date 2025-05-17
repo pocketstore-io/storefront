@@ -108,7 +108,7 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
-import { usePocketBase } from '~/util/pocketbase';
+import { usePocketBase } from "~/util/pocketbase";
 
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const cart = useLocalStorage("cart", [], {});
@@ -133,7 +133,7 @@ const shipping = useLocalStorage(
         city: "",
         country: "de",
     },
-    {}
+    {},
 );
 const payment = useLocalStorage(
     "payment",
@@ -146,13 +146,13 @@ const payment = useLocalStorage(
         city: "",
         country: "de",
     },
-    {}
+    {},
 );
 
 const total = computed(() => {
     let tmp = 0;
     cart.value.map((item) => {
-        tmp += (item.qty * item.product.price)
+        tmp += item.qty * item.product.price;
     });
 
     return tmp;

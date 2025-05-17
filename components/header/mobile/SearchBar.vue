@@ -17,5 +17,5 @@
 
 <script lang="ts" setup>
 const items = ref([]);
-const query = ref('');
+const query = ref("");
 </script>

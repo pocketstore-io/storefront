@@ -26,14 +26,14 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
+import { useLocalStorage } from "@vueuse/core";
 
-const cart = useLocalStorage('cart', [], {});
+const cart = useLocalStorage("cart", [], {});
 const total = computed(() => {
-  let total = 0;
-  cart.value.map((item) => {
-    total += item.qty * item.product.price;
-  });
-  return parseFloat(total);
+    let total = 0;
+    cart.value.map((item) => {
+        total += item.qty * item.product.price;
+    });
+    return parseFloat(total);
 });
 </script>

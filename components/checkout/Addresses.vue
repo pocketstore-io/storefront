@@ -14,12 +14,23 @@
 </template>
 
 <script lang="ts" setup>
-import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
-import { useLocalStorage } from '@vueuse/core'
-import AddressesPayment from './addresses/Payment.vue';
-import AddressesShipping from './addresses/Shipping.vue';
+import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
+import AddressesPayment from "./addresses/Payment.vue";
+import AddressesShipping from "./addresses/Shipping.vue";
 
-const checkoutStep = useLocalStorage('checkoutStep', 'cart', {})
-const valid = useLocalStorage('checkout-valid', { cart: false, addresses: false, payment: false, shipping: false, confirm: false, customer: false }, {});
-const same = useLocalStorage('same', true, {});
+const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
+const valid = useLocalStorage(
+    "checkout-valid",
+    {
+        cart: false,
+        addresses: false,
+        payment: false,
+        shipping: false,
+        confirm: false,
+        customer: false,
+    },
+    {},
+);
+const same = useLocalStorage("same", true, {});
 </script>

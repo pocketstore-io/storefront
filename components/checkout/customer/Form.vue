@@ -22,20 +22,22 @@
 </template>
 
 <script setup lang="ts">
-import { useLocalStorage } from '@vueuse/core';
-import { usePocketBase } from '~/util/pocketbase';
+import { useLocalStorage } from "@vueuse/core";
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
-const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
+const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 
-const email = ref('');
-const password = ref('');
+const email = ref("");
+const password = ref("");
 
 const login = async () => {
-  await pb.collection('customers').authWithPassword(email.value, password.value);
+    await pb
+        .collection("customers")
+        .authWithPassword(email.value, password.value);
 
-  if (pb.authStore.isValid) {
-    checkoutStep.value = 'addresses';
-  }
-}
+    if (pb.authStore.isValid) {
+        checkoutStep.value = "addresses";
+    }
+};
 </script>

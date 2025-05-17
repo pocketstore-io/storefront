@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import AddressSelect from './shipping/AddressSelect.vue';
-import CountrySelect from './shipping/CountrySelect.vue';
-import Input from './shipping/Input.vue';
+import AddressSelect from "./shipping/AddressSelect.vue";
+import CountrySelect from "./shipping/CountrySelect.vue";
+import Input from "./shipping/Input.vue";
 </script>

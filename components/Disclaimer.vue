@@ -11,5 +11,5 @@
 </template>
 
 <script lang="ts" setup>
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 </script>

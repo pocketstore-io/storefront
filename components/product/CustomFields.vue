@@ -9,9 +9,8 @@
 </template>
 
 <script lang="ts" setup>
-
 const { fields } = defineProps({
-  fields: { type: Array, required: true }
+    fields: { type: Array, required: true },
 });
 </script>
 

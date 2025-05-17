@@ -16,19 +16,20 @@
 </template>
 
 <script lang="ts" setup>
-import { usePocketBase } from '~/util/pocketbase';
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 const items = ref([]);
-const query = ref('');
+const query = ref("");
 
 watch(query, async () => {
-  pb.autoCancellation(false)
-  items.value = (await pb.collection('products').getList(1, 6, {
-    filter: 'name~"' + query.value + '"'
-  })).items;
+    pb.autoCancellation(false);
+    items.value = (
+        await pb.collection("products").getList(1, 6, {
+            filter: 'name~"' + query.value + '"',
+        })
+    ).items;
 });
-
 </script>
 
 <style></style>

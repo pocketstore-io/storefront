@@ -30,8 +30,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
-import { usePocketBase } from '~/util/pocketbase';
+import { useLocalStorage } from "@vueuse/core";
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 
@@ -40,38 +40,42 @@ const optionsCountry = ref([]);
 const selectedStore = ref(null);
 
 const optionsShipping = ref([]);
-const shippingMethod = useLocalStorage('shippingMethod', 'click-and-collect', {});
-const shippingMethodInfo = useLocalStorage('shippingMethodInfo', {}, {});
+const shippingMethod = useLocalStorage(
+    "shippingMethod",
+    "click-and-collect",
+    {},
+);
+const shippingMethodInfo = useLocalStorage("shippingMethodInfo", {}, {});
 
 watch(selectedStore, (value) => {
     shippingMethodInfo.value = {
-        store: value
-    }
+        store: value,
+    };
 });
 
 watch(shippingMethod, (value) => {
-    if (value != 'click-and-collect') {
-        shippingMethodInfo.value = {}
+    if (value != "click-and-collect") {
+        shippingMethodInfo.value = {};
     }
 });
 
 onMounted(async () => {
-    stores.value = await pb.collection('stores').getFullList();
+    stores.value = await pb.collection("stores").getFullList();
 
-    optionsShipping.value = await pb.collection('shipping_methods').getFullList({
-        filter: 'active=true'
-    });
-    optionsCountry.value = await pb.collection('countries').getFullList();
-    if (shippingMethod.value === 'click-and-collect') {
+    optionsShipping.value = await pb
+        .collection("shipping_methods")
+        .getFullList({
+            filter: "active=true",
+        });
+    optionsCountry.value = await pb.collection("countries").getFullList();
+    if (shippingMethod.value === "click-and-collect") {
         shippingMethodInfo.value = {
-            store: { "id": stores.value[0].id, "name": stores.value[0].name }
-        }
-    }
-    else {
-        shippingMethodInfo.value = {}
+            store: { id: stores.value[0].id, name: stores.value[0].name },
+        };
+    } else {
+        shippingMethodInfo.value = {};
     }
 
     selectedStore.value = stores.value[0].id;
 });
-
 </script>

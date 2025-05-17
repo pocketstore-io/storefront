@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 const { field } = defineProps({
-  field: { type: Object, required: true }
+    field: { type: Object, required: true },
 });
 </script>
 

@@ -20,19 +20,21 @@
 </template>
 
 <script lang="ts" setup>
-import { usePocketBase } from '~/util/pocketbase';
+import { usePocketBase } from "~/util/pocketbase";
 const pb = usePocketBase();
 
 const i18n = useI18n();
 const locale = i18n.locale;
 
 const { identifier } = defineProps({
-  identifier: { type: String, requiered: true }
+    identifier: { type: String, requiered: true },
 });
 
 const product = ref({});
 
 onMounted(async () => {
-  product.value = (await pb.collection('products').getFirstListItem('slug="' + identifier + '"'));
+    product.value = await pb
+        .collection("products")
+        .getFirstListItem('slug="' + identifier + '"');
 });
 </script>

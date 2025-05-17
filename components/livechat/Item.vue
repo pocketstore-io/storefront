@@ -10,11 +10,11 @@
 
 <script lang="ts" setup>
 const props = defineProps({
-  item: { type: Object, required: true }
+    item: { type: Object, required: true },
 });
 
 const beep = function () {
-  const snd = new Audio('/sounds/bling.mp3');
-  snd.play();
-}
+    const snd = new Audio("/sounds/bling.mp3");
+    snd.play();
+};
 </script>

@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
+import { useLocalStorage } from "@vueuse/core";
 
-const open = useLocalStorage('open', false, {});
-const cookie = useLocalStorage('cookie', false, {});
+const open = useLocalStorage("open", false, {});
+const cookie = useLocalStorage("cookie", false, {});
 </script>

@@ -6,6 +6,6 @@
 
 <script lang="ts" setup>
 const { identifier } = defineProps({
-  identifier: { type: String, required: true }
+    identifier: { type: String, required: true },
 });
 </script>

@@ -42,19 +42,19 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
+import { useLocalStorage } from "@vueuse/core";
 
-const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
+const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 
 const loaded = ref(false);
 
-const bgWhite = computed(()=>{
-    return checkoutStep.value != 'confirm';
-})
+const bgWhite = computed(() => {
+    return checkoutStep.value != "confirm";
+});
 
 watch(checkoutStep, () => {
-    document.getElementById('headline')?.scrollIntoView({
-        behavior: "smooth"
+    document.getElementById("headline")?.scrollIntoView({
+        behavior: "smooth",
     });
 });
 

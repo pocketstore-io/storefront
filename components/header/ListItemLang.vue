@@ -12,12 +12,12 @@
 </template>
 
 <script lang="ts" setup>
-import findSettingByKey from '~/util/settings';
+import findSettingByKey from "~/util/settings";
 
-const { setLocale } = useI18n()
-const lang = ref(findSettingByKey('language'));
+const { setLocale } = useI18n();
+const lang = ref(findSettingByKey("language"));
 
 watch(lang, (value) => {
-  setLocale(value);
+    setLocale(value);
 });
 </script>

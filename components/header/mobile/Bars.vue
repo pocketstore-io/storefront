@@ -10,16 +10,16 @@
 </template>
 
 <script lang="ts" setup>
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 const open = ref(false);
 
 watch(open, (value) => {
-  if (value) {
-    modal_mobile_menu.showModal()
-    document.activeElement.blur();
-    modal_mobile_menu.addEventListener('close', ()=> {
-      open.value = false;
-    })
-  }
+    if (value) {
+        modal_mobile_menu.showModal();
+        document.activeElement.blur();
+        modal_mobile_menu.addEventListener("close", () => {
+            open.value = false;
+        });
+    }
 });
 </script>

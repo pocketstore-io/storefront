@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import { faComments } from '@fortawesome/free-solid-svg-icons';
-import { useLocalStorage } from '@vueuse/core';
+import { faComments } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
 
-const open = useLocalStorage('open-livechat', false, {});
+const open = useLocalStorage("open-livechat", false, {});
 </script>

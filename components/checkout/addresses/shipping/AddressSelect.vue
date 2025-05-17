@@ -6,34 +6,59 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
-import { select, validation } from '~/usecase/checkout/shipping';
-import { usePocketBase } from '~/util/pocketbase';
+import { useLocalStorage } from "@vueuse/core";
+import { select, validation } from "~/usecase/checkout/shipping";
+import { usePocketBase } from "~/util/pocketbase";
 
 const addressess = ref([]);
-const selectedShippingAddress = useLocalStorage('selected-shipping', 'new-one', {});
+const selectedShippingAddress = useLocalStorage(
+    "selected-shipping",
+    "new-one",
+    {},
+);
 const pb = usePocketBase();
-const valid = useLocalStorage('checkout-valid', { cart: false, addresses: false, payment: false, shipping: false, confirm: false, customer: false }, {});
-const shipping = useLocalStorage('shipping', {
-  name: '',
-  surname: '',
-  street: '',
-  number: 1,
-  zip: '',
-  city: '',
-  country: 'de',
-}, {});
+const valid = useLocalStorage(
+    "checkout-valid",
+    {
+        cart: false,
+        addresses: false,
+        payment: false,
+        shipping: false,
+        confirm: false,
+        customer: false,
+    },
+    {},
+);
+const shipping = useLocalStorage(
+    "shipping",
+    {
+        name: "",
+        surname: "",
+        street: "",
+        number: 1,
+        zip: "",
+        city: "",
+        country: "de",
+    },
+    {},
+);
 
 onMounted(async () => {
-  pb.autoCancellation(false)
-  addressess.value = (await pb.collection('customer_addresses').getFullList(25));
+    pb.autoCancellation(false);
+    addressess.value = await pb
+        .collection("customer_addresses")
+        .getFullList(25);
 });
 
 watch(selectedShippingAddress, (value) => {
-  select(value, shipping);
+    select(value, shipping);
 });
 
-watch(shipping, () => {
-  validation(shipping, valid)
-}, { deep: true });
+watch(
+    shipping,
+    () => {
+        validation(shipping, valid);
+    },
+    { deep: true },
+);
 </script>

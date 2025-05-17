@@ -10,15 +10,15 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
-import { usePocketBase } from '~/util/pocketbase';
+import { useRouter } from "vue-router";
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 const router = useRouter();
 
 onMounted(() => {
-  if (pb.authStore.isValid) {
-    router.push('/')
-  }
+    if (pb.authStore.isValid) {
+        router.push("/");
+    }
 });
 </script>

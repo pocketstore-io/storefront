@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
-import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
-import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
-const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
+import { useLocalStorage } from "@vueuse/core";
+import { FontAwesomeIcon as Fa } from "@fortawesome/vue-fontawesome";
+import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 </script>

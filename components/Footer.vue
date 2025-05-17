@@ -18,9 +18,9 @@
 </template>
 
 <script lang="ts" setup>
-import { usePocketBaseUrl } from '~/util/pocketbase';
-import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { usePocketBaseUrl } from "~/util/pocketbase";
+import { FontAwesomeIcon as Fa } from "@fortawesome/vue-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const url = usePocketBaseUrl();
 </script>

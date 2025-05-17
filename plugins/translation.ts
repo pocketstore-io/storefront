@@ -1,6 +1,6 @@
 /* eslint-disable */
-import config from '../pocketstore.json';
-import PocketBase from 'pocketbase'
+import config from "../pocketstore.json";
+import PocketBase from "pocketbase";
 
 export default defineNuxtPlugin((nuxtApp) => {
     // nuxtApp.$i18n.setMissingHandler(async (locale, message) => {
@@ -11,4 +11,4 @@ export default defineNuxtPlugin((nuxtApp) => {
     //         translated: 'Missing Translation'
     //     });
     // });
-})
+});

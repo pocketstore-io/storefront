@@ -17,34 +17,41 @@
 </template>
 
 <script lang="ts" setup>
-import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { useLocalStorage } from '@vueuse/core';
+import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
 
 const props = defineProps({
-  item: { type: Object, required: true },
-  index: { type: Number, required: true },
+    item: { type: Object, required: true },
+    index: { type: Number, required: true },
 });
 
 const cart = useLocalStorage("cart", [], {});
 const valid = useLocalStorage(
-  "checkout-valid",
-  { cart: false, addresses: false, payment: false, shipping: false, confirm: false,customer: false },
-  {}
+    "checkout-valid",
+    {
+        cart: false,
+        addresses: false,
+        payment: false,
+        shipping: false,
+        confirm: false,
+        customer: false,
+    },
+    {},
 );
 
 const increaseCart = (index) => {
-  cart.value[index].qty++;
-  if (cart.value.length > 0) {
-    valid.value.cart = true;
-  }
+    cart.value[index].qty++;
+    if (cart.value.length > 0) {
+        valid.value.cart = true;
+    }
 };
 
 const decreaseCart = (index) => {
-  if (cart.value[index].qty > 1) {
-    cart.value[index].qty--;
-  }
-  if (cart.value.length > 0) {
-    valid.value.cart = true;
-  }
+    if (cart.value[index].qty > 1) {
+        cart.value[index].qty--;
+    }
+    if (cart.value.length > 0) {
+        valid.value.cart = true;
+    }
 };
 </script>

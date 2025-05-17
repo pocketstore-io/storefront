@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { usePocketBase } from '~/util/pocketbase';
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 </script>

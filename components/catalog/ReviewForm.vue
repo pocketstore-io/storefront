@@ -33,12 +33,11 @@
 </template>
 
 <script lang="ts" setup>
-
-const date = computed(()=> {
-  return new Date().toLocaleDateString('en');
-})
+const date = computed(() => {
+    return new Date().toLocaleDateString("en");
+});
 
 const save = () => {
-  console.log('saved');
-}
+    console.log("saved");
+};
 </script>

@@ -27,24 +27,31 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
-import CartItem from './cart/Item.vue'
-import CartNext from './cart/Next.vue'
-import CartHeader from './cart/Header.vue'
+import CartItem from "./cart/Item.vue";
+import CartNext from "./cart/Next.vue";
+import CartHeader from "./cart/Header.vue";
 
 const cart = useLocalStorage("cart", [], {});
 const valid = useLocalStorage(
-  "checkout-valid",
-  { cart: false, addresses: false, payment: false, shipping: false, confirm: false, customer: false },
-  {}
+    "checkout-valid",
+    {
+        cart: false,
+        addresses: false,
+        payment: false,
+        shipping: false,
+        confirm: false,
+        customer: false,
+    },
+    {},
 );
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const loaded = ref(false);
 
 onMounted(() => {
-  loaded.value = true;
+    loaded.value = true;
 
-  if (cart.value.length > 0) {
-    valid.value.cart = true;
-  }
+    if (cart.value.length > 0) {
+        valid.value.cart = true;
+    }
 });
 </script>

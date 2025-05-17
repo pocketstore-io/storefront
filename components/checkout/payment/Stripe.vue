@@ -16,35 +16,35 @@
 
 <script setup>
 // TODO get config by option
-import { faStripeS } from '@fortawesome/free-brands-svg-icons';
-import { useLocalStorage } from '@vueuse/core';
-import { useStripe } from '~/util/stripe';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faStripeS } from "@fortawesome/free-brands-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
+import { useStripe } from "~/util/stripe";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const { locked } = defineProps({
-  locked: {
-    type: Boolean,
-    required: false,
-    default: () => {
-      return false;
-    }
-  }
+    locked: {
+        type: Boolean,
+        required: false,
+        default: () => {
+            return false;
+        },
+    },
 });
 
-const paymentMethodInfo = useLocalStorage('paymentMethodInfo', {}, {});
+const paymentMethodInfo = useLocalStorage("paymentMethodInfo", {}, {});
 
 const { redirectToCheckout, error, loading } = useStripe();
 
 // Replace with your actual price ID from Stripe's dashboard
-const priceId = 'price_1QK0wTR5d3xw1mbRZXQKTEoM';
+const priceId = "price_1QK0wTR5d3xw1mbRZXQKTEoM";
 
 function startCheckout() {
-  redirectToCheckout(priceId);
+    redirectToCheckout(priceId);
 }
 
 const resetLock = function () {
-  paymentMethodInfo.value.status = 'unlocked';
-}
+    paymentMethodInfo.value.status = "unlocked";
+};
 </script>
 
 <style>

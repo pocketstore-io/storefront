@@ -20,14 +20,14 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 const router = useRouter();
 
 onMounted(() => {
-  if (typeof route.query.order == "undefined") {
-    router.push('/de');
-  }
+    if (typeof route.query.order == "undefined") {
+        router.push("/de");
+    }
 });
 </script>

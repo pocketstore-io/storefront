@@ -5,10 +5,7 @@
         "theme": "default",
         "language": "de",
         "currency": "€",
-        "currencies": [
-            "€",
-            "$"
-        ],
+        "currencies": ["€", "$"],
         "tax_general": 19,
         "tax_food": 7,
         "paypal": {
@@ -26,8 +23,8 @@
         },
         "locales": [
             {
-              "code": "en",
-              "file": "en.json"
+                "code": "en",
+                "file": "en.json"
             }
         ]
     },

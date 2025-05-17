@@ -28,18 +28,18 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
-import { usePocketBase } from '~/util/pocketbase';
+import { useLocalStorage } from "@vueuse/core";
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
-const paymentMethod = useLocalStorage('paymentMethod', 'vorkasse', {});
-const paymentMethodInfo = useLocalStorage('paymentMethodInfo', {}, {});
+const paymentMethod = useLocalStorage("paymentMethod", "vorkasse", {});
+const paymentMethodInfo = useLocalStorage("paymentMethodInfo", {}, {});
 const optionsPayment = ref([]);
 
 onMounted(async () => {
-	optionsPayment.value = await pb.collection('payment_methods').getFullList({
-		filter: 'active=true',
-		sort: 'sort'
-	});
-  });
+    optionsPayment.value = await pb.collection("payment_methods").getFullList({
+        filter: "active=true",
+        sort: "sort",
+    });
+});
 </script>

@@ -24,11 +24,15 @@ import { usePocketBase } from "~/util/pocketbase";
 const pb = usePocketBase();
 
 const loginViaGoogle = async function () {
-  const authData = await pb.collection('customers').authWithOAuth2({ provider: 'google' });
-  console.log(authData);
-}
+    const authData = await pb
+        .collection("customers")
+        .authWithOAuth2({ provider: "google" });
+    console.log(authData);
+};
 const loginViaGithub = async function () {
-  const authData = await pb.collection('customers').authWithOAuth2({ provider: 'github' });
-  console.log(authData);
-}
+    const authData = await pb
+        .collection("customers")
+        .authWithOAuth2({ provider: "github" });
+    console.log(authData);
+};
 </script>

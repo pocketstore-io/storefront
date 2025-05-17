@@ -16,8 +16,8 @@
     </section>
 </template>
 <script setup lang="ts">
-import '~/main.css';
-import Footer from '~/components/Footer.vue';
-import Header from '~/components/Header.vue';
-import BackToTop from '~/components/BackToTop.vue';
+import "~/main.css";
+import Footer from "~/components/Footer.vue";
+import Header from "~/components/Header.vue";
+import BackToTop from "~/components/BackToTop.vue";
 </script>

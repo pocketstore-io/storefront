@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-const form = ref('register');
+const form = ref("register");
 </script>

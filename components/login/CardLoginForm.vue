@@ -11,6 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import FormRegisterAndLogin from './FormRegisterAndLogin.vue';
-import SocialLogin from './SocialLogin.vue';
+import FormRegisterAndLogin from "./FormRegisterAndLogin.vue";
+import SocialLogin from "./SocialLogin.vue";
 </script>

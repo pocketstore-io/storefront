@@ -28,17 +28,17 @@
 </template>
 
 <script lang="ts" setup>
-import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
-import { useLocalStorage } from '@vueuse/core';
-import CustomerHeroContent from './customer/HeroContent.vue'
-import { usePocketBase } from '~/util/pocketbase';
+import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
+import CustomerHeroContent from "./customer/HeroContent.vue";
+import { usePocketBase } from "~/util/pocketbase";
 
-const checkoutStep = useLocalStorage('checkoutStep', 'cart', {});
+const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const pb = usePocketBase();
 
 onMounted(() => {
-  if (pb.authStore.isValid && checkoutStep.value == 'customer') {
-    checkoutStep.value = 'addresses';
-  }
+    if (pb.authStore.isValid && checkoutStep.value == "customer") {
+        checkoutStep.value = "addresses";
+    }
 });
 </script>

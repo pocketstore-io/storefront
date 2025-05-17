@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
-const lang = useLocalStorage('lang', 'de', {});
-const currency = useLocalStorage('currency', 'euro', {});
+import { useLocalStorage } from "@vueuse/core";
+const lang = useLocalStorage("lang", "de", {});
+const currency = useLocalStorage("currency", "euro", {});
 </script>

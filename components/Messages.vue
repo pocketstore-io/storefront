@@ -10,19 +10,19 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
+import { useLocalStorage } from "@vueuse/core";
 
-const messages = useLocalStorage('messages', [], {});
+const messages = useLocalStorage("messages", [], {});
 const time = ref(Math.floor(Date.now() / 1000));
 
 onMounted(() => {
-  setInterval(() => {
-    time.value = Math.floor(Date.now() / 1000 + 1);
-    messages.value.map((item, index) => {
-      if (time.value < item.timer) {
-        messages.value = messages.value.splice(index,1);
-      }
-    });
-  }, 1000);
+    setInterval(() => {
+        time.value = Math.floor(Date.now() / 1000 + 1);
+        messages.value.map((item, index) => {
+            if (time.value < item.timer) {
+                messages.value = messages.value.splice(index, 1);
+            }
+        });
+    }, 1000);
 });
 </script>

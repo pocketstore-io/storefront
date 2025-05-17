@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorage } from '@vueuse/core';
+import { useLocalStorage } from "@vueuse/core";
 
-const same = useLocalStorage('same', true, {});
+const same = useLocalStorage("same", true, {});
 </script>

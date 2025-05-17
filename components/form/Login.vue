@@ -21,23 +21,25 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
-import { usePocketBase } from '~/util/pocketbase';
+import { useRouter } from "vue-router";
+import { usePocketBase } from "~/util/pocketbase";
 
 const router = useRouter();
 const pb = usePocketBase();
 
 const form = ref({
-  login: {
-    email: '',
-    password: ''
-  },
+    login: {
+        email: "",
+        password: "",
+    },
 });
 
 const send = async function () {
-  await pb.collection('customers').authWithPassword(form.value.login.email, form.value.login.password)
-  if (pb.authStore.isValid) {
-    router.push('/customer/profile');
-  }
-}
+    await pb
+        .collection("customers")
+        .authWithPassword(form.value.login.email, form.value.login.password);
+    if (pb.authStore.isValid) {
+        router.push("/customer/profile");
+    }
+};
 </script>
