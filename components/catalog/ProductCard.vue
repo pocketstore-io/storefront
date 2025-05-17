@@ -2,7 +2,8 @@
   <div v-if="product" class="card shadow-xl bg-white">
     <figure>
       <a :href="'/' + locale + '/product/' + product.slug + '.html'">
-        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes">
+        <img :src="'https://' + config.domain + '/api/files/' + product.collectionId + '/' + product.id + '/' + product.cover"
+          alt="Shoes">
       </a>
     </figure>
     <div class="card-body">
@@ -21,20 +22,22 @@
 
 <script lang="ts" setup>
 import { usePocketBase } from "~/util/pocketbase";
+import config from '@/pocketstore.json'
+import ProductGrid from "./ProductGrid.vue";
 const pb = usePocketBase();
 
 const i18n = useI18n();
 const locale = i18n.locale;
 
 const { identifier } = defineProps({
-    identifier: { type: String, requiered: true },
+  identifier: { type: String, requiered: true },
 });
 
 const product = ref({});
 
 onMounted(async () => {
-    product.value = await pb
-        .collection("products")
-        .getFirstListItem('slug="' + identifier + '"');
+  product.value = await pb
+    .collection("products")
+    .getFirstListItem('slug="' + identifier + '"');
 });
 </script>
