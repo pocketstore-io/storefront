@@ -33,6 +33,6 @@ const { identifier } = defineProps({
 const product = ref({});
 
 onMounted(async () => {
-  product.value = (await pb.collection('products').getFirstListItem('id="' + identifier + '"'));
+  product.value = (await pb.collection('products').getFirstListItem('slug="' + identifier + '"'));
 });
 </script>
