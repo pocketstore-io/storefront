@@ -4,7 +4,7 @@
       <table v-if="cart.length > 0" class="w-full">
         <CartHeader />
         <tbody>
-          <CartItem :item="item" :index="index" v-for="(item, index) in cart" :key="item.id" />
+          <CartItem v-for="(item, index) in cart" :key="item.id" :item="item" :index="index" />
         </tbody>
       </table>
       <section v-else class="px-3 py-3">
