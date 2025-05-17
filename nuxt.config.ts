@@ -1,4 +1,5 @@
 import config from './pocketstore.json'
+import tailwindcss from '@tailwindcss/vite'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
@@ -23,12 +24,6 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'de'
   },
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  },
   nitro: {
     routeRules: {
       // TODO custom rules by pocketstore
@@ -42,6 +37,10 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/android-chrome-192x192.png' }
       ]
     }
+  },vite: {
+    plugins: [
+      tailwindcss(),
+    ],
   },
   compatibilityDate: '2024-10-19',
 })
