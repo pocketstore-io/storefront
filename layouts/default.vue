@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-gray-300 min-h-screen">
+    <section class="bg-gray-300 min-h-screen" data-theme="light">
         <header>
             <Header />
         </header>
@@ -21,7 +21,3 @@ import Footer from '~/components/Footer.vue';
 import Header from '~/components/Header.vue';
 import BackToTop from '~/components/BackToTop.vue';
 </script>
-
-<style>
-@import url('layout.css');
-</style>

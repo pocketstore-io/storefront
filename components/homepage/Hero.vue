@@ -1,6 +1,6 @@
 <template>
   <div class="col-span-6">
-    <div class="hero bg-base-200 rounded-lg">
+    <div class="hero bg-gray-400 rounded-lg">
       <div class="hero-content flex-col lg:flex-row">
         <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
           class="max-w-sm rounded-lg shadow-2xl">
