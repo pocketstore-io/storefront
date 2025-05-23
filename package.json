@@ -31,7 +31,7 @@
         "caniuse-lite": "^1.0.30001718",
         "daisyui": "^5.0.35",
         "happy-dom": "^15.11.7",
-        "nuxt": "^3.17.3",
+        "nuxt": "^3.17.4",
         "playwright-core": "^1.52.0",
         "pocketbase": "^0.25.2",
         "tailwindcss": "^4.1.7",
