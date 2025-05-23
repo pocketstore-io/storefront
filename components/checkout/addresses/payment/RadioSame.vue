@@ -1,8 +1,10 @@
 <template>
-    <section class="alert alert-neutral input-primary border-2">
-      <input v-model="same" type="checkbox" class="checkbox checkbox-primary border-2 bg-white">
+  <div class="alert border-black alert-outline mb-3">
+    <label class="label" for="same">
+      <input v-model="same" id="same" type="checkbox" checked="checked" class="checkbox input" />
       <span>{{ $t('checkout.same') }}</span>
-    </section>
+    </label>
+  </div>
 </template>
 
 <script lang="ts" setup>

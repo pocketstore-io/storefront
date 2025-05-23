@@ -1,5 +1,5 @@
 <template>
-  <select v-model="selectedShippingAddress" class="select w-full block">
+  <select v-model="selectedShippingAddress" class="select select-bordered w-full block select-neutral">
     <option value="new-one">{{ $t('checkout.new-address') }}</option>
     <option v-for="address in addressess" :key="address.id" :value="address.id">{{ address.name }}</option>
   </select>

@@ -3,13 +3,15 @@
     <h2 class="font-bold text-lg">{{ $t('checkout.shipping-address') }}</h2>
     <AddressSelect />
     <div class="divider divider-primary">{{ $t('checkout.address') }}</div>
-    <Input var="name" type="text" />
-    <Input var="surname" type="text" />
-    <Input var="street" type="text" />
-    <Input var="number" type="number" />
-    <Input var="zip" type="number" />
-    <Input var="city" type="text" />
-    <CountrySelect />
+    <div class="space-y-6">
+      <Input var="name" type="text" />
+      <Input var="surname" type="text" />
+      <Input var="street" type="text" />
+      <Input var="number" type="number" />
+      <Input var="zip" type="number" />
+      <Input var="city" type="text" />
+      <CountrySelect />
+    </div>
   </div>
 </template>
 

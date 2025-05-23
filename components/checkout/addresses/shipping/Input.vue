@@ -1,8 +1,8 @@
 <template>
-  <div class="form-control">
-    <label for="" class="label font-bold text-sm">{{ $t('checkout.label.' + props.var) }}</label>
-    <input v-model="shipping[props.var]" :type="props.type" class="input input-bordered input-primary border-2">
-  </div>
+  <label class="floating-label">
+    <span class="">{{ $t('checkout.label.' + props.var) }}</span>
+    <input v-model="shipping[props.var]" :type="props.type" class="w-full input-neutral input-bordered input">
+  </label>
 </template>
 
 <script lang="ts" setup>

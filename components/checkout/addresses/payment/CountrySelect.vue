@@ -1,10 +1,10 @@
 <template>
-  <div class="form-control">
-    <label for="" class="label font-bold text-sm">{{ $t('checkout.label.country') }}</label>
-    <select v-model="payment.country" class="select select-bordered select-primary border-2">
-      <option v-for="(country, index) in countries" :value="index">{{ $t('country.' + country.code) }}</option>
+  <label for="" class="floating-label">
+    <span>{{ $t('checkout.label.country') }}</span>
+    <select v-model="payment.country" class="select select-neutral select-bordered w-full">
+      <option v-for="(country, index) in countries" :value="index">{{ country }}</option>
     </select>
-  </div>
+  </label>
 </template>
 
 <script lang="ts" setup>

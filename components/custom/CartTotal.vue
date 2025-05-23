@@ -1,18 +1,18 @@
 <template>
   <div>
-    <section class="grid grid-cols-6 gap-x-3 px-3 py-3">
+    <section class="grid grid-cols-6 gap-x-3 px-3 py-3 bg-gray-400">
       <div class="col-spam-6">
         <h2 class="font-bold text-lg px-3 py-3">Total</h2>
       </div>
-      <div class="col-span-6 bg-base-200 px-3 py-3 flex justify-between">
+      <div class="col-span-6 bg-gray-500 px-3 py-3 flex justify-between">
         <label for="" class="label font-bold">Preis</label>
         <span>{{ parseFloat(total).toFixed(2) }} €</span>
       </div>
-      <div class="col-span-6 bg-base-300 px-3 py-3 flex justify-between">
+      <div class="col-span-6 bg-gray-600 px-3 py-3 flex justify-between">
         <label for="" class="label font-bold">Steuern</label>
         <span>{{ (parseFloat(total) * 0.19).toFixed(2) }} €</span>
       </div>
-      <div class="col-span-6 bg-base-200 px-3 py-3 flex justify-between items-center">
+      <div class="col-span-6 bg-gray-500 px-3 py-3 flex justify-between items-center">
         <label for="" class="label font-bold">Gesamt *</label>
         <span>{{ parseFloat(total.toFixed(2) * 1.19).toFixed(2) }} €</span>
       </div>
