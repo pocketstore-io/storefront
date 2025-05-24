@@ -3,7 +3,7 @@
     <h2 class="font-bold text-lg mb-3">{{ $t('checkout.payment') }}</h2>
     <PaymentSelect />
     <div class="divider divider-primary">{{ $t('checkout.addresses') }}</div>
-    <RadioSame />
+    <CheckboxSame />
     <div class="space-y-6">
       <PaymentInput var="name" type="text" />
       <PaymentInput var="surname" type="text" />
@@ -24,7 +24,6 @@
 import { useLocalStorage } from "@vueuse/core";
 import PaymentInput from "./payment/Input.vue";
 import CountrySelect from "./payment/CountrySelect.vue";
-import RadioSame from "./payment/RadioSame.vue";
 import PaymentSelect from "./payment/AddressSelect.vue";
 import CheckboxSame from "./payment/CheckboxSame.vue";
 
