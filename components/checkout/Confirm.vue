@@ -1,14 +1,14 @@
 <template>
     <section v-if="checkoutStep == 'confirm'" class="grid grid-cols-6 gap-3 mx-auto max-w-6xl px-3 py-3">
         <div class="col-span-6 flex justify-between">
-            <div class="mx-auto bg-white shadow-md rounded-lg overflow-hidden my-24 max-w-2xl">
+            <div class="mx-auto bg-gray-400 shadow-md rounded-lg overflow-hidden my-24 max-w-2xl">
                 <div class="bg-indigo-600 text-white text-center py-6">
                     <h1 class="text-2xl font-bold">Deine Bestellung in allen Details!</h1>
                     <p class="mt-2 text-lg">Nur noch 1 Schritt zum Versand von Uns.</p>
                 </div>
                 <div class="p-6">
                     <p class="text-gray-700 text-lg">
-                        Hi <strong>{{ pb.authStore.model.name }}</strong>,<br>
+                        {{ $t('Hi') }} <strong>{{ pb.authStore.model.name }}</strong>,<br>
                         We’ve received your order and it’s being processed. Below are the details:
                     </p>
 
@@ -167,7 +167,7 @@ const confirmOrder = async () => {
         shipping_method_info: shippingMethodInfo.value,
         shipping_method: shippingMethod.value,
         payment_address: payment.value,
-        shipping_address: shipping.value,
+        shipping_address: shipping.value
     });
     router.push("/checkout/confirm?order=" + order.id);
     cart.value = [];
