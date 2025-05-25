@@ -2,7 +2,7 @@
   <ModalBackToTop />
   <transition>
     <section v-if="show"
-      class="back-to-top-icon fixed bottom-0 right-0 mr-24 mb-3 bg-black text-white rounded-full h-16 w-16 flex items-center justify-center z-10"
+      class="back-to-top-icon fixed bottom-0 right-0 mr-12 mb-3 bg-black text-white rounded-full h-16 w-16 flex items-center justify-center z-10"
       @click="scrollToTop()">
       <Fa :icon="faArrowUp" size="2x" />
     </section>
