@@ -83,7 +83,7 @@
                         </div>
                     </section>
                 </div>
-                <div class="bg-gray-50 p-6 text-gray-600">
+                <div class="bg-gray-400 p-6 text-gray-600">
                     <p>
                         Need help? Contact us at
                         <a href="mailto:support@example.com"
