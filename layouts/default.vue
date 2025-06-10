@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-gray-300 min-h-screen" data-theme="light">
+    <section class="page min-h-screen" data-theme="light">
         <header>
             <Header />
         </header>
@@ -16,8 +16,44 @@
     </section>
 </template>
 <script setup lang="ts">
-import "~/main.css";
+import "../main.css";
 import Footer from "~/components/Footer.vue";
 import Header from "~/components/Header.vue";
-import BackToTop from "~/components/BackToTop.vue";
 </script>
+
+<style scoped>
+.page {
+  background: radial-gradient(
+      circle at top,
+      transparent 9%,
+      #1EADEF 10%,
+      #1EADEF 15%,
+      transparent 16%
+    ),
+    radial-gradient(
+      circle at bottom,
+      transparent 19%,
+      #1EADEF 20%,
+      #1EADEF 25%,
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at right,
+      transparent 19%,
+      #1EADEF 20%,
+      #1EADEF 25%,
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at left,
+      transparent 9%,
+      #1EADEF 10%,
+      #1EADEF 15%,
+      transparent 16%
+    );
+  background-size: 3em 3em;
+  background-color: #ccc;
+  opacity: 1;
+}
+</style>
+

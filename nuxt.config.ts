@@ -1,49 +1,49 @@
 import config from "./pocketstore.json";
-import tailwindcss from "@tailwindcss/vite";
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
-    devtools: { enabled: false },
-    css: ["@fortawesome/fontawesome-svg-core/styles.css"],
-    plausible: {
-        // Prevent tracking on localhost
-        ignoredHostnames: [
-            // 'localhost'
-        ],
-        apiHost: "https://tracking.jmse.cloud",
-    },
-    // TODO remove pinia
-    modules: ["@nuxtjs/i18n", "@vite-pwa/nuxt", "@nuxtjs/plausible"],
-    i18n: {
-        strategy: "prefix",
-        // TODO allow custom lang
-        locales: [
-            {
-                code: "de",
-                file: "de.json",
-            },
-        ],
-        defaultLocale: "de",
-    },
-    nitro: {
-        routeRules: {
-            // TODO custom rules by pocketstore
-            "/product/**": { static: true, redirect: (to) => `${to}.html` },
-            "/category/**": { static: true, redirect: (to) => `${to}.html` },
-        },
-    },
-    app: {
-        head: {
-            link: [
-                {
-                    rel: "icon",
-                    type: "image/x-icon",
-                    href: "/android-chrome-192x192.png",
-                },
-            ],
-        },
-    },
-    vite: {
-        plugins: [tailwindcss()],
-    },
-    compatibilityDate: "2024-10-19",
-});
+  devtools: { enabled: true },
+  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
+  modules: ['@nuxtjs/i18n'],
+  plausible: {
+    // Prevent tracking on localhost
+    ignoredHostnames: [
+      // 'localhost'
+    ],
+    apiHost: "https://tracking.jmse.cloud",
+  },
+  i18n: {
+    strategy: 'prefix',
+    locales: [
+      {
+        code: 'de',
+        file: 'de.json'
+      },
+      {
+        code: 'en',
+        file: 'en.json'
+      }
+    ],
+    defaultLocale: 'en'
+  },
+  nitro: {
+    routeRules: {
+      // Only apply .html suffix to routes starting with "product/"
+      '/product/**': { static: true, redirect: (to) => `${to}.html` },
+      '/category/**': { static: true, redirect: (to) => `${to}.html` }
+    }
+  },
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    }
+  },
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
+  compatibilityDate: '2025-06-06',
+})

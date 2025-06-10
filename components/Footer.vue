@@ -1,18 +1,43 @@
 <template>
-  <section class="bg-white">
-    <div class="grid grid-cols-7 px-3 py-3 text-center mx-auto max-w-5xl">
+  <section class="bg-gray-600">
+    <div
+      class="grid grid-cols-7 px-3 py-3 text-center mx-auto max-w-5xl text-white"
+    >
       <div class="col-span-7 md:col-span-2">
-        <NuxtLink :to="'/de/impressum'" class="text-blue-400">{{ $t('footer.impressum') }}</NuxtLink>
-        & <a href="/de/data-privacy" class="text-blue-400">{{ $t('footer.data-privacy') }}</a>
+        <NuxtLink :to="'/de/impressum'" class="text-blue-400">{{
+          $t("footer.impressum")
+        }}</NuxtLink>
+        &
+        <a href="/de/data-privacy" class="text-blue-400">{{
+          $t("footer.data-privacy")
+        }}</a>
       </div>
-      <div class="col-span-7 md:col-span-2">{{ $t('footer.made-with') }}
-        <a :href="'https://' + url.value" target="_blank" rel="noopener noreferrer">
+      <div class="col-span-7 md:col-span-2">
+        {{ $t("footer.made-with") }}
+        <a
+          :href="'https://' + url.value"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Fa :icon="faHeart" class="text-red-400" />
         </a>
-        by <a class="text-blue-600" target="_blank" href="https://www.jonathan-martz.de">Jonathan</a>
+        by
+        <a
+          class="text-primary"
+          target="_blank"
+          href="https://www.jonathan-martz.de"
+          >Jonathan</a
+        >
       </div>
-      <div class="col-span-7 md:col-span-3">Copyright by <a class="text-blue-600" target="_blank"
-          href="https://www.jonathan-martz.de">Jonathan Martz Softwareentwicklung</a></div>
+      <div class="col-span-7 md:col-span-3">
+        Copyright by
+        <a
+          class="text-primary"
+          target="_blank"
+          href="https://www.jonathan-martz.de"
+          >Jonathan Martz Softwareentwicklung</a
+        >
+      </div>
     </div>
   </section>
 </template>

@@ -1,10 +1,10 @@
 <template>
   <button class="btn btn-primary" @click="open = !open">
     <span v-if="!open">
-      <Fa :icon="faBars" size="2x" class="text-white" />
+      <Fa :icon="faBars" class="text-white w-5" />
     </span>
     <span v-else>
-      <Fa :icon="faTimes" size="2x" class="text-white" />
+      <Fa :icon="faTimes" class="text-white w-5" />
     </span>
   </button>
 </template>

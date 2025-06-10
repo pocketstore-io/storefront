@@ -1,6 +1,8 @@
 <template>
-  <section class="logo mt-3 text-white md:text-black md:mt-0">
-    <a href="/" class="font-bold">{{ $t('general.title') }}</a>
+  <section class="logo mt-3 text-white md:mt-0">
+    <a href="/" class="font-bold">
+      <img src="/pocketstore-logo-inverted.svg" class="h-6 md:h-12" alt="">
+    </a>
   </section>
 </template>
 
