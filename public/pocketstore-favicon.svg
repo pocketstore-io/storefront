@@ -1,0 +1,7 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hintergrund mit abgerundeten Ecken -->
+  <rect width="512" height="512" rx="96" fill="#121212"></rect>
+
+  <!-- Einkaufswagen-Symbol -->
+  <path fill="#1EADEF" d="M160 400a24 24 0 1 0 24 24 24 24 0 0 0 -24-24zm192 0a24 24 0 1 0 24 24 24 24 0 0 0 -24-24zm40.8-64H181.2l-7.5-32h223.5a16 16 0 0 0 15.4-12l32-128a8 8 0 0 0 -7.8-10H128.9l-7.2-32H64a8 8 0 0 0 0 16h45.1l38.5 170a32 32 0 0 0 31.2 24h204.1a8 8 0 0 0 0-16z"></path>
+</svg>
