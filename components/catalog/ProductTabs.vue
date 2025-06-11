@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs tabs-border">
+  <div class="tabs tabs-border bg-white">
     <input
       type="radio"
       name="my_tabs_2"
@@ -8,7 +8,7 @@
       :checked="selected == 'description'"
       aria-label="Beschreibung"
     />
-    <div class="tab-content border-base-300 bg-base-100 p-10">
+    <div class="tab-content bg-base-100 p-10">
       <CatalogTabDescription />
     </div>
 
@@ -20,7 +20,7 @@
       :checked="selected == 'pictures'"
       aria-label="Fotos"
     />
-    <div class="tab-content border-base-300 bg-base-100 p-10">
+    <div class="tab-content bg-base-100 p-10">
       <Carousel />
     </div>
 
