@@ -7,8 +7,6 @@ const props = defineProps({
 });
 
 const pb = usePocketBase();
-const route = useRoute();
-
 const loadSeo = async () => {
     if (props.product) {
         const productSeo = await pb
@@ -32,6 +30,5 @@ onUpdated(() => {
 
 onMounted(async () => {
     loadSeo();
-    console.log(route);
 });
 </script>

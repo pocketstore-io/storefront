@@ -1,30 +1,46 @@
 <template>
-  <div v-if="field.type == 'text'" class="col-span-2">
-    <div class="divider divider-primary">
-      {{ $t('product.config.' + field.label.replaceAll(' ', '-')) }}
+  <div v-if="props.field.type == 'text'" class="col-span-2">
+    <div class="divider-secondary divider">
+      {{
+        $t(
+          "product.label." +
+            props.field.label.toLowerCase().replaceAll(" ", "-")
+        )
+      }}
     </div>
-    <p class="text-sm text-left">
-      {{ field.desc }}
+    <label class="floating-label">
+      <span>Your Email</span>
+      <input type="text" class="input input-secondary w-full" />
+    </label>
+    <p class="text-sm text-left mt-3">
+      {{ props.field.desc }}
     </p>
-    <input type="text" class="input input-primary bg-base-200 placeholder-black w-full mt-3" placeholder="Hallo Welt">
   </div>
-  <div v-if="field.type == 'select'" class="col-span-2">
-    <div class="divider divider-primary">
-      {{ $t('product.config.' + field.label.replaceAll(' ', '-')) }}
+  <div v-if="props.field.type == 'select'" class="col-span-2">
+    <div class="divider divider-secondary">
+      {{
+        $t(
+          "product.label." +
+            props.field.label.toLowerCase().replaceAll(" ", "-")
+        )
+      }}
     </div>
-    <p class="text-sm text-left">
-      {{ field.desc }}
+    <label class="floating-label">
+      <span>Your Email</span>
+      <select id="test" name="test" class="select w-full select-secondary">
+        <option v-for="option in props.field.options" :key="option" :value="option">
+          {{ option }}
+        </option>
+      </select></label
+    >
+    <p class="text-sm text-left mt-3">
+      {{ props.field.desc }}
     </p>
-    <select id="test" name="test" class="select w-full select-primary mt-3 bg-base-200">
-      <option v-for="option in field.options" value="test">{{ option }}</option>
-    </select>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { field } = defineProps({
-    field: { type: Object, required: true },
+const props = defineProps({
+  field: { type: Object, required: true },
 });
 </script>
-
-<style></style>
