@@ -1,5 +1,5 @@
 <template>
-  <a href="/checkout">
+  <a href="/checkout" class="mr-3">
     <Fa :icon="faCartShopping" class="text-white mx-2 mt-0" />
     <span class="text-white">
       {{ cart.length }}
