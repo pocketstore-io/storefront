@@ -25,7 +25,9 @@
           class="flex justify-center items-center btn btn-neutral"
         >
           <FontAwesomeIcon size="1x" :icon="faShoppingCart" />
-          <span class="ml-2">0</span>
+          <span class="ml-2">
+            {{ cart.length }}
+          </span>
         </a>
       </li>
       <li>
@@ -42,4 +44,7 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { useLocalStorage } from "@vueuse/core";
+
+const cart = useLocalStorage('cart', [],{})
 </script>
