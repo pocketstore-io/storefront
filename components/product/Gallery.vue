@@ -34,6 +34,10 @@ const pb = usePocketBase();
 const url = usePocketBaseUrl();
 const pictures = ref([]);
 
+watch(()=>props.identifier, ()=>{
+  load();
+})
+
 const load = async () => {
   pictures.value = await pb.collection("product_pictures").getFullList(9, {
     filter: 'product.id="' + props.identifier + '"',
