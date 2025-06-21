@@ -31,10 +31,24 @@ const pb = usePocketBase();
 const url = usePocketBaseUrl();
 const route = useRoute();
 const item = ref({});
+const seo = ref({});
+const { t } = useI18n();
 
 onMounted(async () => {
   item.value = await pb
     .collection("brands")
     .getFirstListItem('slug="' + route.params.slug + '"');
+
+  useHead({
+    title: "Brand: " + item.value.name + " - " + t("general.title"),
+    meta: [
+      {
+        name: "description",
+        content:
+          "Dies ist die Beschreibung für die Brand deiner Wahl. Aktuelle Brand " +
+          item.value.name,
+      },
+    ],
+  });
 });
 </script>
