@@ -91,42 +91,44 @@ const item = ref({});
 const cart = useLocalStorage("cart", [], {});
 
 const addToCart = async function (id, qty = 1) {
-  let found = false;
-  if (typeof cart.value == "undefined") {
-    cart.value = [];
-  }
-
-  const product = await pb.collection("products").getOne(id);
-
-  cart.value.map((item) => {
-    if (item.id == id) {
-      found = true;
+    let found = false;
+    if (typeof cart.value == "undefined") {
+        cart.value = [];
     }
-  });
 
-  if (found) {
+    const product = await pb.collection("products").getOne(id);
+
     cart.value.map((item) => {
-      if (item.id == id) {
-        item.qty += qty;
-      }
+        if (item.id == id) {
+            found = true;
+        }
     });
-  } else {
-    // TODO cart message
-    cart.value.push({
-      qty,
-      id,
-      product,
-    });
-  }
+
+    if (found) {
+        cart.value.map((item) => {
+            if (item.id == id) {
+                item.qty += qty;
+            }
+        });
+    } else {
+        // TODO cart message
+        cart.value.push({
+            qty,
+            id,
+            product,
+        });
+    }
 };
 
 const load = async () => {
-  item.value = await pb
-    .collection("products")
-    .getFirstListItem('slug="' + route.params.slug.replace(".html", "") + '"');
+    item.value = await pb
+        .collection("products")
+        .getFirstListItem(
+            'slug="' + route.params.slug.replace(".html", "") + '"',
+        );
 };
 
 onMounted(() => {
-  load();
+    load();
 });
 </script>

@@ -25,25 +25,28 @@
 import { usePocketBase, usePocketBaseUrl } from "~/util/pocketbase";
 
 const props = defineProps({
-  identifier: {
-    type: String,
-    required: true,
-  },
+    identifier: {
+        type: String,
+        required: true,
+    },
 });
 const pb = usePocketBase();
 const url = usePocketBaseUrl();
 const pictures = ref([]);
 
-watch(()=>props.identifier, ()=>{
-  load();
-})
+watch(
+    () => props.identifier,
+    () => {
+        load();
+    },
+);
 
 const load = async () => {
-  pictures.value = await pb.collection("product_pictures").getFullList(9, {
-    filter: 'product.id="' + props.identifier + '"',
-  });
+    pictures.value = await pb.collection("product_pictures").getFullList(9, {
+        filter: 'product.id="' + props.identifier + '"',
+    });
 };
 onMounted(async () => {
-  load();
+    load();
 });
 </script>

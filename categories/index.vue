@@ -81,38 +81,38 @@ const categories = ref([]);
 const query = ref("");
 
 const computedCategories = computed(() => {
-  return categories.value.slice(0, 9);
+    return categories.value.slice(0, 9);
 });
 
 watch(query, () => {
-  load();
+    load();
 });
 
 const load = async () => {
-  categories.value = (
-    await pb.collection("categories").getList(1, 30)
-  ).items.sort(function (a, b) {
-    if (a.name < b.name) {
-      return -1;
-    }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  });
+    categories.value = (
+        await pb.collection("categories").getList(1, 30)
+    ).items.sort(function (a, b) {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    });
 };
 
 const filtered = computed(() => {
-  return categories.value.filter((item) =>
-    item.name.toLowerCase().includes(query.value.toLowerCase())
-  );
+    return categories.value.filter((item) =>
+        item.name.toLowerCase().includes(query.value.toLowerCase()),
+    );
 });
 
 onMounted(async () => {
-  load();
+    load();
 
-  useHead({
-    title: "Kategorien | " + t("general.title"),
-  });
+    useHead({
+        title: "Kategorien | " + t("general.title"),
+    });
 });
 </script>

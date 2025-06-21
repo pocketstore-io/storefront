@@ -172,20 +172,20 @@ const customers = ref([]);
 const languages = ref([]);
 
 const load = async () => {
-  currency.value = await pb
-    .collection("currencys")
-    .getFirstListItem("default=true");
-  translations.value = await pb.collection("translations").getFullList(10);
-  customers.value = await pb.collection("customers").getFullList(10);
-  languages.value = [...new Set(translations.value.map((item) => item.lang))];
+    currency.value = await pb
+        .collection("currencys")
+        .getFirstListItem("default=true");
+    translations.value = await pb.collection("translations").getFullList(10);
+    customers.value = await pb.collection("customers").getFullList(10);
+    languages.value = [...new Set(translations.value.map((item) => item.lang))];
 };
 
 onMounted(() => {
-  load();
+    load();
 });
 
 definePageMeta({
-  layout: "admin",
+    layout: "admin",
 });
 </script>
 

@@ -9,21 +9,21 @@
 import { useLocalStorage } from "@vueuse/core";
 
 const props = defineProps({
-  var: { type: String, required: true },
-  type: { type: String, required: true },
+    var: { type: String, required: true },
+    type: { type: String, required: true },
 });
 
 const payment = useLocalStorage(
-  "payment",
-  {
-    name: "",
-    surname: "",
-    street: "",
-    number: 1,
-    zip: "",
-    city: "",
-    country: "de",
-  },
-  {},
+    "payment",
+    {
+        name: "",
+        surname: "",
+        street: "",
+        number: 1,
+        zip: "",
+        city: "",
+        country: "de",
+    },
+    {},
 );
 </script>

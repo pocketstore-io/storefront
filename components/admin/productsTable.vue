@@ -35,9 +35,9 @@
 import { usePocketBase, usePocketBaseUrl } from "~/util/pocketbase";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
-  faEdit,
-  faInfoCircle,
-  faLink,
+    faEdit,
+    faInfoCircle,
+    faLink,
 } from "@fortawesome/free-solid-svg-icons";
 
 const pb = usePocketBase();
@@ -45,13 +45,13 @@ const url = usePocketBaseUrl();
 const products = ref([]);
 
 const load = async () => {
-  products.value = (
-    await pb.collection("products").getList(1, 5, {
-      sort: "created",
-    })
-  ).items;
+    products.value = (
+        await pb.collection("products").getList(1, 5, {
+            sort: "created",
+        })
+    ).items;
 };
 onMounted(() => {
-  load();
+    load();
 });
 </script>

@@ -56,12 +56,12 @@ const categories = ref([]);
 const brands = ref([]);
 
 const load = async () => {
-  products.value = await pb.collection("products").getFullList(100);
-  categories.value = await pb.collection("categories").getFullList(100);
-  brands.value = await pb.collection("brands").getFullList(100);
+    products.value = await pb.collection("products").getFullList(100);
+    categories.value = await pb.collection("categories").getFullList(100);
+    brands.value = await pb.collection("brands").getFullList(100);
 };
 
 onMounted(() => {
-  load();
+    load();
 });
 </script>

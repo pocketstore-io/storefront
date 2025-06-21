@@ -187,16 +187,16 @@
 <script setup lang="ts">
 import "~/main.css";
 import {
-  faAngleDoubleDown,
-  faAngleDoubleRight,
-  faAngleDown,
-  faArrowsToDot,
-  faDotCircle,
-  faEdit,
-  faLink,
-  faListDots,
-  faMinus,
-  faPlus,
+    faAngleDoubleDown,
+    faAngleDoubleRight,
+    faAngleDown,
+    faArrowsToDot,
+    faDotCircle,
+    faEdit,
+    faLink,
+    faListDots,
+    faMinus,
+    faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Fa } from "@fortawesome/vue-fontawesome";
 </script>

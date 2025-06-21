@@ -167,7 +167,7 @@ const confirmOrder = async () => {
         shipping_method_info: shippingMethodInfo.value,
         shipping_method: shippingMethod.value,
         payment_address: payment.value,
-        shipping_address: shipping.value
+        shipping_address: shipping.value,
     });
     router.push("/checkout/confirm?order=" + order.id);
     cart.value = [];
