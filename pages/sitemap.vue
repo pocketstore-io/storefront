@@ -9,7 +9,7 @@
         :key="item.id"
         class="col-span-6 md:col-span-3"
       >
-       <a :href="'/de/product/'+item.slug+'.html'">{{ item.name }}</a>
+       <a :href="'/de/productgit /'+item.slug+'.html'">{{ item.name }}</a>
         <p class="text-sm">
           {{ item.desc }}
         </p>

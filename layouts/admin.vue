@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main data-theme="light">
     <aside
       id="default-sidebar"
       class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
@@ -143,7 +143,7 @@
           </li>
           <li>
             <a
-              href="#"
+              href="/de/admin/translations"
               class="flex items-center p-2 group flex justify-between"
             >
               <span class="ms-3 text-sm">Übersetzungen</span>
@@ -181,22 +181,50 @@
     <div class="p-4 sm:ml-64 bg-red-400 min-h-screen">
       <slot></slot>
     </div>
+    <section class="toasts toast toast-top toast-end">
+      <div v-for="toast in toasts" class="">
+        <div
+          class="alert"
+          :class="{
+            'alert-success': toast.status == 'success',
+            'alert-info': toast.status == 'info',
+            'alert-error': toast.status == 'error',
+            'alert-warning': toast.status == 'warning',
+          }"
+        >
+          <span>{{ toast.message }}</span>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
 <script setup lang="ts">
 import "~/main.css";
 import {
-    faAngleDoubleDown,
-    faAngleDoubleRight,
-    faAngleDown,
-    faArrowsToDot,
-    faDotCircle,
-    faEdit,
-    faLink,
-    faListDots,
-    faMinus,
-    faPlus,
+  faAngleDoubleDown,
+  faAngleDoubleRight,
+  faAngleDown,
+  faArrowsToDot,
+  faDotCircle,
+  faEdit,
+  faLink,
+  faListDots,
+  faMinus,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Fa } from "@fortawesome/vue-fontawesome";
+import { useLocalStorage } from "@vueuse/core";
+import { usePocketBase } from "~/util/pocketbase";
+
+const toasts = useLocalStorage("toasts", [], {});
+const pb = usePocketBase();
+const router = useRouter();
+const route = useRoute();
+
+onMounted(() => {
+  if (route.path != "/de/admin/login" && !pb.authStore.isSuperuser) {
+    router.push("/de/admin/login");
+  }
+});
 </script>

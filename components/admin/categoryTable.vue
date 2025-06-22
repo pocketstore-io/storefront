@@ -1,5 +1,5 @@
 <template>
-  <ul class="list bg-base-100 rounded-box shadow-md">
+  <ul class="list bg-gray-400 rounded-box shadow-md">
     <li v-for="product in categories" class="list-row">
       <div>
         <img

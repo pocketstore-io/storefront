@@ -4,7 +4,7 @@
       <section class="card bg-white">
         <div class="card-body">
           <h2 class="font-bold text-xl">Welcome</h2>
-          <ul class="list bg-base-100 rounded-box shadow-md">
+          <ul class="list bg-gray-400 rounded-box shadow-md">
             <li class="list-row">
               <div>
                 <img

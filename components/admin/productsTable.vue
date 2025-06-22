@@ -1,5 +1,5 @@
 <template>
-  <ul class="list bg-base-100 rounded-box shadow-md">
+  <ul class="list bg-gray-400 rounded-box shadow-md">
     <li v-for="product in products" class="list-row">
       <div>
         <img
@@ -16,9 +16,9 @@
         />
       </div>
       <div>
-        <div>Dio Lupa</div>
+        <div>{{ product.name }}</div>
         <div class="text-xs uppercase font-semibold opacity-60">
-          {{ product.updated }}
+          {{ product.created }}
         </div>
       </div>
       <button class="btn btn-square btn-ghost">
