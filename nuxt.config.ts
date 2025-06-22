@@ -14,16 +14,7 @@ export default defineNuxtConfig({
     },
     i18n: {
         strategy: "prefix",
-        locales: [
-            {
-                code: "de",
-                file: "de.json",
-            },
-            {
-                code: "en",
-                file: "en.json",
-            },
-        ],
+        locales: config.settings.locales,
         defaultLocale: "en",
     },
     nitro: {

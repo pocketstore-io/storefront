@@ -3,15 +3,18 @@
     <div class="hero bg-base-200 py-44">
       <div class="hero-content text-center">
         <div class="max-w-xl">
-          <h1 class="text-2xl font-bold">Herzlichen Dank für ihre Bestelleung</h1>
+          <h1 class="text-2xl font-bold">Herzlichen Dank für ihre Bestellung</h1>
           <p class="py-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptates ducimus molestias eaque maiores
-            consectetur dicta! Dolorum iste accusantium repudiandae quaerat perferendis, iusto reiciendis tempore. Ipsam
-            ea tenetur molestias quae.
+            Hier könnte dein BlaBla stehen in dem Fall das du einen PocketStore für dich aufsetzt.
+            Hier könnte dein BlaBla stehen in dem Fall das du einen PocketStore für dich aufsetzt.
+            Hier könnte dein BlaBla stehen in dem Fall das du einen PocketStore für dich aufsetzt.
+            Hier könnte dein BlaBla stehen in dem Fall das du einen PocketStore für dich aufsetzt.
+            Hier könnte dein BlaBla stehen in dem Fall das du einen PocketStore für dich aufsetzt.
+            Hier könnte dein BlaBla stehen in dem Fall das du einen PocketStore für dich aufsetzt.
           </p>
           <section class="actions flex justify-center space-x-3">
-            <a href="/en" class="btn btn-primary">Weiter einkaufen</a>
-            <a :href="'/customer/invoice/' + route.query.order" class="btn btn-primary">Zur Rechnung</a>
+            <a href="/de" class="btn btn-primary">Weiter einkaufen</a>
+            <a :href="'/customer/invoice/' + route.query.order" class="btn btn-secondary">Zur Rechnung</a>
           </section>
         </div>
       </div>

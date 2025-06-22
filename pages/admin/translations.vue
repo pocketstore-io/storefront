@@ -18,6 +18,11 @@
           <input type="text" v-model="query" class="input input-md" />
         </label>
       </div>
+      <div class="col-span-6 md:col-span-2 py-3">
+        <button @click="modalAdd = true" class="btn btn-block btn-primary">
+          Hinzufügen
+        </button>
+      </div>
     </section>
     <div class="divider divider-primary mt-6">Wörter</div>
     <section class="grid grid-cols-12 gap-3">
@@ -91,6 +96,7 @@
     </section>
     <div class="offcanvas-modal-edit">
       <AdminModalEdit />
+      <AdminModalAdd />
     </div>
   </div>
 </template>
@@ -108,6 +114,7 @@ const router = useRouter();
 const translations = ref([]);
 
 const modalEdit = useLocalStorage("modal-edit", "", {});
+const modalAdd = useLocalStorage("modal-add", false, {});
 const open = useLocalStorage("modal-edit-open", false, {});
 
 const language = ref("all");
@@ -165,8 +172,9 @@ const translationsSentence = computed(() => {
 onMounted(() => {
   load();
 
-  open.value =false;
-  modalEdit.value = '';
+  open.value = false;
+  modalEdit.value = "";
+  modalAdd.value = false;
 
   pb.collection("translations").subscribe(
     "*",
