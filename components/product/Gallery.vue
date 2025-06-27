@@ -1,9 +1,10 @@
 <template>
   <section class="grid grid-cols-6 gap-3 mt-3">
     <div class="col-span-6">
-      <div class="divider divider-primary">Produkt Bilder</div>
+      <div class="divider divider-primary">
+       {{$t('product.gallery.headline')}}</div>
     </div>
-    <div v-for="pic in pictures" :key="pic.id" class="col-span-2">
+    <div v-if="pictures.length <=0" v-for="pic in pictures" :key="pic.id" class="col-span-2">
       <img
         class="w-full"
         :src="
@@ -17,6 +18,11 @@
         "
         alt=""
       />
+    </div>
+    <div v-else class="col-span-6">
+      <p class="text-sm font-bold text-center block">
+       {{$t('product.gallery.no-pictures')}}
+      </p>
     </div>
   </section>
 </template>
