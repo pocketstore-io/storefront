@@ -5,7 +5,7 @@
     </div>
     <div v-for="pic in pictures" :key="pic.id" class="col-span-2">
       <img
-        class="aspect-square"
+        class="w-full"
         :src="
           url +
           '/api/files/' +

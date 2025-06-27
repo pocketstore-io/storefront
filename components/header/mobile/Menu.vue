@@ -23,7 +23,7 @@
       <a href="/de/categories" class="btn btn-primary btn-block">Categories</a>
     </div>
     <div class="col-span-3">
-      <a href="/de/brands/jonny-m" class="btn btn-primary btn-block">Brand - Jonny M</a>
+      <a href="/de/brand/jonny-m" class="btn btn-primary btn-block">Brand - Jonny M</a>
     </div>
     <div class="col-span-3">
       <a href="/de/customer/login" v-if="!pb.authStore.isValid" class="btn btn-primary btn-block">Login</a>

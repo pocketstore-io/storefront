@@ -20,7 +20,7 @@ onMounted(async () => {
         .collection("categories")
         .getFirstListItem('slug="' + identifier + '"');
     products.value = (
-        await pb.collection("products").getList(1, 25, {
+        await pb.collection("products").getList(1, 9, {
             filter: 'category="' + category.value.id + '"',
         })
     ).items;
