@@ -8,7 +8,7 @@
       :checked="selected == 'description'"
       aria-label="Beschreibung"
     />
-    <div class="tab-content bg-base-100 p-10">
+    <div class="tab-content bg-base-100 p-5 md:p-10">
       <CatalogTabDescription />
     </div>
 
