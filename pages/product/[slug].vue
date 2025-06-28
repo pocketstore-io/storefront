@@ -4,7 +4,7 @@
     <section class="grid grid-cols-8 gap-3 px-3 py-3 mx-auto max-w-6xl">
       <div class="col-span-8 md:col-span-3">
         <img
-          class="aspect-square"
+          class="w-full"
           :src="
             url +
             '/api/files/' +
