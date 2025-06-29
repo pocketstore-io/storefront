@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-secondary w-full" :disabled="props.qty < 1 || stock.length == 0" @click="addToCart(props.item.id)">
+  <button class="btn btn-secondary" :disabled="props.qty < 1 || stock.length == 0" @click="addToCart(props.item.id)">
     {{ $t("checkout.add-to-cart") }}
   </button>
 </template>
@@ -31,6 +31,7 @@ const addToCart = async function (id) {
     cart.value = [];
   }
 
+   // TODO Toast for Push item
   const product = await pb.collection("products").getOne(id);
 
   cart.value.map((item) => {

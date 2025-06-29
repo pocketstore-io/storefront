@@ -28,7 +28,7 @@
         >
           {{ product.price.toFixed(2) }} €
         </a>
-        <CatalogAddToCart :product="product" />
+        <ProductAddToCart :stock="stock" :qty="1" :item="product" />
       </div>
     </div>
   </div>
@@ -43,38 +43,43 @@ const pb = usePocketBase();
 
 const i18n = useI18n();
 const locale = i18n.locale;
+const stock = ref({});
 
 const props = defineProps({
-    identifier: { type: String, requiered: true },
+  identifier: { type: String, requiered: true },
 });
 
 const product = useLocalStorage("product-" + props.identifier + "", {}, {});
 const date = useLocalStorage(
-    "product-" + props.identifier + "-date",
-    new Date().toLocaleDateString("de"),
-    {},
+  "product-" + props.identifier + "-date",
+  new Date().toLocaleDateString("de"),
+  {}
 );
 
 function isEmpty(obj) {
-    for (const prop in obj) {
-        if (Object.hasOwn(obj, prop)) {
-            return false;
-        }
+  for (const prop in obj) {
+    if (Object.hasOwn(obj, prop)) {
+      return false;
     }
+  }
 
-    return true;
+  return true;
 }
 
 onMounted(async () => {
-    if (
-        product.value === null ||
-        date.value != new Date().toLocaleDateString("de") ||
-        isEmpty(product.value)
-    ) {
-        console.log("fetch abc");
-        product.value = await pb
-            .collection("products")
-            .getFirstListItem('slug="' + props.identifier + '"');
-    }
+  if (
+    product.value === null ||
+    date.value != new Date().toLocaleDateString("de") ||
+    isEmpty(product.value)
+  ) {
+    console.log("fetch abc");
+    product.value = await pb
+      .collection("products")
+      .getFirstListItem('slug="' + props.identifier + '"');
+
+    stock.value = await pb
+      .collection("product_stocks")
+      .getFirstListItem('product="' + product.value.id + '"');
+  }
 });
 </script>
