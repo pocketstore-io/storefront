@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import { useLocalStorage } from '@vueuse/core';
+import { usePocketBase } from '~/util/pocketbase';
 
 const props = defineProps({
   item: {
@@ -24,6 +25,7 @@ const props = defineProps({
 
 const qty = ref(1);
 const cart = useLocalStorage("cart", [], {});
+const pb = usePocketBase();
 
 const addToCart = async function (id) {
   let found = false;
