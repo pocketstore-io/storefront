@@ -19,9 +19,9 @@ export default defineNuxtConfig({
     },
     nitro: {
         routeRules: {
-            // Only apply .html suffix to routes starting with "product/"
             "/product/**": { static: true, redirect: (to) => `${to}.html` },
             "/category/**": { static: true, redirect: (to) => `${to}.html` },
+            "/brand/**": { static: true, redirect: (to) => `${to}.html` },
         },
     },
     app: {
