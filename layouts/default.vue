@@ -3,7 +3,7 @@
         <header>
             <Header />
         </header>
-        <main class="mx-auto max-w-6xl min-h-screen px-3 xl:px-0">
+        <main class="mx-auto max-w-6xl min-h-screen px-3 2xl:px-0">
             <Messages />
             <Breadcrumb />
             <CookieBanner />
