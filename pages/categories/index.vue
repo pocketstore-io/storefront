@@ -1,5 +1,5 @@
 <template>
-  <section class="mx-auto max-w-6xl px-3 py-3">
+  <section class="mx-auto max-w-6xl px-3 py-3 xl:px-0 xl:py-0">
     <div class="glass px-3 py-3 rounded-2xl">
       <section class="grid grid-cols-6 gap-3">
         <div class="col-span-6 md:col-span-2 mx-6 my-6">
@@ -10,21 +10,27 @@
           />
         </div>
         <div class="col-span-6 md:col-span-4">
-          <h2 class="font-bold text-3xl text-white mt-12">
+          <h2 class="font-bold text-3xl text-black mt-12">
             Hier findest du alle Kategorien von Geek Wear
           </h2>
-          <p class="my-6 text-white">
+          <p class="my-6 text-black">
             Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
             voluptatum cupiditate veritatis in accusamus quisquam voluptatum
             cupiditate veritatis in accusamus quisquam.
           </p>
-          <section class="grid grid-cols-6 gap-3 text-white">
+          <section class="grid grid-cols-6 gap-3 text-black">
             <div
               v-for="category in computedCategories"
+              :key="category.id"
               class="col-span-6 md:col-span-3 lg:col-span-2"
             >
-              <FontAwesomeIcon :icon="faCheckCircle" />
-              <span class="ml-3">{{ category.name }}</span>
+              <a
+                :href="'/de/category/' + category.slug + '.html'"
+                class="flex items-center"
+              >
+                <FontAwesomeIcon color="red" :icon="faCheckCircle" />
+                <span class="ml-3">{{ category.name }}</span>
+              </a>
             </div>
           </section>
           <section class="cta mt-6">
@@ -49,18 +55,22 @@
       </div>
       <div v-for="category in filtered" class="col-span-6 md:col-span-2">
         <section class="bg-white rounded-xl px-3 py-3">
-          <img
-            :src="'https://place-hold.it/380x120?text=' + category.slug"
-            alt=""
-          />
+          <NuxtLink
+            :to="localePath('/category/' + category.slug + '.html')"
+            class="font-bold text-lg"
+          >
+            <img
+              :src="'https://place-hold.it/760x240?text=' + category.slug"
+              alt=""
+          /></NuxtLink>
           <NuxtLink
             :to="localePath('/category/' + category.slug + '.html')"
             class="font-bold text-lg"
             >{{ category.name }}</NuxtLink
           >
           <p class="text-sm overflow-hidden text-ellipsis h-4">
-            Hallo Welt Beschreibung direkt aus der Hölle. Hallo Welt Beschreibung
-            direkt aus der Hölle
+            Hallo Welt Beschreibung direkt aus der Hölle. Hallo Welt
+            Beschreibung direkt aus der Hölle
           </p>
         </section>
       </div>
@@ -81,38 +91,38 @@ const categories = ref([]);
 const query = ref("");
 
 const computedCategories = computed(() => {
-    return categories.value.slice(0, 9);
+  return categories.value.slice(0, 9);
 });
 
 watch(query, () => {
-    load();
+  load();
 });
 
 const load = async () => {
-    categories.value = (
-        await pb.collection("categories").getList(1, 30)
-    ).items.sort(function (a, b) {
-        if (a.name < b.name) {
-            return -1;
-        }
-        if (a.name > b.name) {
-            return 1;
-        }
-        return 0;
-    });
+  categories.value = (
+    await pb.collection("categories").getList(1, 30)
+  ).items.sort(function (a, b) {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
 };
 
 const filtered = computed(() => {
-    return categories.value.filter((item) =>
-        item.name.toLowerCase().includes(query.value.toLowerCase()),
-    );
+  return categories.value.filter((item) =>
+    item.name.toLowerCase().includes(query.value.toLowerCase())
+  );
 });
 
 onMounted(async () => {
-    load();
+  load();
 
-    useHead({
-        title: "Kategorien | " + t("general.title"),
-    });
+  useHead({
+    title: "Kategorien | " + t("general.title"),
+  });
 });
 </script>

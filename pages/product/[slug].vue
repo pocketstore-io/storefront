@@ -36,6 +36,7 @@
                 <input
                   type="number"
                   min="1"
+                  :value="qty"
                   :max="stock.quantity"
                   class="input placeholder-black w-full bg-white rounded-lg text-center"
                 />
@@ -43,7 +44,7 @@
               <div class="col-span-6 md:col-span-5">
                 <ProductAddToCart
                   :stock="stock"
-                  :qty="stock.quantity"
+                  :qty="qty"
                   :item="item"
                 />
               </div>
@@ -65,6 +66,7 @@ const route = useRoute();
 const pb = usePocketBase();
 const url = usePocketBaseUrl();
 const item = ref({});
+const qty = ref(1);
 const stock = ref({});
 
 const load = async () => {

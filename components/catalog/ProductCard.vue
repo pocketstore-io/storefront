@@ -20,6 +20,9 @@
     <div class="card-body">
       <h2 class="card-title">{{ product.name }}</h2>
       <p class="text-ellipsis line-clamp-2">{{ product.description }}</p>
+      <section class="w-full space-x-3 mb-3">
+        <span v-for="tag in tags" class="badge badge-secondary text-sm">{{ tag }}</span>
+      </section>
       <div class="card-actions join gap-0 justify-end">
         <a
           v-if="product.price"
@@ -44,9 +47,16 @@ const pb = usePocketBase();
 const i18n = useI18n();
 const locale = i18n.locale;
 const stock = ref({});
+const tags = ref([]);
 
 const props = defineProps({
   identifier: { type: String, requiered: true },
+});
+
+onUpdated(() => {
+  if (props.identifier != product.value.id) {
+    load();
+  }
 });
 
 const product = useLocalStorage("product-" + props.identifier + "", {}, {});
@@ -72,14 +82,23 @@ onMounted(async () => {
     date.value != new Date().toLocaleDateString("de") ||
     isEmpty(product.value)
   ) {
-    console.log("fetch abc");
-    product.value = await pb
-      .collection("products")
-      .getFirstListItem('slug="' + props.identifier + '"');
+    load();
 
     stock.value = await pb
       .collection("product_stocks")
       .getFirstListItem('product="' + product.value.id + '"');
   }
 });
+
+const load = async () => {
+  product.value = await pb
+    .collection("products")
+    .getFirstListItem('slug="' + props.identifier + '"');
+
+  tags.value = (
+    await pb.collection("product_tags").getList(1, 1, {
+      filter: 'product="' + product.value.id + '"',
+    })
+  ).items[0].tags.split(",");
+};
 </script>
