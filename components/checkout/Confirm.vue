@@ -13,7 +13,7 @@
         </div>
         <div class="p-6">
           <p class="text-gray-700 text-lg">
-            {{ $t("Hallo") }} <strong>{{ pb.authStore.record.name }}</strong
+            {{ $t("Hallo") }} <strong>{{ pb.authStore.record?.name }}</strong
             >,<br />
             {{ $t("checkout.blabla") }}:
           </p>

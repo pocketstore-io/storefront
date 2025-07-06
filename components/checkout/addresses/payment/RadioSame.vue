@@ -1,5 +1,5 @@
 <template>
-  <div class="alert border-black alert-outline mb-3">
+  <div class="alert border-black alert-outline mb-3 text-black">
     <label class="label" for="same">
       <input type="checkbox" v-model="same" checked="checked" class="toggle" />
       <span>{{ $t('checkout.same') }}</span>
