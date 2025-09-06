@@ -50,15 +50,12 @@ const pb = usePocketBase();
 const i18n = useI18n();
 const locale = i18n.locale;
 const stock = ref({});
-const tags = ref([]);
 
 const {identifier} = defineProps({
   identifier: {type: String, requiered: true},
 });
 
 const product = ref({});
-const stock: Ref = ref({});
-
 onMounted(async () => {
   pb.autoCancellation(false)
   product.value = await pb
