@@ -6,20 +6,20 @@
         <a href="/de" class="">{{ $t('breadcrumb.home') }}</a>
       </li>
       <li v-for="breadcrumb in breadcrumbs" :key="breadcrumb.id">
-        <a :href="'/de/' + breadcrumb.link" class="">{{ $t('breadcrumb.' + breadcrumb.id) }}</a>
+        <Fa :icon="['fas', breadcrumb.icon ?? 'question']" class="mr-3"/>
+        <a :href="'/de/' + breadcrumb.link" class="">{{ $t('breadcrumb.' + breadcrumb.label) }}</a>
       </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { useLocalStorage } from "@vueuse/core";
+import {faHouse} from "@fortawesome/free-solid-svg-icons";
+import {breadcrumbs} from '@/util/breadcrumbs'
 
 const loaded = ref(false);
-const breadcrumbs = useLocalStorage("breadcrumbs", [], {});
 
 onMounted(() => {
-    loaded.value = true;
+  loaded.value = true;
 });
 </script>

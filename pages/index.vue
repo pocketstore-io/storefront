@@ -9,8 +9,17 @@
 
 <script setup lang="ts">
 import config from './../pocketstore.json'
+import {addBreadcrumb} from "~/util/breadcrumbs";
 const { t } = useI18n();
 useHead({
   title: t('general.title'),
 });
+
+onMounted(() => {
+  addBreadcrumb({
+    label: 'test',
+    link: 'test123',
+    icon: 'question'
+  })
+})
 </script>
