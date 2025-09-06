@@ -1,7 +1,7 @@
 <template>
   <label for="" class="floating-label">
     <span>{{ $t('checkout.label.country') }}</span>
-    <select v-model="payment.country" class="select select-neutral select-bordered w-full">
+    <select v-model="payment.country" class="select select-secondary select-bordered w-full">
       <option v-for="(country, index) in countries" :value="index">{{ country }}</option>
     </select>
   </label>

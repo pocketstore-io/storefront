@@ -28,9 +28,9 @@
             "quoteStyle": "double"
         }
     },
-	"json": {
-    "formatter": {
-      "trailingCommas": "none"
+    "json": {
+        "formatter": {
+            "trailingCommas": "none"
+        }
     }
-  }
 }

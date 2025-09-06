@@ -1,7 +1,7 @@
 <template>
-  <section v-if="props.fields">
+  <section v-if="props.fields" class="mt-3">
     <section class="card py-3 px-3 bg-white mb-3">
-      <div class="card-body px-3 py-3 m-0 grid grid-cols-4 gap-3">
+      <div class="card-body px-3 py-3 m-0">
         <ProductCustomField v-for="item in props.fields" :key="item.id" :field="item" />
       </div>
     </section>

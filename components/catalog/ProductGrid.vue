@@ -17,13 +17,14 @@ const category = ref({});
 const products = ref([]);
 
 onMounted(async () => {
-  category.value = await pb
-      .collection("categories")
-      .getFirstListItem('slug="' + identifier + '"');
-  products.value = (
-      await pb.collection("products").getList(1, 25, {
-        filter: 'category="' + category.value.id + '"',
-      })
-  ).items;
+    category.value = await pb
+        .collection("categories")
+        .getFirstListItem('slug="' + identifier + '"');
+    products.value = (
+        await pb.collection("products").getList(1, 9, {
+            filter: 'category="' + category.value.id + '"',
+            sort: '-created'
+        })
+    ).items;
 });
 </script>

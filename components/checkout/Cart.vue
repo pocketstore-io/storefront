@@ -1,16 +1,24 @@
 <template>
-  <section v-if="checkoutStep == 'cart' && loaded" class="grid grid-cols-6 gap-3 mx-auto max-w-6xl">
+  <section
+    v-if="checkoutStep == 'cart' && loaded"
+    class="grid grid-cols-6 gap-3 mx-auto max-w-6xl"
+  >
     <div class="col-span-6 md:col-span-4">
       <table v-if="cart.length > 0" class="w-full">
         <CartHeader />
         <tbody>
-          <CartItem v-for="(item, index) in cart" :key="item.id" :item="item" :index="index" />
+          <CartItem
+            v-for="(item, index) in cart"
+            :key="item.id"
+            :item="item"
+            :index="index"
+          />
         </tbody>
       </table>
       <section v-else class="px-3 py-3">
         <section v-if="loaded" class="alert alert-warning text-white">
           <p class="block text-center">
-            {{ $t('checkout.cart.empty') }}
+            {{ $t("checkout.cart.empty") }}
           </p>
         </section>
       </section>
@@ -33,25 +41,30 @@ import CartHeader from "./cart/Header.vue";
 
 const cart = useLocalStorage("cart", [], {});
 const valid = useLocalStorage(
-    "checkout-valid",
-    {
-        cart: false,
-        addresses: false,
-        payment: false,
-        shipping: false,
-        confirm: false,
-        customer: false,
-    },
-    {},
+  "checkout-valid",
+  {
+    cart: false,
+    addresses: false,
+    payment: false,
+    shipping: false,
+    confirm: false,
+    customer: false,
+  },
+  {}
 );
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const loaded = ref(false);
+const {t} = useI18n();
 
 onMounted(() => {
-    loaded.value = true;
+  loaded.value = true;
 
-    if (cart.value.length > 0) {
-        valid.value.cart = true;
-    }
+  if (cart.value.length > 0) {
+    valid.value.cart = true;
+  }
+
+  useHead({
+    title: "Checkout Cart - " + t("general.title"),
+  });
 });
 </script>

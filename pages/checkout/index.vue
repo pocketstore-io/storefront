@@ -8,27 +8,27 @@
             </div>
             <div class="col-span-10 md:col-span-2">
                 <button class="btn btn-block"
-                    :class="{ 'btn-primary': checkoutStep == 'cart', 'btn-neutral': checkoutStep != 'cart' }">{{
+                    :class="{ 'btn-primary': checkoutStep == 'cart', 'btn-secondary': checkoutStep != 'cart' }">{{
                         $t('checkout.cart.headline') }}</button>
             </div>
             <div class="col-span-10 md:col-span-2">
                 <button class="btn btn-block"
-                    :class="{ 'btn-primary': checkoutStep == 'customer', 'btn-neutral': checkoutStep != 'customer' }">{{
+                    :class="{ 'btn-primary': checkoutStep == 'customer', 'btn-secondary': checkoutStep != 'customer' }">{{
                         $t('checkout.customer') }}</button>
             </div>
             <div class="col-span-10 md:col-span-2">
                 <button class="btn btn-block"
-                    :class="{ 'btn-primary': checkoutStep == 'addresses', 'btn-neutral': checkoutStep != 'addresses' }">{{
+                    :class="{ 'btn-primary': checkoutStep == 'addresses', 'btn-secondary': checkoutStep != 'addresses' }">{{
                         $t('checkout.addresses') }}</button>
             </div>
             <div class="col-span-10 md:col-span-2">
                 <button class="btn btn-block"
-                    :class="{ 'btn-primary': checkoutStep == 'payment', 'btn-neutral': checkoutStep != 'payment' }">{{
+                    :class="{ 'btn-primary': checkoutStep == 'payment', 'btn-secondary': checkoutStep != 'payment' }">{{
                         $t('checkout.payment-and-shipping') }}</button>
             </div>
             <div class="col-span-10 md:col-span-2">
                 <button class="btn btn-block"
-                    :class="{ 'btn-primary': checkoutStep == 'confirm', 'btn-neutral': checkoutStep != 'confirm' }">{{
+                    :class="{ 'btn-primary': checkoutStep == 'confirm', 'btn-secondary': checkoutStep != 'confirm' }">{{
                         $t('checkout.confirm') }}</button>
             </div>
         </section>

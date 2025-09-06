@@ -8,11 +8,16 @@
 </template>
 
 <script setup lang="ts">
-import config from './../pocketstore.json'
 import {addBreadcrumb} from "~/util/breadcrumbs";
 const { t } = useI18n();
 useHead({
-  title: t('general.title'),
+    title: t("general.title"),
+    meta: [
+      {
+        name: 'description',
+        content: 'PocketStore.io is a Open Source Shop Framework which is based on PocketBase and made with Nuxt/VueJs by Jonathan Martz.'
+      }
+    ]
 });
 
 onMounted(() => {

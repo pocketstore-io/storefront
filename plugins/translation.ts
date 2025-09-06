@@ -2,7 +2,7 @@
 import config from "../pocketstore.json";
 import PocketBase from "pocketbase";
 
- // TODO upload translation file and write with plugin to translation file
+// TODO upload translation file and write with plugin to translation file
 
 export default defineNuxtPlugin((nuxtApp) => {
     // nuxtApp.$i18n.setMissingHandler(async (locale, message) => {

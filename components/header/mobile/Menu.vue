@@ -17,25 +17,31 @@
       <a href="/de/category/bowling" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
     </div>
     <div class="col-span-3">
-      <a href="/de/checkout/" class="btn btn-primary btn-block">{{ $t('checkout.checkout') }}</a>
+      <a href="/de/sitemap/" class="btn btn-primary btn-block">Sitemap</a>
     </div>
     <div class="col-span-3">
-      <a href="/de/category/bowling" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
+      <a href="/de/categories" class="btn btn-primary btn-block">Categories</a>
     </div>
     <div class="col-span-3">
-      <a href="/de/checkout/" class="btn btn-primary btn-block">{{ $t('checkout.checkout') }}</a>
+      <a href="/de/brand/jonny-m" class="btn btn-primary btn-block">Brand - Jonny M</a>
     </div>
     <div class="col-span-3">
-      <a href="/de/category/bowling" class="btn btn-primary btn-block">{{ $t('catalog.category') }}</a>
+      <a href="/de/customer/login" v-if="!pb.authStore.isValid" class="btn btn-primary btn-block">Login</a>
     </div>
     <div class="col-span-3">
-      <a href="/de/checkout/" class="btn btn-primary btn-block">{{ $t('checkout.checkout') }}</a>
+      <a href="/de/customer/register/" v-if="!pb.authStore.isValid" class="btn btn-primary btn-block">Register</a>
+    </div>
+    <div class="col-span-3">
+      <a href="/de/customer/logout/" v-if="pb.authStore.isValid" class="btn btn-primary btn-block">Logout</a>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
+import { usePocketBase } from "~/util/pocketbase";
+
+const pb = usePocketBase();
 const lang = useLocalStorage("lang", "de", {});
 const currency = useLocalStorage("currency", "euro", {});
 </script>

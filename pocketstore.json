@@ -3,7 +3,9 @@
   "authToken": "your_admin_auth_token",
   "settings": {
     "theme": "default",
+    "support": "support@jonathan-martz.de",
     "language": "de",
+    "languages": ["en", "de", "fr"],
     "currency": "€",
     "currencies": ["€", "$"],
     "tax_general": 19,
@@ -22,6 +24,10 @@
       "id": "36ed47d8-6292-415a-bfce-f218a0e0d183"
     },
     "locales": [
+      {
+        "code": "de",
+        "file": "de.json"
+      },
       {
         "code": "en",
         "file": "en.json"

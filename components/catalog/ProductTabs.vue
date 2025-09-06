@@ -8,7 +8,7 @@
       :checked="selected == 'description'"
       aria-label="Beschreibung"
     />
-    <div class="tab-content bg-base-100 p-10">
+    <div class="tab-content bg-base-100 p-5 md:p-10">
       <CatalogTabDescription />
     </div>
 
@@ -77,7 +77,7 @@ const pb = usePocketBase();
 const route = useRoute();
 
 const props = defineProps({
-  identifier: { type: String, required: true },
+    identifier: { type: String, required: true },
 });
 
 const reviews = ref([]);
@@ -85,10 +85,10 @@ const reviews = ref([]);
 const selected = ref("description");
 
 onMounted(async () => {
-  reviews.value = (
-    await pb.collection("reviews").getList(1, 9, {
-      filter: 'product="' + route.params.slug.replace(".html", "") + '"',
-    })
-  ).items;
+    reviews.value = (
+        await pb.collection("reviews").getList(1, 9, {
+            filter: 'product="' + route.params.slug.replace(".html", "") + '"',
+        })
+    ).items;
 });
 </script>

@@ -1,7 +1,7 @@
 <template>
   <label class="floating-label">
     <span class="">{{ $t('checkout.label.' + props.var) }}</span>
-    <input v-model="shipping[props.var]" :type="props.type" class="w-full input-neutral input-bordered input">
+    <input v-model="shipping[props.var]" :type="props.type" class="w-full input-secondary input-bordered input">
   </label>
 </template>
 

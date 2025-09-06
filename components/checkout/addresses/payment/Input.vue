@@ -1,7 +1,7 @@
 <template>
   <label class="floating-label">
     <span class="">{{ $t('checkout.label.' + props.var) }}</span>
-    <input v-model="payment[props.var]" :type="props.type" class="w-full input-neutral input-bordered input">
+    <input v-model="payment[props.var]" :type="props.type" class="w-full input-secondary input-bordered input">
   </label>
 </template>
 
@@ -9,21 +9,21 @@
 import { useLocalStorage } from "@vueuse/core";
 
 const props = defineProps({
-  var: { type: String, required: true },
-  type: { type: String, required: true },
+    var: { type: String, required: true },
+    type: { type: String, required: true },
 });
 
 const payment = useLocalStorage(
-  "payment",
-  {
-    name: "",
-    surname: "",
-    street: "",
-    number: 1,
-    zip: "",
-    city: "",
-    country: "de",
-  },
-  {},
+    "payment",
+    {
+        name: "",
+        surname: "",
+        street: "",
+        number: 1,
+        zip: "",
+        city: "",
+        country: "de",
+    },
+    {},
 );
 </script>

@@ -3,8 +3,18 @@
     <figure>
       <a :href="'/' + locale + '/product/' + product.slug + '.html'">
         <img
-            :src="'https://' + config.domain + '/api/files/' + product.collectionId + '/' + product.id + '/' + product.cover"
-            alt="Shoes">
+          :src="
+            'https://' +
+            config.domain +
+            '/api/files/' +
+            product.collectionId +
+            '/' +
+            product.id +
+            '/' +
+            product.cover
+          "
+          alt="Shoes"
+        />
       </a>
     </figure>
     <div class="card-body">
@@ -39,6 +49,8 @@ const pb = usePocketBase();
 
 const i18n = useI18n();
 const locale = i18n.locale;
+const stock = ref({});
+const tags = ref([]);
 
 const {identifier} = defineProps({
   identifier: {type: String, requiered: true},
