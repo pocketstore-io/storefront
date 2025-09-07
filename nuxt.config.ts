@@ -28,6 +28,10 @@ export default defineNuxtConfig({
         head: {
             link: [
                 {
+                    rel: "manifest",
+                    href: "/manifest.webmanifest",
+                },
+                {
                     rel: "icon",
                     type: "image/svg+xml",
                     href: "/pocketstore-favicon.svg",
