@@ -20,12 +20,16 @@
     <div class="card-body">
       <h2 class="card-title">{{ product.name }}</h2>
       <p class="text-ellipsis line-clamp-2">{{ product.description }}</p>
+      <section class="badges space-x-3">
+        <a :href="'/search?tag='+slugify(tag.name.toLowerCase())" v-for="tag in tags"
+           class="badge badge-secondary mb-3">{{ tag.name }}</a>
+      </section>
       <section>
         <button v-if="stock === null || stock.quantity === 0" class="btn btn-error">
-          {{$t('catalog.product.stock-empty')}}
+          {{ $t('catalog.product.stock-empty') }}
         </button>
         <button v-if="stock !== null && stock.quantity > 0" class="btn btn-success">
-          {{$t('catalog.product.stock')}}: {{ stock.quantity }}
+          {{ $t('catalog.product.in-stock') }}: {{ stock.quantity }}
         </button>
       </section>
       <div class="card-actions join gap-0 flex justify-end">
@@ -44,22 +48,37 @@
 <script lang="ts" setup>
 import {usePocketBase} from "~/util/pocketbase";
 import config from '@/pocketstore.json'
+import type {RecordModel} from "pocketbase";
+import slugify from "slugify";
 
 const pb = usePocketBase();
 
 const i18n = useI18n();
 const locale = i18n.locale;
 const stock = ref({});
+const tags = ref({});
 
 const props = defineProps({
   identifier: {type: String, required: true},
 });
 
-const product = ref({});
-onMounted(async () => {
-  pb.autoCancellation(false)
+const load = async () => {
   product.value = await pb
       .collection("products")
-      .getFirstListItem('id="' + props.identifier + '"');
+      .getFirstListItem('slug="' + props.identifier + '"', {
+        expand: 'stock,tags',
+      });
+  stock.value = product.value.expand.stock;
+  tags.value = product.value.expand.tags;
+}
+
+watch(() => props.identifier, (newVal, oldVal) => {
+  load();
+});
+
+const product: Ref = ref({});
+onMounted(async () => {
+  pb.autoCancellation(false)
+  load();
 });
 </script>
