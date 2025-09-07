@@ -3,7 +3,7 @@
     <figure>
       <a :href="'/' + locale + '/product/' + product.slug + '.html'">
         <img
-          :src="
+            :src="
             'https://' +
             config.domain +
             '/api/files/' +
@@ -13,7 +13,7 @@
             '/' +
             product.cover
           "
-          alt="Shoes"
+            alt="Shoes"
         />
       </a>
     </figure>
@@ -51,8 +51,8 @@ const i18n = useI18n();
 const locale = i18n.locale;
 const stock = ref({});
 
-const {identifier} = defineProps({
-  identifier: {type: String, requiered: true},
+const props = defineProps({
+  identifier: {type: String, required: true},
 });
 
 const product = ref({});
@@ -60,11 +60,6 @@ onMounted(async () => {
   pb.autoCancellation(false)
   product.value = await pb
       .collection("products")
-      .getFirstListItem('slug="' + identifier + '"');
-  stock.value = (await pb
-      .collection("product_stocks")
-      .getList(1, 1, {
-        "filter": 'product="' + identifier + '"'
-      })).items[0] ?? null;
+      .getFirstListItem('id="' + props.identifier + '"');
 });
 </script>
