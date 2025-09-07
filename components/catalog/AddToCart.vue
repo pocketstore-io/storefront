@@ -6,7 +6,6 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
-import { usePocketBase } from "~/util/pocketbase";
 import {addToast} from "@/util/toast";
 // TODO release date button, stock
 
@@ -16,8 +15,6 @@ const { product } = defineProps({
     requiered: true,
   },
 });
-
-const pb = usePocketBase();
 
 const cart = useLocalStorage("cart", [], {});
 
