@@ -55,9 +55,9 @@
 </template>
 
 <script lang="ts" setup>
+import { addToast } from "~/util/toast";
 import { useLocalStorage } from "@vueuse/core";
 import { usePocketBase } from "~/util/pocketbase";
-import { add } from "~/util/toast";
 
 const modalEdit = useLocalStorage("modal-edit", "", {});
 const open = useLocalStorage("modal-edit-open", false, {});
@@ -78,7 +78,7 @@ const save = async () => {
     await pb.collection("translations").update(item.value.id, item.value);
   } catch (e) {
     if (e.status === 400) {
-      add("Übersetzung schon vorhanden", "warning");
+      addToast("Übersetzung schon vorhanden", "warning");
     }
   }
 
