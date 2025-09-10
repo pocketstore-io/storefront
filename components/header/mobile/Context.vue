@@ -17,4 +17,7 @@
 <script setup lang="ts">
 import {useLocalStorage} from "@vueuse/core";
 const navigation = useLocalStorage('navigation', false)
+onMounted(()=>{
+  open.value = false;
+});
 </script>
