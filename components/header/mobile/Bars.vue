@@ -11,15 +11,10 @@
 
 <script lang="ts" setup>
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-const open = ref(false);
+import {useLocalStorage} from "@vueuse/core";
+const open = useLocalStorage('navigation', false)
 
-watch(open, (value) => {
-    if (value) {
-        modal_mobile_menu.showModal();
-        document.activeElement.blur();
-        modal_mobile_menu.addEventListener("close", () => {
-            open.value = false;
-        });
-    }
-});
+onMounted(()=>{
+  open.value = false;
+})
 </script>

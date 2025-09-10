@@ -24,5 +24,4 @@
 import { useLocalStorage } from "@vueuse/core";
 
 const open = useLocalStorage("open", false, {});
-const cookie = useLocalStorage("cookie", false, {});
 </script>

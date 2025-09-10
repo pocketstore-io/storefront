@@ -13,18 +13,15 @@
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useLocalStorage } from "@vueuse/core";
 
-const open = useLocalStorage("open", false, {});
-const show = ref(false);
-const cookie = useLocalStorage("cookie", null, {});
+const open = useLocalStorage("backtotop", false, {});
 
 const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
+const show = ref(false);
 
 onMounted(() => {
-    if (cookie.value === null) {
-        open.value = true;
-    }
+  open.value = false;
     window.addEventListener("scroll", () => {
         if (document.documentElement.scrollTop > 250) {
             show.value = true;

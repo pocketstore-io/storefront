@@ -1,5 +1,5 @@
 <template>
-  <dialog id="modal_mobile_menu" class="modal modal-top px-6">
+  <dialog id="modal_mobile_menu" class="modal px-6" :open="navigation">
     <div class="modal-box">
       <HeaderMobileLogo />
       <HeaderMobileSearchBar />
@@ -13,3 +13,8 @@
     </div>
   </dialog>
 </template>
+
+<script setup lang="ts">
+import {useLocalStorage} from "@vueuse/core";
+const navigation = useLocalStorage('navigation', false)
+</script>

@@ -1,5 +1,5 @@
 <template>
-  <dialog id="my_modal_2" class="modal" :open="open">
+  <dialog id="my_modal_2" class="modal" :open="cookie">
     <div class="modal-box">
       <h3 class="text-lg font-bold">{{$t('cookie.headline')}}</h3>
       <p class="py-4">
@@ -18,7 +18,7 @@
   </dialog>
   <section
     class="cookie-icon fixed bottom-0 left-0 ml-3 mb-3 bg-[#1f6fed] text-white rounded-full h-16 w-16 flex items-center justify-center z-10"
-    @click="open = !open">
+    @click="cookie = !cookie">
     <Fa :icon="faCookieBite" size="2x" />
   </section>
 </template>
@@ -27,12 +27,5 @@
 import { faCookieBite } from "@fortawesome/free-solid-svg-icons";
 import { useLocalStorage } from "@vueuse/core";
 
-const open = ref(false);
-const cookie = useLocalStorage("cookie", null, {});
-
-onMounted(() => {
-    if (cookie.value === null) {
-        open.value = true;
-    }
-});
+const cookie = useLocalStorage("cookie", false);
 </script>
