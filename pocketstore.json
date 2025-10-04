@@ -1,5 +1,12 @@
 {
   "domain": "admin.pocketstore.io",
+  "domains": {
+    "nuxt": "demo.pocketstore.io",
+    "pocketbase": "admin.pocketstore.io"
+  },
+  "maintannce": {
+    "enabled": false
+  },
   "authToken": "your_admin_auth_token",
   "settings": {
     "theme": "default",

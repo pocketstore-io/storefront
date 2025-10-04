@@ -2,6 +2,7 @@
 .output
 .nuxt
 .cache
+public/sitemap.xml
 
 # i18n
 i18n/locales/*
