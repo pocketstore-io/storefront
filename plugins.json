@@ -5,37 +5,12 @@
     "version": "latest"
   },
   {
-    "name": "catalog-product",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "catalog-category",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
     "name": "checkout",
     "vendor": "pocketstore-io",
     "version": "latest"
   },
   {
     "name": "customer",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "brand",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "admin-translations",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "landingpage-stores",
     "vendor": "pocketstore-io",
     "version": "latest"
   }
