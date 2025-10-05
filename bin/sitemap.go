@@ -14,8 +14,8 @@ import (
 
 const (
 	outputFile    = "public/sitemap.xml"
-	productsAPI   = "/api/collections/products/records"
-	categoriesAPI = "/api/collections/categories/records"
+	productsAPI   = "/api/collections/products/records?perPage=500"
+	categoriesAPI = "/api/collections/categories/records?perPage=500"
 )
 
 // Structs for config
