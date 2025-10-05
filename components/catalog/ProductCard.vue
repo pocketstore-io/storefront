@@ -5,7 +5,7 @@
         <img
             :src="
             'https://' +
-            config.domain +
+            config.domains.pocketbase +
             '/api/files/' +
             product.collectionId +
             '/' +

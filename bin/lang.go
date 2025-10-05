@@ -12,7 +12,10 @@ import (
 
 // Config represents the structure of the JSON config file
 type Config struct {
-	Domain string `json:"domain"`
+	Domains struct {
+		PocketBase string `json:"pocketbase"`
+		Nuxt       string `json:"nuxt"`
+	} `json:"domains"`
 }
 
 // Record represents the PocketBase record structure
@@ -35,11 +38,11 @@ func getDomainFromConfig(configFile string) (string, error) {
 		return "", fmt.Errorf("error decoding config file: %w", err)
 	}
 
-	if config.Domain == "" {
+	if config.Domains.PocketBase == "" {
 		return "", fmt.Errorf("domain not found in config file")
 	}
 
-	return config.Domain, nil
+	return config.Domains.PocketBase, nil
 }
 
 // Function to fetch data from the PocketBase API

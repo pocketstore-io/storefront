@@ -7,7 +7,7 @@ export default defineNuxtPlugin(() => {
                 defer: true,
                 src:
                     "https://consent.cookiefirst.com/sites/pocketstore-" +
-                    pocketstoreConfig.settings.cookiefirst.id +
+                    pocketstoreConfig.integrations.cookiefirst.id +
                     "/consent.js",
             },
         ],

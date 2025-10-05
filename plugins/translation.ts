@@ -6,7 +6,7 @@ import PocketBase from "pocketbase";
 
 export default defineNuxtPlugin((nuxtApp) => {
     // nuxtApp.$i18n.setMissingHandler(async (locale, message) => {
-    //     const pb = new PocketBase(config.domain);
+    //     const pb = new PocketBase(config.domains.pocketbase);
     //     await pb.collection('translations').create({
     //         lang: locale,
     //         key: message,

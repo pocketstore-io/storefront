@@ -121,10 +121,10 @@
           <p>
             {{ $t("checkout.need-help") }}
             <a
-              :href="'mailto:' + config.settings.support"
+              :href="'mailto:' + config.emails.support.address"
               class="text-indigo-600 hover:underline"
             >
-              {{ config.settings.support }}</a
+              {{ config.emails.support.name }}</a
             >.
           </p>
         </div>
