@@ -4,8 +4,9 @@
     "nuxt": "demo.pocketstore.io",
     "pocketbase": "admin.pocketstore.io"
   },
-  "maintannce": {
-    "enabled": false
+  "maintance": {
+    "enabled": false,
+    "until": "12.10.2026 12:12:12"
   },
   "authToken": "your_admin_auth_token",
   "settings": {
