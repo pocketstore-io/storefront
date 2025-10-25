@@ -21,7 +21,7 @@
         "@nuxtjs/plausible": "2.0.1",
         "@paypal/paypal-js": "^8.4.2",
         "@playwright/test": "^1.56.1",
-        "@stripe/stripe-js": "^7.9.0",
+        "@stripe/stripe-js": "^8.1.0",
         "@tailwindcss/vite": "^4.1.16",
         "@unhead/vue": "^2.0.19",
         "@vite-pwa/nuxt": "^1.0.7",
