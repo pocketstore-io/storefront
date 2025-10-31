@@ -1,6 +1,5 @@
 <template>
   <section class="page bg-gray-400 px-3 py-3">
-    <ProductSeo v-if="item" :product="item" />
     <section class="grid grid-cols-8 gap-3 px-3 py-3 mx-auto max-w-6xl">
       <div class="col-span-8 md:col-span-3">
         <img
@@ -61,6 +60,7 @@
 
 <script lang="ts" setup>
 import { usePocketBase, usePocketBaseUrl } from "~/util/pocketbase";
+import { useHead } from '@unhead/vue'
 
 const route = useRoute();
 const pb = usePocketBase();
@@ -73,6 +73,16 @@ const load = async () => {
   item.value = await pb
     .collection("products")
     .getFirstListItem('slug="' + route.params.slug.replace(".html", "") + '"');
+
+  useHead({
+    title: item.value.name + ' - Produkt Ansicht',
+    meta: [
+      {
+        name: "description",
+        content: item.value.description,
+      },
+    ],
+  });
 
   stock.value = (
     await pb.collection("product_stocks").getList(1, 1, {
