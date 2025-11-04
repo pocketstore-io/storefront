@@ -10,7 +10,7 @@
         "@nuxt/test-utils": "^3.20.1",
         "@nuxtjs/i18n": "^10.1.2",
         "@nuxtjs/plausible": "2.0.1",
-        "@paypal/paypal-js": "^8.4.2",
+        "@paypal/paypal-js": "^9.0.1",
         "@playwright/test": "^1.56.1",
         "@stripe/stripe-js": "^7.9.0",
         "@tailwindcss/typography": "^0.5.19",
@@ -560,7 +560,7 @@
 
     "@parcel/watcher-win32-x64": ["@parcel/watcher-win32-x64@2.5.1", "", { "os": "win32", "cpu": "x64" }, "sha512-9lHBdJITeNR++EvSQVUcaZoWupyHfXe1jZvGZ06O/5MflPcuPLtEphScIBL+AiCWBO46tDSHzWyD0uDmmZqsgA=="],
 
-    "@paypal/paypal-js": ["@paypal/paypal-js@8.4.2", "", { "dependencies": { "promise-polyfill": "^8.3.0" } }, "sha512-UbY2lvwW65KX4migWbAx8KK0TCbPdIxeHIHogpJ5Z6yta5Qd2+90rXyx8FGdp6wrcr1f/srotlxnBXvqYWyHog=="],
+    "@paypal/paypal-js": ["@paypal/paypal-js@9.0.1", "", { "dependencies": { "promise-polyfill": "^8.3.0" } }, "sha512-6A5hkyYBSuloO7rPwnoPoy/0PPNH0pZZ1TBSTuEaSVqJ9h9t13PiP1ZarffirsO/e5t4hKjUmUORjgKV9sTMLw=="],
 
     "@pkgjs/parseargs": ["@pkgjs/parseargs@0.11.0", "", {}, "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="],
 
