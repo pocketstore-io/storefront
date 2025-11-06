@@ -1,21 +1,21 @@
 {
-  "general": {
-    "title": "PocketStore.io",
-    "note": "Dies ist ein Demo Store von PocketStore.io"
-  },
-  "breadcrumb": {
-    "test": "Test Breadcrumb",
-    "home": "Startseite"
-  },
-  "footer": {
-    "impressum": "Impressum",
-    "made-with": "Gemacht mit",
-    "data-privacy": "Datenschutz"
-  },
-  "cookie": {
-    "accept": "akzeptieren",
-    "headline": "Cookie Banner",
-    "disable": "deaktivieren",
-    "note": "Dies ist ein Cookie Banner, du liest gerade die Notiz für den Cookie Banner."
-  }
+    "general": {
+        "title": "PocketStore.io",
+        "note": "Dies ist ein Demo Store von PocketStore.io"
+    },
+    "breadcrumb": {
+        "test": "Test Breadcrumb",
+        "home": "Startseite"
+    },
+    "footer": {
+        "impressum": "Impressum",
+        "made-with": "Gemacht mit",
+        "data-privacy": "Datenschutz"
+    },
+    "cookie": {
+        "accept": "akzeptieren",
+        "headline": "Cookie Banner",
+        "disable": "deaktivieren",
+        "note": "Dies ist ein Cookie Banner, du liest gerade die Notiz für den Cookie Banner."
+    }
 }

@@ -160,66 +160,66 @@ const pb = usePocketBase();
 
 const router = useRouter();
 const shipping = useLocalStorage(
-  "shipping",
-  {
-    name: "",
-    surname: "",
-    street: "",
-    number: 1,
-    zip: "",
-    city: "",
-    country: "de",
-  },
-  {}
+    "shipping",
+    {
+        name: "",
+        surname: "",
+        street: "",
+        number: 1,
+        zip: "",
+        city: "",
+        country: "de",
+    },
+    {},
 );
 const payment = useLocalStorage(
-  "payment",
-  {
-    name: "",
-    surname: "",
-    street: "",
-    number: 1,
-    zip: "",
-    city: "",
-    country: "de",
-  },
-  {}
+    "payment",
+    {
+        name: "",
+        surname: "",
+        street: "",
+        number: 1,
+        zip: "",
+        city: "",
+        country: "de",
+    },
+    {},
 );
 
 const total = computed(() => {
-  let tmp = 0;
-  cart.value.map((item) => {
-    tmp += item.qty * item.product.price;
-  });
+    let tmp = 0;
+    cart.value.map((item) => {
+        tmp += item.qty * item.product.price;
+    });
 
-  return tmp;
+    return tmp;
 });
 
 const confirmOrder = async () => {
-  const order = await pb.collection("orders").create({
-    customer: pb.authStore.record?.id,
-    cart: cart.value,
-    payment_method: paymentMethod.value,
-    payment_method_info: paymentMethodInfo.value,
-    shipping_method_info: shippingMethodInfo.value,
-    shipping_method: shippingMethod.value,
-    payment_address: payment.value,
-    shipping_address: shipping.value,
-  });
-  router.push("/checkout/confirm?order=" + order.id);
-  cart.value = [];
-  checkoutStep.value = "cart";
-  paymentMethod.value = null;
-  paymentMethodInfo.value = {};
-  shippingMethod.value = null;
-  shippingMethodInfo.value = {};
-  payment.value = null;
-  shipping.value = null;
+    const order = await pb.collection("orders").create({
+        customer: pb.authStore.record?.id,
+        cart: cart.value,
+        payment_method: paymentMethod.value,
+        payment_method_info: paymentMethodInfo.value,
+        shipping_method_info: shippingMethodInfo.value,
+        shipping_method: shippingMethod.value,
+        payment_address: payment.value,
+        shipping_address: shipping.value,
+    });
+    router.push("/checkout/confirm?order=" + order.id);
+    cart.value = [];
+    checkoutStep.value = "cart";
+    paymentMethod.value = null;
+    paymentMethodInfo.value = {};
+    shippingMethod.value = null;
+    shippingMethodInfo.value = {};
+    payment.value = null;
+    shipping.value = null;
 };
 
 onMounted(() => {
-  useHead({
-    title: "Checkout Confirm - " + t("general.title"),
-  });
+    useHead({
+        title: "Checkout Confirm - " + t("general.title"),
+    });
 });
 </script>

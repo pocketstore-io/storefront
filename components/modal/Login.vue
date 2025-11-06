@@ -21,20 +21,22 @@
   </div>
 </template>
 <script setup lang="ts">
-import {useLocalStorage} from "@vueuse/core";
-import {usePocketBase} from "~/util/pocketbase";
+import { useLocalStorage } from "@vueuse/core";
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 const form = ref({
-  email: '',
-  password: ''
-})
+    email: "",
+    password: "",
+});
 
 const login = async () => {
-  await pb.collection('customers').authWithPassword(form.value.email, form.value.password);
-  if(pb.authStore.isValid){
-    open.value = false;
-  }
-}
-const open = useLocalStorage('modal-login', false, {})
+    await pb
+        .collection("customers")
+        .authWithPassword(form.value.email, form.value.password);
+    if (pb.authStore.isValid) {
+        open.value = false;
+    }
+};
+const open = useLocalStorage("modal-login", false, {});
 </script>

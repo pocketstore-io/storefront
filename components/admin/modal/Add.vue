@@ -60,25 +60,25 @@ import { usePocketBase } from "~/util/pocketbase";
 
 const modalAdd = useLocalStorage("modal-add", false, {});
 const item = ref({
-  translated: "",
-  type: "words",
-  key: "",
-  lang: "de",
+    translated: "",
+    type: "words",
+    key: "",
+    lang: "de",
 });
 const pb = usePocketBase();
 
 const update = async () => {
-  await pb.collection("translations").create(item.value);
-  modalAdd.value = false;
-  item.value = {
-    translated: "",
-    key: "",
-    lang: "",
-    type: "words",
-  };
+    await pb.collection("translations").create(item.value);
+    modalAdd.value = false;
+    item.value = {
+        translated: "",
+        key: "",
+        lang: "",
+        type: "words",
+    };
 };
 
 const close = async () => {
-  modalAdd.value = false;
+    modalAdd.value = false;
 };
 </script>

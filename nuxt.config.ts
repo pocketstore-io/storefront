@@ -16,13 +16,22 @@ export default defineNuxtConfig({
         strategy: "prefix",
         locales: config.language.locales,
         defaultLocale: config.language.fallback,
-        langDir: 'locales'
+        langDir: "locales",
     },
     nitro: {
         routeRules: {
-            "/product/**": { static: true, redirect: (to) => `${to}.html` },
-            "/category/**": { static: true, redirect: (to) => `${to}.html` },
-            "/brand/**": { static: true, redirect: (to) => `${to}.html` },
+            "/product/**": {
+                static: true,
+                redirect: (to) => `${to}.html`,
+            },
+            "/category/**": {
+                static: true,
+                redirect: (to) => `${to}.html`,
+            },
+            "/brand/**": {
+                static: true,
+                redirect: (to) => `${to}.html`,
+            },
         },
     },
     app: {

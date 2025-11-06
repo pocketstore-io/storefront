@@ -1,13 +1,13 @@
 {
-  "footer": {
-    "impressum": "Imprint",
-    "made-with": "Made with",
-    "data-privacy": "Privacy Policy"
-  },
-  "cookie": {
-    "accept": "accept",
-    "headline": "Cookie Banner",
-    "disable": "disable",
-    "note": "This is a cookie banner — you are currently reading the note for the cookie banner."
-  }
+    "footer": {
+        "impressum": "Imprint",
+        "made-with": "Made with",
+        "data-privacy": "Privacy Policy"
+    },
+    "cookie": {
+        "accept": "accept",
+        "headline": "Cookie Banner",
+        "disable": "disable",
+        "note": "This is a cookie banner — you are currently reading the note for the cookie banner."
+    }
 }

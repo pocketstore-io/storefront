@@ -43,15 +43,15 @@ const pb = usePocketBase();
 const router = useRouter();
 
 const login = async () => {
-  await pb
-    .collection("_superusers")
-    .authWithPassword(identity.value, password.value);
-  if (pb.authStore.isSuperuser) {
-    router.push("/de/admin");
-  }
+    await pb
+        .collection("_superusers")
+        .authWithPassword(identity.value, password.value);
+    if (pb.authStore.isSuperuser) {
+        router.push("/de/admin");
+    }
 };
 
 definePageMeta({
-  layout: "login",
+    layout: "login",
 });
 </script>

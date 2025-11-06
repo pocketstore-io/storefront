@@ -5,12 +5,12 @@
 </template>
 
 <script setup>
-import {usePocketBase} from "~/util/pocketbase";
+import { usePocketBase } from "~/util/pocketbase";
 
 const pb = usePocketBase();
 
-const {identifier} = defineProps({
-  identifier: {type: String, required: true},
+const { identifier } = defineProps({
+    identifier: { type: String, required: true },
 });
 
 const category = ref({});
@@ -23,7 +23,7 @@ onMounted(async () => {
     products.value = (
         await pb.collection("products").getList(1, 9, {
             filter: 'category="' + category.value.id + '"',
-            sort: '-created'
+            sort: "-created",
         })
     ).items;
 });

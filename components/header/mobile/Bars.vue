@@ -11,10 +11,10 @@
 
 <script lang="ts" setup>
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import {useLocalStorage} from "@vueuse/core";
-const open = useLocalStorage('navigation', false)
+import { useLocalStorage } from "@vueuse/core";
+const open = useLocalStorage("navigation", false);
 
-onMounted(()=>{
-  open.value = false;
-})
+onMounted(() => {
+    open.value = false;
+});
 </script>

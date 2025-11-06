@@ -43,11 +43,11 @@
 
 <script setup lang="ts">
 import {
-  faBagShopping,
-  faBan,
-  faEdit,
-  faInfoCircle,
-  faPlay,
+    faBagShopping,
+    faBan,
+    faEdit,
+    faInfoCircle,
+    faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { usePocketBase } from "~/util/pocketbase";
@@ -56,10 +56,10 @@ const pb = usePocketBase();
 const stores = ref([]);
 
 const load = async () => {
-  stores.value = await pb.collection("stores").getFullList(50);
+    stores.value = await pb.collection("stores").getFullList(50);
 };
 
 onMounted(() => {
-  load();
+    load();
 });
 </script>

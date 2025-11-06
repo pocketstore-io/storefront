@@ -52,7 +52,7 @@
 import { useRoute } from "vue-router";
 import { usePocketBase } from "~/util/pocketbase";
 
-const {t} = useI18n()
+const { t } = useI18n();
 const pb = usePocketBase();
 const route = useRoute();
 
@@ -60,7 +60,7 @@ const categories = ref([]);
 const category = ref({});
 const products = ref([]);
 const brands = ref([]);
-const tags = ref('');
+const tags = ref("");
 
 const menu = ref(true);
 const query = ref("");
@@ -68,40 +68,45 @@ const brand = ref("all");
 const selected = ref("all");
 
 onMounted(async () => {
-  pb.autoCancellation(false)
-  await load();
-  useHead({
-    title: category.value.name + " - Kategorie",
-    meta: [
-      {
-        name: "description",
-        content: category.value.description,
-      },
-    ],
-  });
+    pb.autoCancellation(false);
+    await load();
+    useHead({
+        title: category.value.name + " - Kategorie",
+        meta: [
+            {
+                name: "description",
+                content: category.value.description,
+            },
+        ],
+    });
 });
 
 const load = async () => {
-  category.value = await pb
-    .collection("categories")
-    .getFirstListItem('slug="' + route.params.slug.replace(".html", "") + '"');
+    category.value = await pb
+        .collection("categories")
+        .getFirstListItem(
+            'slug="' + route.params.slug.replace(".html", "") + '"',
+        );
 
-  categories.value = await pb.collection("categories").getFullList();
-  brands.value = await pb.collection("brands").getFullList();
-  tags.value = await pb.collection("product_tags").getFullList();
+    categories.value = await pb.collection("categories").getFullList();
+    brands.value = await pb.collection("brands").getFullList();
+    tags.value = await pb.collection("product_tags").getFullList();
 
-  products.value = await pb.collection("products").getFullList({
-    filter: 'category="' + category.value.id + '"',
-  });
+    products.value = await pb.collection("products").getFullList({
+        filter: 'category="' + category.value.id + '"',
+    });
 };
 
 const filteredProducts = computed(() => {
-  return products.value
-    .filter((item) =>
-      item.name.toLowerCase().includes(query.value.toLowerCase())
-    )
-    .filter((item) => item.category == selected.value || selected.value == 'all')
-    .filter((item)=> item.brand == brand.value || brand.value == 'all');
+    return products.value
+        .filter((item) =>
+            item.name.toLowerCase().includes(query.value.toLowerCase()),
+        )
+        .filter(
+            (item) =>
+                item.category == selected.value || selected.value == "all",
+        )
+        .filter((item) => item.brand == brand.value || brand.value == "all");
 });
 
 watch(query, load());

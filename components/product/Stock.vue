@@ -23,9 +23,9 @@
 
 <script lang="ts" setup>
 const props = defineProps({
-  quantity: {
-    required:true,
-    type: Number
-  },
+    quantity: {
+        required: true,
+        type: Number,
+    },
 });
 </script>

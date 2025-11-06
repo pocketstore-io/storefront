@@ -1,22 +1,22 @@
 [
-  {
-    "name": "hello-world",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "checkout",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "customer",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "cookie-banner",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  }
+    {
+        "name": "hello-world",
+        "vendor": "pocketstore-io",
+        "version": "latest"
+    },
+    {
+        "name": "checkout",
+        "vendor": "pocketstore-io",
+        "version": "latest"
+    },
+    {
+        "name": "customer",
+        "vendor": "pocketstore-io",
+        "version": "latest"
+    },
+    {
+        "name": "cookie-banner",
+        "vendor": "pocketstore-io",
+        "version": "latest"
+    }
 ]

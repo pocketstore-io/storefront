@@ -14,12 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-import {faHouse} from "@fortawesome/free-solid-svg-icons";
-import {breadcrumbs} from '@/util/breadcrumbs'
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { breadcrumbs } from "@/util/breadcrumbs";
 
 const loaded = ref(false);
 
 onMounted(() => {
-  loaded.value = true;
+    loaded.value = true;
 });
 </script>

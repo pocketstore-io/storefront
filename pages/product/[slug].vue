@@ -60,7 +60,7 @@
 
 <script lang="ts" setup>
 import { usePocketBase, usePocketBaseUrl } from "~/util/pocketbase";
-import { useHead } from '@unhead/vue'
+import { useHead } from "@unhead/vue";
 
 const route = useRoute();
 const pb = usePocketBase();
@@ -70,28 +70,30 @@ const qty = ref(1);
 const stock = ref({});
 
 const load = async () => {
-  item.value = await pb
-    .collection("products")
-    .getFirstListItem('slug="' + route.params.slug.replace(".html", "") + '"');
+    item.value = await pb
+        .collection("products")
+        .getFirstListItem(
+            'slug="' + route.params.slug.replace(".html", "") + '"',
+        );
 
-  useHead({
-    title: item.value.name + ' - Produkt Ansicht',
-    meta: [
-      {
-        name: "description",
-        content: item.value.description,
-      },
-    ],
-  });
+    useHead({
+        title: item.value.name + " - Produkt Ansicht",
+        meta: [
+            {
+                name: "description",
+                content: item.value.description,
+            },
+        ],
+    });
 
-  stock.value = (
-    await pb.collection("product_stocks").getList(1, 1, {
-      filter: 'product="' + item.value.id + '"',
-    })
-  ).items[0];
+    stock.value = (
+        await pb.collection("product_stocks").getList(1, 1, {
+            filter: 'product="' + item.value.id + '"',
+        })
+    ).items[0];
 };
 
 onMounted(() => {
-  load();
+    load();
 });
 </script>

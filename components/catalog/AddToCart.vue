@@ -6,25 +6,25 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
-import {addToast} from "@/util/toast";
+import { addToast } from "@/util/toast";
 // TODO release date button, stock
 
 const { product } = defineProps({
-  product: {
-    type: Object,
-    requiered: true,
-  },
+    product: {
+        type: Object,
+        requiered: true,
+    },
 });
 
 const cart = useLocalStorage("cart", [], {});
 
 const addToCart = async (id, qty = 1) => {
-  if (!cart.value) {
-    cart.value = [];
-  }
+    if (!cart.value) {
+        cart.value = [];
+    }
 
-  // Check if the product already exists in the cart
-  const existingItem = cart.value.find((item) => item.id === id);
-  addToast('Produkt hinzugefügt.', 'success')
+    // Check if the product already exists in the cart
+    const existingItem = cart.value.find((item) => item.id === id);
+    addToast("Produkt hinzugefügt.", "success");
 };
 </script>

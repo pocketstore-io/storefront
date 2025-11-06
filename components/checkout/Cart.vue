@@ -41,30 +41,30 @@ import CartHeader from "./cart/Header.vue";
 
 const cart = useLocalStorage("cart", [], {});
 const valid = useLocalStorage(
-  "checkout-valid",
-  {
-    cart: false,
-    addresses: false,
-    payment: false,
-    shipping: false,
-    confirm: false,
-    customer: false,
-  },
-  {}
+    "checkout-valid",
+    {
+        cart: false,
+        addresses: false,
+        payment: false,
+        shipping: false,
+        confirm: false,
+        customer: false,
+    },
+    {},
 );
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const loaded = ref(false);
-const {t} = useI18n();
+const { t } = useI18n();
 
 onMounted(() => {
-  loaded.value = true;
+    loaded.value = true;
 
-  if (cart.value.length > 0) {
-    valid.value.cart = true;
-  }
+    if (cart.value.length > 0) {
+        valid.value.cart = true;
+    }
 
-  useHead({
-    title: "Checkout Cart - " + t("general.title"),
-  });
+    useHead({
+        title: "Checkout Cart - " + t("general.title"),
+    });
 });
 </script>

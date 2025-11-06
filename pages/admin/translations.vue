@@ -121,71 +121,79 @@ const language = ref("all");
 const query = ref("");
 
 const load = async () => {
-  pb.autoCancellation(false);
-  translations.value = await pb.collection("translations").getFullList(100);
+    pb.autoCancellation(false);
+    translations.value = await pb.collection("translations").getFullList(100);
 };
 
 const translationsWords = computed(() => {
-  return translations.value
-    .filter((item) => item.type == "words")
-    .filter(
-      (item) =>
-        item.translated.toLowerCase().includes(query.value.toLowerCase()) ||
-        query.value == "" ||
-        item.key.toLowerCase().includes(query.value.toLowerCase()) ||
-        query.value == ""
-    )
-    .filter((item) => item.lang == language.value || language.value == "all")
-    .sort(function (a, b) {
-      if (a.translated < b.translated) {
-        return -1;
-      }
-      if (a.translated > b.translated) {
-        return 1;
-      }
-      return 0;
-    });
+    return translations.value
+        .filter((item) => item.type == "words")
+        .filter(
+            (item) =>
+                item.translated
+                    .toLowerCase()
+                    .includes(query.value.toLowerCase()) ||
+                query.value == "" ||
+                item.key.toLowerCase().includes(query.value.toLowerCase()) ||
+                query.value == "",
+        )
+        .filter(
+            (item) => item.lang == language.value || language.value == "all",
+        )
+        .sort(function (a, b) {
+            if (a.translated < b.translated) {
+                return -1;
+            }
+            if (a.translated > b.translated) {
+                return 1;
+            }
+            return 0;
+        });
 });
 
 const translationsSentence = computed(() => {
-  return translations.value
-    .filter((item) => item.type == "sentence")
-    .filter(
-      (item) =>
-        item.translated.toLowerCase().includes(query.value.toLowerCase()) ||
-        query.value == "" ||
-        item.key.toLowerCase().includes(query.value.toLowerCase()) ||
-        query.value == ""
-    )
-    .filter((item) => item.lang == language.value || language.value == "all")
-    .sort(function (a, b) {
-      if (a.translated < b.translated) {
-        return -1;
-      }
-      if (a.translated > b.translated) {
-        return 1;
-      }
-      return 0;
-    });
+    return translations.value
+        .filter((item) => item.type == "sentence")
+        .filter(
+            (item) =>
+                item.translated
+                    .toLowerCase()
+                    .includes(query.value.toLowerCase()) ||
+                query.value == "" ||
+                item.key.toLowerCase().includes(query.value.toLowerCase()) ||
+                query.value == "",
+        )
+        .filter(
+            (item) => item.lang == language.value || language.value == "all",
+        )
+        .sort(function (a, b) {
+            if (a.translated < b.translated) {
+                return -1;
+            }
+            if (a.translated > b.translated) {
+                return 1;
+            }
+            return 0;
+        });
 });
 
 onMounted(() => {
-  load();
+    load();
 
-  open.value = false;
-  modalEdit.value = "";
-  modalAdd.value = false;
+    open.value = false;
+    modalEdit.value = "";
+    modalAdd.value = false;
 
-  pb.collection("translations").subscribe(
-    "*",
-    () => {
-      load();
-    },
-    {}
-  );
+    pb.collection("translations").subscribe(
+        "*",
+        () => {
+            load();
+        },
+        {},
+    );
 });
 
 definePageMeta({
-  layout: "admin",
+    layout: "admin",
 });
 </script>

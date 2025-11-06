@@ -5,22 +5,22 @@
 </template>
 
 <script setup lang="ts">
-import { useLocalStorage } from '@vueuse/core';
-import { usePocketBase } from '~/util/pocketbase';
+import { useLocalStorage } from "@vueuse/core";
+import { usePocketBase } from "~/util/pocketbase";
 
 const props = defineProps({
-  item: {
-    required:true,
-    type: Object
-  },
-  stock: {
-    required:true,
-    type: Object
-  },
-  qty: {
-    required:true,
-    type: Number
-  },
+    item: {
+        required: true,
+        type: Object,
+    },
+    stock: {
+        required: true,
+        type: Object,
+    },
+    qty: {
+        required: true,
+        type: Number,
+    },
 });
 
 const qty = ref(1);
@@ -28,33 +28,33 @@ const cart = useLocalStorage("cart", [], {});
 const pb = usePocketBase();
 
 const addToCart = async function (id) {
-  let found = false;
-  if (typeof cart.value == "undefined") {
-    cart.value = [];
-  }
-
-   // TODO Toast for Push item
-  const product = await pb.collection("products").getOne(id);
-
-  cart.value.map((item) => {
-    if (item.id == id) {
-      found = true;
+    let found = false;
+    if (typeof cart.value == "undefined") {
+        cart.value = [];
     }
-  });
 
-  if (found) {
+    // TODO Toast for Push item
+    const product = await pb.collection("products").getOne(id);
+
     cart.value.map((item) => {
-      if (item.id == id) {
-        item.qty += qty.value;
-      }
+        if (item.id == id) {
+            found = true;
+        }
     });
-  } else {
-    // TODO cart message
-    cart.value.push({
-      qty: qty.value,
-      id,
-      product,
-    });
-  }
+
+    if (found) {
+        cart.value.map((item) => {
+            if (item.id == id) {
+                item.qty += qty.value;
+            }
+        });
+    } else {
+        // TODO cart message
+        cart.value.push({
+            qty: qty.value,
+            id,
+            product,
+        });
+    }
 };
 </script>

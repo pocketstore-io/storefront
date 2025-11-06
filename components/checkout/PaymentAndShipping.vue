@@ -25,8 +25,8 @@ const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const { t } = useI18n();
 
 onMounted(() => {
-  useHead({
-    title: "Checkout Conditions - " + t("general.title"),
-  });
+    useHead({
+        title: "Checkout Conditions - " + t("general.title"),
+    });
 });
 </script>

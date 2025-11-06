@@ -41,7 +41,7 @@
 </template>
 <script setup lang="ts">
 import "../main.css";
-import config from '~/pocketstore.json'
+import config from "~/pocketstore.json";
 import Footer from "~/components/Footer.vue";
 import Header from "~/components/Header.vue";
 </script>

@@ -70,7 +70,10 @@ onMounted(async () => {
     optionsCountry.value = await pb.collection("countries").getFullList();
     if (shippingMethod.value === "click-and-collect") {
         shippingMethodInfo.value = {
-            store: { id: stores.value[0].id, name: stores.value[0].name },
+            store: {
+                id: stores.value[0].id,
+                name: stores.value[0].name,
+            },
         };
     } else {
         shippingMethodInfo.value = {};

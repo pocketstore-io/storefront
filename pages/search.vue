@@ -14,57 +14,63 @@
 
 <script setup lang="ts">
 import ProductCard from "@/components/catalog/ProductCard.vue";
-import {ref, computed, watch} from 'vue'
-import {addBreadcrumb} from '@/util/breadcrumbs'
-import {usePocketBase} from '@/util/pocketbase'
-import type PocketBase from 'pocketbase'
-import {useRoute} from 'vue-router'
+import { ref, computed, watch } from "vue";
+import { addBreadcrumb } from "@/util/breadcrumbs";
+import { usePocketBase } from "@/util/pocketbase";
+import type PocketBase from "pocketbase";
+import { useRoute } from "vue-router";
 
-const {t} = useI18n();
-const query = ref('');
+const { t } = useI18n();
+const query = ref("");
 const pb: PocketBase = usePocketBase();
 const products = ref([]);
 const tag = ref({});
 const filtered = computed(() => {
-  return products.value.filter(item => {
-    const hasQuery = query.value && query.value.trim() !== '';
-    const hasTag = tag.value && tag.value.trim() !== '';
+    return products.value.filter((item) => {
+        const hasQuery = query.value && query.value.trim() !== "";
+        const hasTag = tag.value && tag.value.trim() !== "";
 
-    const matchesName = !hasQuery || item.name.toLowerCase().includes(query.value.toLowerCase());
-    const matchesTag = !hasTag || item.tags.some(t => t.toLowerCase() === tag.value.toLowerCase());
+        const matchesName =
+            !hasQuery ||
+            item.name.toLowerCase().includes(query.value.toLowerCase());
+        const matchesTag =
+            !hasTag ||
+            item.tags.some((t) => t.toLowerCase() === tag.value.toLowerCase());
 
-    return matchesName && matchesTag;
-  });
+        return matchesName && matchesTag;
+    });
 });
 const route = useRoute();
 
 const load = async () => {
-  pb.autoCancellation(false);
-  products.value = (await pb.collection('products').getList(1, 10, {
-    sort: '-created',
-  })).items.slice(0, 6);
-}
+    pb.autoCancellation(false);
+    products.value = (
+        await pb.collection("products").getList(1, 10, {
+            sort: "-created",
+        })
+    ).items.slice(0, 6);
+};
 
 watch(query, load);
 
 onMounted(async () => {
-  tag.value = route.query.tag;
-  addBreadcrumb({
-    label: 'search',
-    icon: 'magnifying-glass',
-    link: 'search',
-  });
+    tag.value = route.query.tag;
+    addBreadcrumb({
+        label: "search",
+        icon: "magnifying-glass",
+        link: "search",
+    });
 
-  load();
+    load();
 
-  useHead({
-    title: 'Suche - ' + t('general.title'),
-    meta: [
-      {
-        name: 'description',
-        content: t('general.description'),
-      }
-    ]
-  });
+    useHead({
+        title: "Suche - " + t("general.title"),
+        meta: [
+            {
+                name: "description",
+                content: t("general.description"),
+            },
+        ],
+    });
 });
 </script>

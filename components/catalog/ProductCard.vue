@@ -46,9 +46,9 @@
 </template>
 
 <script lang="ts" setup>
-import {usePocketBase} from "~/util/pocketbase";
-import config from '@/pocketstore.json'
-import type {RecordModel} from "pocketbase";
+import { usePocketBase } from "~/util/pocketbase";
+import config from "@/pocketstore.json";
+import type { RecordModel } from "pocketbase";
 import slugify from "slugify";
 
 const pb = usePocketBase();
@@ -59,26 +59,29 @@ const stock = ref({});
 const tags = ref({});
 
 const props = defineProps({
-  identifier: {type: String, required: true},
+    identifier: { type: String, required: true },
 });
 
 const load = async () => {
-  product.value = await pb
-      .collection("products")
-      .getFirstListItem('slug="' + props.identifier + '"', {
-        expand: 'stock,tags',
-      });
-  stock.value = product.value.expand.stock;
-  tags.value = product.value.expand.tags;
-}
+    product.value = await pb
+        .collection("products")
+        .getFirstListItem('slug="' + props.identifier + '"', {
+            expand: "stock,tags",
+        });
+    stock.value = product.value.expand.stock;
+    tags.value = product.value.expand.tags;
+};
 
-watch(() => props.identifier, (newVal, oldVal) => {
-  load();
-});
+watch(
+    () => props.identifier,
+    (newVal, oldVal) => {
+        load();
+    },
+);
 
 const product: Ref = ref({});
 onMounted(async () => {
-  pb.autoCancellation(false)
-  load();
+    pb.autoCancellation(false);
+    load();
 });
 </script>

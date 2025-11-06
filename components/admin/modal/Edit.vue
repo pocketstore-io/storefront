@@ -66,35 +66,35 @@ const pb = usePocketBase();
 const toasts = useLocalStorage("toasts", [], {});
 
 const load = async () => {
-  item.value = await pb.collection("translations").getOne(modalEdit.value);
+    item.value = await pb.collection("translations").getOne(modalEdit.value);
 };
 
 const close = () => {
-  open.value = false;
+    open.value = false;
 };
 
 const save = async () => {
-  try {
-    await pb.collection("translations").update(item.value.id, item.value);
-  } catch (e) {
-    if (e.status === 400) {
-      addToast("Übersetzung schon vorhanden", "warning");
+    try {
+        await pb.collection("translations").update(item.value.id, item.value);
+    } catch (e) {
+        if (e.status === 400) {
+            addToast("Übersetzung schon vorhanden", "warning");
+        }
     }
-  }
 
-  open.value = false;
-  modalEdit.value = "";
+    open.value = false;
+    modalEdit.value = "";
 };
 
 watch(
-  () => modalEdit,
-  () => {
-    load();
-  },
-  { deep: true }
+    () => modalEdit,
+    () => {
+        load();
+    },
+    { deep: true },
 );
 
 onMounted(async () => {
-  toasts.value = [];
+    toasts.value = [];
 });
 </script>

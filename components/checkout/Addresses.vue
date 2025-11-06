@@ -30,22 +30,22 @@ const { t } = useI18n();
 
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const valid = useLocalStorage(
-  "checkout-valid",
-  {
-    cart: false,
-    addresses: false,
-    payment: false,
-    shipping: false,
-    confirm: false,
-    customer: false,
-  },
-  {}
+    "checkout-valid",
+    {
+        cart: false,
+        addresses: false,
+        payment: false,
+        shipping: false,
+        confirm: false,
+        customer: false,
+    },
+    {},
 );
 const same = useLocalStorage("same", true, {});
 
 onMounted(() => {
-  useHead({
-    title: "Checkout Adressen - " + t("general.title"),
-  });
+    useHead({
+        title: "Checkout Adressen - " + t("general.title"),
+    });
 });
 </script>

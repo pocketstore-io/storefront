@@ -202,16 +202,16 @@
 <script setup lang="ts">
 import "~/main.css";
 import {
-  faAngleDoubleDown,
-  faAngleDoubleRight,
-  faAngleDown,
-  faArrowsToDot,
-  faDotCircle,
-  faEdit,
-  faLink,
-  faListDots,
-  faMinus,
-  faPlus,
+    faAngleDoubleDown,
+    faAngleDoubleRight,
+    faAngleDown,
+    faArrowsToDot,
+    faDotCircle,
+    faEdit,
+    faLink,
+    faListDots,
+    faMinus,
+    faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Fa } from "@fortawesome/vue-fontawesome";
 import { useLocalStorage } from "@vueuse/core";
@@ -223,8 +223,8 @@ const router = useRouter();
 const route = useRoute();
 
 onMounted(() => {
-  if (route.path != "/de/admin/login" && !pb.authStore.isSuperuser) {
-    router.push("/de/admin/login");
-  }
+    if (route.path != "/de/admin/login" && !pb.authStore.isSuperuser) {
+        router.push("/de/admin/login");
+    }
 });
 </script>

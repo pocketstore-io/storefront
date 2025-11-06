@@ -72,7 +72,9 @@ const generateLabels = () => {
     for (let i = 0; i < 7; i++) {
         const d = new Date(monday);
         d.setDate(monday.getDate() + i);
-        const dayName = d.toLocaleDateString(locale, { weekday: "long" });
+        const dayName = d.toLocaleDateString(locale, {
+            weekday: "long",
+        });
         const localDate = d.toLocaleDateString(locale, {
             year: "numeric",
             month: "2-digit",

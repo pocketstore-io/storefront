@@ -21,7 +21,7 @@ const scrollToTop = () => {
 const show = ref(false);
 
 onMounted(() => {
-  open.value = false;
+    open.value = false;
     window.addEventListener("scroll", () => {
         if (document.documentElement.scrollTop > 250) {
             show.value = true;

@@ -139,17 +139,17 @@ const email = ref("");
 const password = ref("");
 
 const login = async () => {
-  await pb
-    .collection("customers")
-    .authWithPassword(email.value, password.value);
-  if (pb.authStore.isValid) {
-    checkoutStep.value = "addresses";
-  }
+    await pb
+        .collection("customers")
+        .authWithPassword(email.value, password.value);
+    if (pb.authStore.isValid) {
+        checkoutStep.value = "addresses";
+    }
 };
 
 onMounted(() => {
-  if (pb.authStore.isValid && checkoutStep.value == "customer") {
-    checkoutStep.value = "addresses";
-  }
+    if (pb.authStore.isValid && checkoutStep.value == "customer") {
+        checkoutStep.value = "addresses";
+    }
 });
 </script>

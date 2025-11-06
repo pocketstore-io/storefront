@@ -11,18 +11,18 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
-import type {ToastMessage} from "~/util/toast";
+import type { ToastMessage } from "~/util/toast";
 const messages = useLocalStorage("messages", [], {});
 const time = ref(Math.floor(Date.now() / 1000));
 
 onMounted(() => {
-  setInterval(() => {
-    time.value = Math.floor(Date.now() / 1000 + 1);
-    messages.value.map((item: ToastMessage, index) => {
-      if (time.value < item.timer) {
-        messages.value = messages.value.splice(index, 1);
-      }
-    });
-  }, 1000);
+    setInterval(() => {
+        time.value = Math.floor(Date.now() / 1000 + 1);
+        messages.value.map((item: ToastMessage, index) => {
+            if (time.value < item.timer) {
+                messages.value = messages.value.splice(index, 1);
+            }
+        });
+    }, 1000);
 });
 </script>

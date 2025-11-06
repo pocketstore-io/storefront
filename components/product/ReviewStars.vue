@@ -30,9 +30,9 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Fa } from "@fortawesome/vue-fontawesome";
 
 const props = defineProps({
-  item: {
-    required: true,
-    type: Object,
-  },
+    item: {
+        required: true,
+        type: Object,
+    },
 });
 </script>
