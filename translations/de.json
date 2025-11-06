@@ -1,4 +1,12 @@
 {
+  "general": {
+    "title": "PocketStore.io",
+    "note": "Dies ist ein Demo Store von PocketStore.io"
+  },
+  "breadcrumb": {
+    "test": "Test Breadcrumb",
+    "home": "Startseite"
+  },
   "footer": {
     "impressum": "Impressum",
     "made-with": "Gemacht mit",
