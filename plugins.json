@@ -13,5 +13,10 @@
     "name": "customer",
     "vendor": "pocketstore-io",
     "version": "latest"
+  },
+  {
+    "name": "cookie-banner",
+    "vendor": "pocketstore-io",
+    "version": "latest"
   }
 ]
