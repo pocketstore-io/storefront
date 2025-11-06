@@ -1,4 +1,7 @@
 {
+    "btn": {
+        "close": "schließen"
+    },
     "footer": {
         "impressum": "Imprint",
         "made-with": "Made with",

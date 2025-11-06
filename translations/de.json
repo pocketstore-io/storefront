@@ -3,6 +3,9 @@
         "title": "PocketStore.io",
         "note": "Dies ist ein Demo Store von PocketStore.io"
     },
+    "btn": {
+        "close": "close"
+    },
     "breadcrumb": {
         "test": "Test Breadcrumb",
         "home": "Startseite"
