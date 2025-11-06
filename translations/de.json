@@ -1,3 +1,13 @@
 {
-  "Storefront übersetzung": "erste"
+  "footer": {
+    "impressum": "Impressum",
+    "made-with": "Gemacht mit",
+    "data-privacy": "Datenschutz"
+  },
+  "cookie": {
+    "accept": "akzeptieren",
+    "headline": "Cookie Banner",
+    "disable": "deaktivieren",
+    "note": "Dies ist ein Cookie Banner, du liest gerade die Notiz für den Cookie Banner."
+  }
 }
