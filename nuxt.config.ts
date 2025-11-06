@@ -14,8 +14,9 @@ export default defineNuxtConfig({
     },
     i18n: {
         strategy: "prefix",
-        locales: config.language.languages,
-        defaultLocale: "de",
+        locales: config.language.locales,
+        defaultLocale: config.language.fallback,
+        langDir: 'locales'
     },
     nitro: {
         routeRules: {
