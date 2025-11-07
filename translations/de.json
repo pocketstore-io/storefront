@@ -4,7 +4,7 @@
         "note": "Dies ist ein Demo Store von PocketStore.io"
     },
     "btn": {
-        "close": "close"
+        "close": "schließen"
     },
     "breadcrumb": {
         "test": "Test Breadcrumb",
