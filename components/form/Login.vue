@@ -34,7 +34,7 @@ const form = ref({
     },
 });
 
-const send = async function () {
+const send = async () => {
     await pb
         .collection("customers")
         .authWithPassword(form.value.login.email, form.value.login.password);

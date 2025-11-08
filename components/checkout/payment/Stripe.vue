@@ -42,7 +42,7 @@ function startCheckout() {
     redirectToCheckout(priceId);
 }
 
-const resetLock = function () {
+const resetLock = () => {
     paymentMethodInfo.value.status = "unlocked";
 };
 </script>

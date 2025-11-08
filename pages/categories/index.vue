@@ -101,7 +101,7 @@ watch(query, () => {
 const load = async () => {
     categories.value = (
         await pb.collection("categories").getList(1, 30)
-    ).items.sort(function (a, b) {
+    ).items.sort((a, b) => {
         if (a.name < b.name) {
             return -1;
         }

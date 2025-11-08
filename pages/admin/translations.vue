@@ -140,7 +140,7 @@ const translationsWords = computed(() => {
         .filter(
             (item) => item.lang == language.value || language.value == "all",
         )
-        .sort(function (a, b) {
+        .sort((a, b) => {
             if (a.translated < b.translated) {
                 return -1;
             }
@@ -166,7 +166,7 @@ const translationsSentence = computed(() => {
         .filter(
             (item) => item.lang == language.value || language.value == "all",
         )
-        .sort(function (a, b) {
+        .sort((a, b) => {
             if (a.translated < b.translated) {
                 return -1;
             }

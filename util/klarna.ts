@@ -1,6 +1,6 @@
 import { useLocalStorage } from "@vueuse/core";
 
-export const cartToKlarnaPayload = function () {
+export const cartToKlarnaPayload = () => {
     const cart = useLocalStorage("cart", [], {});
     const items = [];
 

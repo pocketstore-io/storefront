@@ -32,7 +32,7 @@ function getWeekBounds(date = new Date()) {
 }
 
 const load = async () => {
-    let { weekStart, weekEnd } = getWeekBounds();
+    const { weekStart, weekEnd } = getWeekBounds();
     pb.autoCancellation(false);
     orders.value = (
         await pb.collection("orders").getList(1, 100, {

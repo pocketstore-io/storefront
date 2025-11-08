@@ -44,12 +44,12 @@ useHead({
     ],
 });
 
-const resetLock = function () {
+const resetLock = () => {
     paymentMethodInfo.value.status = "unlocked";
     klarnaAsyncCallback();
 };
 
-const klarnaAsyncCallback = function () {
+const klarnaAsyncCallback = () => {
     window.Klarna.Payments.Buttons.init({
         client_id: findSettingByKey("klarna")["client-id"],
     }).load(

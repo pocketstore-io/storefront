@@ -13,7 +13,7 @@ const props = defineProps({
     item: { type: Object, required: true },
 });
 
-const beep = function () {
+const beep = () => {
     const snd = new Audio("/sounds/bling.mp3");
     snd.play();
 };

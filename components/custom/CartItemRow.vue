@@ -16,7 +16,7 @@ const props = defineProps({
 
 const item = ref({});
 
-const load = async function () {
+const load = async () => {
     item.value = await pb.collection("products").getOne(props.identifier);
 };
 

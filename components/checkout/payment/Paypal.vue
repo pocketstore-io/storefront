@@ -28,7 +28,7 @@ const { locked } = defineProps({
 const paymentMethod = useLocalStorage("paymentMethod", "vorkasse", {});
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 
-const resetLock = function () {};
+const resetLock = () => {};
 
 const initPaypal = () => {
     loadScript({
@@ -38,23 +38,20 @@ const initPaypal = () => {
         .then((paypal) => {
             paypal
                 .Buttons({
-                    createOrder: function (data, actions) {
+                    createOrder: (data, actions) => {
                         // Directly create an order with the amount, no server needed
                         return actions.order.create({
                             purchase_units: cartToPurchaseUnits(),
                         });
                     },
-                    onApprove: function (data, actions) {
-                        return actions.order.capture().then(function (details) {
+                    onApprove: (data, actions) => actions.order.capture().then((details) => {
                             alert(
                                 "Transaction completed by " +
                                     details.payer.name.given_name,
                             );
                             console.log(details); // You can log or handle the transaction details here
-                        });
-                        // TODO store details for order
-                    },
-                    onError: function (err) {
+                        }),
+                    onError: (err) => {
                         console.error(
                             "An error occurred during the transaction",
                             err,

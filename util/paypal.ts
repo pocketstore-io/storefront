@@ -2,7 +2,7 @@ import { useLocalStorage } from "@vueuse/core";
 
 const cart = useLocalStorage("cart", [], {});
 
-export const cartToPurchaseUnits = function () {
+export const cartToPurchaseUnits = () => {
     let total = 0;
     cart.value.map((item) => {
         total += item.qty * item.product.price;

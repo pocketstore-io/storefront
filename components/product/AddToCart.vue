@@ -27,7 +27,7 @@ const qty = ref(1);
 const cart = useLocalStorage("cart", [], {});
 const pb = usePocketBase();
 
-const addToCart = async function (id) {
+const addToCart = async (id) => {
     let found = false;
     if (typeof cart.value == "undefined") {
         cart.value = [];
