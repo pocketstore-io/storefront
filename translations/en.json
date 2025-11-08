@@ -1,4 +1,12 @@
 {
+    "general": {
+        "title": "PocketStore.io",
+        "note": "This is the Demo Store from PocketStore.io"
+    },
+    "breadcrumb": {
+        "test": "Test Breadcrumb",
+        "home": "Homepage"
+    },
     "btn": {
         "close": "close"
     },
