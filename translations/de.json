@@ -6,6 +6,10 @@
     "btn": {
         "close": "schließen"
     },
+    "lang": {
+        "de": "Deutsch",
+        "en": "English"
+    },
     "breadcrumb": {
         "test": "Test Breadcrumb",
         "home": "Startseite"
