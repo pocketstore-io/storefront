@@ -5,6 +5,11 @@
         "version": "latest"
     },
     {
+        "name": "breadcrumb",
+        "vendor": "pocketstore-io",
+        "version": "latest"
+    },
+    {
         "name": "checkout",
         "vendor": "pocketstore-io",
         "version": "latest"
