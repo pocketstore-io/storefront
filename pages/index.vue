@@ -23,7 +23,7 @@ useHead({
 
 onMounted(() => {
     addBreadcrumb({
-        label: "test",
+        code: "test",
         link: "test123",
         icon: "question",
     });
