@@ -166,8 +166,6 @@ import { usePocketBase } from "~/utils/pocketbase";
 const pb = usePocketBase();
 const t = useI18n();
 const currency = ref({});
-const translations = ref([]);
-const products = ref([]);
 const customers = ref([]);
 const languages = ref([]);
 
@@ -175,9 +173,7 @@ const load = async () => {
     currency.value = await pb
         .collection("currencys")
         .getFirstListItem("default=true");
-    translations.value = await pb.collection("translations").getFullList(10);
     customers.value = await pb.collection("customers").getFullList(10);
-    languages.value = [...new Set(translations.value.map((item) => item.lang))];
 };
 
 onMounted(() => {
