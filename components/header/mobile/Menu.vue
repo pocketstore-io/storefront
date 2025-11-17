@@ -39,7 +39,7 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const pb = usePocketBase();
 const lang = useLocalStorage("lang", "de", {});

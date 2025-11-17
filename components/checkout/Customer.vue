@@ -130,7 +130,7 @@
 <script lang="ts" setup>
 import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { useLocalStorage } from "@vueuse/core";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});
 const pb = usePocketBase();

@@ -11,8 +11,8 @@
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useLocalStorage } from "@vueuse/core";
 import { useRouter } from "vue-router";
-import { cartToKlarnaPayload } from "~/util/klarna";
-import findSettingByKey from "~/util/settings";
+import { cartToKlarnaPayload } from "~/utils/klarna";
+import findSettingByKey from "~/utils/settings";
 
 const i18n = useI18n();
 

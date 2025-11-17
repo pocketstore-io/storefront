@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
-import type { ToastMessage } from "~/util/toast";
+import type { ToastMessage } from "~/utils/toast";
 const messages = useLocalStorage("messages", [], {});
 const time = ref(Math.floor(Date.now() / 1000));
 

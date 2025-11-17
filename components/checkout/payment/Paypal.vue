@@ -11,8 +11,8 @@
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
 import { loadScript } from "@paypal/paypal-js";
-import { cartToPurchaseUnits } from "~/util/paypal";
-import findSettingByKey from "~/util/settings";
+import { cartToPurchaseUnits } from "~/utils/paypal";
+import findSettingByKey from "~/utils/settings";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const { locked } = defineProps({

@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 import { faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const pb = usePocketBase();
 const isLoggedIn = computed(() => {

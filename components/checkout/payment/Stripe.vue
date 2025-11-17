@@ -18,7 +18,7 @@
 // TODO get config by option
 import { faStripeS } from "@fortawesome/free-brands-svg-icons";
 import { useLocalStorage } from "@vueuse/core";
-import { useStripe } from "~/util/stripe";
+import { useStripe } from "~/utils/stripe";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const { locked } = defineProps({

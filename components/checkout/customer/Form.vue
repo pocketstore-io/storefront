@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { useLocalStorage } from "@vueuse/core";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const pb = usePocketBase();
 const checkoutStep = useLocalStorage("checkoutStep", "cart", {});

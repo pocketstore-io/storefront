@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { usePocketBase, usePocketBaseUrl } from "~/util/pocketbase";
+import { usePocketBase, usePocketBaseUrl } from "~/utils/pocketbase";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
     faEdit,

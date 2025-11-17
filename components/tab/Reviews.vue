@@ -11,7 +11,7 @@ type="radio" name="my_tabs_1" role="tab" class="tab col-span-8 md:col-span-2" ar
 <script lang="ts" setup>
 import { useRoute } from "vue-router";
 import Review from "../catalog/Review.vue";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const pb = usePocketBase();
 const route = useRoute();

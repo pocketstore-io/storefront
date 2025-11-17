@@ -34,7 +34,7 @@
 
 <script lang="ts" setup>
 import "@/main.css";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const open = ref(true);
 const identity = ref("");

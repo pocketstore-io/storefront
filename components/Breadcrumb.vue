@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { breadcrumbs } from "@/util/breadcrumbs";
+import { breadcrumbs } from "~/utils/breadcrumbs";
 
 const loaded = ref(false);
 

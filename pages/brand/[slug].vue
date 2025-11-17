@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { useRoute } from "vue-router";
-import { usePocketBase, usePocketBaseUrl } from "~/util/pocketbase";
+import { usePocketBase, usePocketBaseUrl } from "~/utils/pocketbase";
 
 const pb = usePocketBase();
 const url = usePocketBaseUrl();

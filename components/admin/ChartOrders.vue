@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { LineChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 Chart.register(...registerables);
 

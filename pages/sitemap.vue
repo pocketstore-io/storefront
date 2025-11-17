@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const pb = usePocketBase();
 const products = ref([]);

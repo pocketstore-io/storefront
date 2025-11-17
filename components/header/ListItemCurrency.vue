@@ -12,6 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import findSettingByKey from "~/util/settings";
+import findSettingByKey from "~/utils/settings";
 const currency = ref(findSettingByKey("currency"));
 </script>

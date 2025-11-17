@@ -55,9 +55,9 @@
 </template>
 
 <script lang="ts" setup>
-import { addToast } from "~/util/toast";
+import { addToast } from "~/utils/toast";
 import { useLocalStorage } from "@vueuse/core";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const modalEdit = useLocalStorage("modal-edit", "", {});
 const open = useLocalStorage("modal-edit-open", false, {});

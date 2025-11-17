@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
 import { select, validation } from "~/usecase/checkout/shipping";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const addressess = ref([]);
 const selectedShippingAddress = useLocalStorage(

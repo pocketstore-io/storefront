@@ -56,7 +56,7 @@
 
 <script lang="ts" setup>
 import { useLocalStorage } from "@vueuse/core";
-import { usePocketBase } from "~/util/pocketbase";
+import { usePocketBase } from "~/utils/pocketbase";
 
 const modalAdd = useLocalStorage("modal-add", false, {});
 const item = ref({
