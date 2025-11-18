@@ -1,5 +1,5 @@
 {
-    "name": "nuxt-app",
+    "name": "pocketstore-storefront",
     "private": true,
     "type": "module",
     "scripts": {
