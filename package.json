@@ -18,10 +18,9 @@
         "@fortawesome/vue-fontawesome": "^3.1.2",
         "@nuxt/test-utils": "^3.20.1",
         "@nuxtjs/i18n": "^10.2.1",
-        "@nuxtjs/plausible": "2.0.1",
         "@paypal/paypal-js": "^9.0.1",
         "@playwright/test": "^1.56.1",
-        "@stripe/stripe-js": "^8.5.0",
+        "@stripe/stripe-js": "^8.5.2",
         "@tailwindcss/typography": "^0.5.19",
         "@tailwindcss/vite": "^4.1.17",
         "@unhead/vue": "^2.0.19",
@@ -34,7 +33,6 @@
         "daisyui": "^5.5.5",
         "happy-dom": "^20.0.10",
         "nuxt": "^4.2.1",
-        "playwright-core": "^1.56.1",
         "pocketbase": "^0.26.3",
         "slugify": "^1.6.6",
         "tailwindcss": "^4.1.17",
@@ -46,12 +44,7 @@
         "vue-chart-3": "^3.1.8",
         "vue-router": "^4.6.3",
         "vue-stripe-js": "^2.0.2",
-        "workbox-cli": "^7.3.0"
-    },
-    "overrides": {
-        "chokidar": "^3.6.0"
-    },
-    "devDependencies": {
+        "workbox-cli": "^7.3.0",
         "@biomejs/biome": "^2.3.6"
     }
 }
