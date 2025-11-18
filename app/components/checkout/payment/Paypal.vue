@@ -44,7 +44,8 @@ const initPaypal = () => {
                             purchase_units: cartToPurchaseUnits(),
                         });
                     },
-                    onApprove: (data, actions) => actions.order.capture().then((details) => {
+                    onApprove: (data, actions) =>
+                        actions.order.capture().then((details) => {
                             alert(
                                 "Transaction completed by " +
                                     details.payer.name.given_name,

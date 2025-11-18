@@ -3,9 +3,6 @@ import config from "./app/pocketstore.json";
 import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
     devtools: { enabled: true },
-    dirs: {
-        app: 'app'
-    },
     css: ["@fortawesome/fontawesome-svg-core/styles.css"],
     modules: ["@nuxtjs/i18n"],
     plausible: {
