@@ -5,13 +5,6 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     css: ["@fortawesome/fontawesome-svg-core/styles.css"],
     modules: ["@nuxtjs/i18n"],
-    plausible: {
-        // Prevent tracking on localhost
-        ignoredHostnames: [
-            // 'localhost'
-        ],
-        apiHost: "https://tracking.jmse.cloud",
-    },
     i18n: {
         strategy: "prefix",
         locales: config.language.locales,
