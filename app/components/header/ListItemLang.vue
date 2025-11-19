@@ -12,10 +12,9 @@
 </template>
 
 <script lang="ts" setup>
-import findSettingByKey from "~/utils/settings";
-
+import config from '~/pocketstore.json'
 const { setLocale } = useI18n();
-const lang = ref(findSettingByKey("language"));
+const lang = ref(config.language.fallback);
 
 watch(lang, (value) => {
     setLocale(value);

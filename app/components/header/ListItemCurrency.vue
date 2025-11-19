@@ -12,6 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import findSettingByKey from "~/utils/settings";
-const currency = ref(findSettingByKey("currency"));
+import config from '~/pocketstore.json'
+const currency = ref(config.payment.paypal.currency);
 </script>
