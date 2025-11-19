@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { addBreadcrumb } from "~/utils/breadcrumbs";
+import { addBreadcrumb } from "~/utils/breadcrumb";
 const { t } = useI18n();
 useHead({
     title: t("general.title"),
