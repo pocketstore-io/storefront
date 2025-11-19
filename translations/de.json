@@ -6,6 +6,10 @@
     "btn": {
         "close": "schließen"
     },
+    "country": {
+        "de": "Deutschland",
+        "en": "England"
+    },
     "lang": {
         "de": "Deutsch",
         "en": "English"
