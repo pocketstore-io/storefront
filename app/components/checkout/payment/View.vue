@@ -13,10 +13,6 @@
       <div v-if="option.options && option.code == paymentMethod">
         <CheckoutPaymentPaypal v-if="option.code == 'paypal' && paymentMethod == 'paypal'"
           :locked="paymentMethodInfo.status == 'locked'" />
-        <CheckoutPaymentStripe v-if="option.code == 'stripe' && paymentMethod == 'stripe'"
-          :locked="paymentMethodInfo.status == 'locked'" class="mt-3" />
-        <CheckoutPaymentKlarna v-if="option.code == 'klarna' && paymentMethod == 'klarna'"
-          :locked="paymentMethodInfo.status == 'locked'" />
         <div v-for="(field, key) in option.options.fields">
           <label for="" class="label text-sm font-bold">{{ $t('payment.label.' + key) }}</label>
           <input v-model="paymentMethodInfo[field.name]" :type="field.type"
