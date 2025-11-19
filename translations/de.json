@@ -1,5 +1,6 @@
 {
     "general": {
+        "select": "auswählen",
         "title": "PocketStore.io",
         "note": "Dies ist ein Demo Store von PocketStore.io"
     },
