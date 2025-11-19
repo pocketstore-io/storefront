@@ -9,7 +9,7 @@
               <div>
                 <img
                   class="size-10 rounded-box"
-                  src="/public/pocketstore-favicon.svg"
+                  src="/pocketstore-favicon.svg"
                 />
               </div>
               <div>
