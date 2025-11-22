@@ -5,6 +5,8 @@
 </template>
 
 <script setup lang="ts">
+import config from './pocketstore.json'
+
 onMounted(() => {
   if (navigator && "serviceWorker" in navigator) {
     window.addEventListener("load", () => {
