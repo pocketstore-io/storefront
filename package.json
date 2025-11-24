@@ -43,6 +43,6 @@
         "vue-router": "^4.6.3",
         "vue-stripe-js": "^2.0.2",
         "workbox-cli": "^7.4.0",
-        "@biomejs/biome": "^2.3.6"
+        "@biomejs/biome": "^2.3.7"
     }
 }
