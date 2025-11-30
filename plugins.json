@@ -63,5 +63,15 @@
         "name": "cookie-banner",
         "vendor": "pocketstore-io",
         "version": "latest"
+    },
+    {
+        "name": "product-tabs",
+        "vendor": "pocketstore-io",
+        "version": "latest"
+    },
+    {
+        "name": "product-details",
+        "vendor": "pocketstore-io",
+        "version": "latest"
     }
 ]
