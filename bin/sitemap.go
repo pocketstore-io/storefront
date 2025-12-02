@@ -98,7 +98,7 @@ func loadConfig(path string) (Config, error) {
 // Main logic
 func main() {
 	// Load config
-	config, err := loadConfig("pocketstore.json")
+	config, err := loadConfig("app/pocketstore.json")
 	if err != nil {
 		log.Fatalf("❌ Failed to read config: %v", err)
 	}
