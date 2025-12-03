@@ -31,7 +31,7 @@
         "caniuse-lite": "^1.0.30001757",
         "daisyui": "^5.5.5",
         "nuxt": "^4.2.1",
-        "pocketbase": "^0.26.3",
+        "pocketbase": "^0.26.4",
         "slugify": "^1.6.6",
         "tailwindcss": "^4.1.17",
         "uuid": "^13.0.0",
