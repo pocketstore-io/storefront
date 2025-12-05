@@ -1,5 +1,10 @@
 [
     {
+        "name": "reviews",
+        "vendor": "pocketstore-io",
+        "version": "latest"
+    },
+    {
         "name": "admin-dashboard",
         "vendor": "pocketstore-io",
         "version": "latest"
