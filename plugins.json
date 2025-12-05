@@ -1,5 +1,10 @@
 [
     {
+        "name": "bug-reporting",
+        "vendor": "pocketstore-io",
+        "version": "latest"
+    },
+    {
         "name": "reviews",
         "vendor": "pocketstore-io",
         "version": "latest"
