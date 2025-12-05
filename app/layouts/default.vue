@@ -8,6 +8,8 @@
       <Breadcrumb/>
       <CookieBanner/>
       <BackToTop/>
+      <BugReporting />
+      <IssueReporting />
       <slot/>
     </main>
     <footer>
@@ -44,6 +46,8 @@ import "../main.css";
 import config from "~/pocketstore.json";
 import Footer from "~/components/Footer.vue";
 import Header from "~/components/Header.vue";
+import BugReporting from "~/components/BugReporting.vue";
+import IssueReporting from "~/components/IssueReporting.vue";
 </script>
 
 <style scoped>
