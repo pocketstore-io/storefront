@@ -1,92 +1,97 @@
 [
-    {
-        "name": "bug-reporting",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "reviews",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "admin-dashboard",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "disclaimer-demo",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "homepage-demo",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "live-chat",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "backtotop",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "toasts",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "impressum-demo",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "hello-world",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "breadcrumb",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "checkout",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "customer",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "catalog-product",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "cookie-banner",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "product-tabs",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "image-slider",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    },
-    {
-        "name": "product-details",
-        "vendor": "pocketstore-io",
-        "version": "latest"
-    }
+  {
+    "name": "issue-reporting",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "bug-reporting",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "reviews",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "admin-dashboard",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "disclaimer-demo",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "homepage-demo",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "live-chat",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "backtotop",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "toasts",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "impressum-demo",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "hello-world",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "breadcrumb",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "checkout",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "customer",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "catalog-product",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "cookie-banner",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "product-tabs",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "image-slider",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  },
+  {
+    "name": "product-details",
+    "vendor": "pocketstore-io",
+    "version": "latest"
+  }
 ]
