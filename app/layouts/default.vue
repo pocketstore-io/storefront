@@ -9,7 +9,7 @@
       <CookieBanner/>
       <BackToTop/>
       <BugReporting />
-      <IssueReporting />
+      <IssueReporting vendor="pocketstore-io" host="github.com" name="demo" />
       <slot/>
     </main>
     <footer>
