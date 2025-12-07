@@ -53,5 +53,10 @@
     "name": "product-details",
     "vendor": "pocketstore-io",
     "version": "latest"
+  },
+  {
+    "name": "i18n",
+    "vendor": "pocketstore-io",
+    "version": "latest"
   }
 ]
