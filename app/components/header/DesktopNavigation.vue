@@ -35,7 +35,7 @@
         </a>
       </li>
       <li>
-        <LanguageSwitcher />
+        <LangSwitcher />
       </li>
       <li>
         <a href="/de/wishlist" class="flex justify-center items-center btn btn-neutral">
@@ -52,7 +52,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useLocalStorage } from "@vueuse/core";
-import LanguageSwitcher from "~/components/LanguageSwitcher.vue";
+import LangSwitcher from "~/components/LangSwitcher.vue";
 
 const cart = useLocalStorage("cart", [], {});
 </script>
