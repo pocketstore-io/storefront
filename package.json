@@ -29,7 +29,7 @@
         "@vue/test-utils": "^2.4.6",
         "@vueuse/core": "^14.1.0",
         "@vueuse/head": "^2.0.0",
-        "caniuse-lite": "^1.0.30001761",
+        "caniuse-lite": "^1.0.30001762",
         "daisyui": "^5.5.14",
         "nuxt": "^4.2.2",
         "pocketbase": "^0.26.5",
