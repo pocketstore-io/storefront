@@ -1,10 +1,5 @@
 [
   {
-    "name": "admin-dashboard",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
     "name": "live-chat",
     "vendor": "pocketstore-io",
     "version": "latest"
@@ -25,32 +20,7 @@
     "version": "latest"
   },
   {
-    "name": "checkout",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "customer",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "catalog-product",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
     "name": "cookie-banner",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "product-tabs",
-    "vendor": "pocketstore-io",
-    "version": "latest"
-  },
-  {
-    "name": "product-details",
     "vendor": "pocketstore-io",
     "version": "latest"
   },
