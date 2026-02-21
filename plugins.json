@@ -18,6 +18,10 @@
     "name": "breadcrumb",
     "vendor": "pocketstore-io",
     "version": "latest"
+  },{
+    "name": "bug-reporting",
+    "vendor": "pocketstore-io",
+    "version": "latest"
   },
   {
     "name": "cookie-banner",
