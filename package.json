@@ -5,7 +5,6 @@
     "scripts": {
         "build": "nuxt build",
         "dev": "nuxt dev",
-        "vitest": "vitest --dir unittests",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
