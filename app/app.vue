@@ -5,34 +5,34 @@
 </template>
 
 <script setup lang="ts">
-import config from './pocketstore.json'
+import config from "./pocketstore.json";
 
 onMounted(() => {
-  if (navigator && "serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-          .register("/service-worker.js")
-          .then((registration) => {
-            console.log(
-                "Service Worker registered with scope:",
-                registration.scope,
-            );
-          })
-          .catch((error) => {
-            console.error("Service Worker registration failed:", error);
-          });
-    });
-  }
+    if (navigator && "serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker
+                .register("/service-worker.js")
+                .then((registration) => {
+                    console.log(
+                        "Service Worker registered with scope:",
+                        registration.scope,
+                    );
+                })
+                .catch((error) => {
+                    console.error("Service Worker registration failed:", error);
+                });
+        });
+    }
 });
 
 useHead({
-  script: [
-    {
-      defer: true,
-      "id": "pianjs",
-      "src": "https://api.pirsch.io/pa.js",
-      "data-code": config.integrations.pirsch.id
-    }
-  ]
+    script: [
+        {
+            defer: true,
+            id: "pianjs",
+            src: "https://api.pirsch.io/pa.js",
+            "data-code": config.integrations.pirsch.id,
+        },
+    ],
 });
 </script>
